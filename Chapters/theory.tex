@@ -6,8 +6,7 @@
 %- sensorbærende plattform
 %- PCA og singular value Decomp
 
-%(alt dette kan evt komme kort i motivasjon) 
-
+The lecture notes from TTK20 [kilde] has been used in large part throughout this chapter. The following sections have this reference as their main reference: 3.1 Light, 3.2 Interference, 3.3 Diffraction, 3.4 The GRISM, 3.7 Properties of Photons and 3.9  System Optics. 
 
 \section{Light} \label{sec:light}
 %Color Registration of Underwater Images for Underwater Sensing with Consideration of Light Attenuation
@@ -146,9 +145,7 @@ Angular dispersion is a measure of how the diffracting waves are spread, per uni
     \label{eq:angdisp}
 \end{equation}
 \\\\
-\vspace{1.3cm}
-
-\section{The GRISM}
+\section{The GRISM} \label{sec:grism}
 A GRISM is a combination of a grating and a prism - hence the name. The GRISM is a prism stacked in series with a transmission grating, as can be seen from Figure \ref{fig:grism} below.
 \begin{figure}[H]
     \centering
@@ -157,6 +154,7 @@ A GRISM is a combination of a grating and a prism - hence the name. The GRISM is
     \label{fig:grism}
 \end{figure}
 \\\\
+\noindent
 For a grating, the intensity maximum for each spectral order, n, increases with increasing wavelength. A prism however, have no spectral orders and refracts blue light more than red. The net effect is a compact spectrum able to obtain a straight through center wavelength, parallel to the optical axis of the system. This on-axis effect, makes it easy to stack additional optics in both ends - the front and the back side of the GRISM. Due to absence of off-axis effects, image quality is preserved.
 \\\\
 When calculating the angular dispersion of a GRISM, the result is equal to the angular dispersion of a grating (equation \ref{eq:angdisp}), except for one additional term. This turns out to be a non-negative term, implying that the GRISM has an increased angular dispersion compared to a grating alone.
@@ -176,6 +174,7 @@ In equation \ref{eq:int}, $I_{\lambda}$ represents the light intensity at a give
   \label{fig:reflectance}
 \end{figure}
 \\\\
+\noindent
 However, it is different if we do the same underwater. In water, light attenuation will be present and affect how the light is reflected. This will be elaborated in the following section.
 
 \vspace{1.3cm}
@@ -193,6 +192,7 @@ From figure \ref{fig:lightinwater}, it can be observed that the intensity of the
   \label{fig:lightinwater}
 \end{figure}
 \\\\
+\noindent
 As shown in the figure \ref{fig:lightinwater}, the light intensity decreases exponentially. The figure, is based on the following equation for the light source, S. 
 
 \begin{equation} \label{eq:source}
@@ -222,6 +222,7 @@ When interpreting eq \ref{eq:intw}, one can see that the intensity of light decr
 
 %Stereo Measurement of Objects in Liquid and Estimation of Refractive Index of Liquid by Using Images of Water Surface
 %http://www.robot.t.u-tokyo.ac.jp/~yamashita/paper/B/B047Final.pdf
+\noindent
 Note: If cameras and objects are in the different condition where the refraction index differs from each other, several problems occur and a precise measurement cannot be achieved.
 
 \subsection{Near Infrared Light Transmission in Water}
@@ -318,7 +319,7 @@ Note: For eq \ref{eq:specref} to hold true, all surfaces are assumed to behave l
 %The use of underwater hyperspectral imaging deployed on remotely operated vehicles – methods and applications - geir og asgeir
 
 \vspace{1.3cm}
-\section{System Optics}
+\section{System Optics} \label{sec:sysopt}
 Rays travelling through a spectrometer can be described by an optical diagram like the one presented below in Figure \ref{fig:sysopt}.
 \begin{figure}[H]
     \centering
@@ -332,14 +333,16 @@ From the figure, one can see S as the source of light. S illuminates the front l
 f2 and f3 are the corresponding focal lengths of L2 and L3. Note that as long as L1, L2 and L3 are able to focus or collimate the beam of light, they can be mirrors instead of lenses. 
 
 %\subsection{Bandpass and Resolution}
-
 \subsection{The GRISM Spectrograph}
+In section \ref{sec:grism}, the GRISM, and how it could obtain a straight through center wavelength parallel to the optical axis, was elaborated. Therefore, using a GRISM as the dispersive element is popular when designing a spectrometer. Figure \ref{fig:grismspec} shows a typical 3D configuration of a GRISM spectrograph in hyperspectral image mode, illustrating the basic elements of hyperspectral imaging. Of the illustration, one can see how the elements are stacked at the right next to each other (on axis), supporting the previous stated properties of the GRISM. This on-axis design reduces geometrical aberrations and thereby improves the resolution. 
+\\\\
+Similar to the spectrometer already discussed above (section \ref{sec:sysopt}), the front lens focuses light onto the entrance slit S1, while L2 collimates the GRISM. The diffracted light is then focused into the image detector (CCD), by L3. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 12cm]{Images/theory/grismspec.png}
     \caption{The GRISM spectrograph}
-    \label{fig:sysopt}
+    \label{fig:grismspec}
 \end{figure}
 
 \vspace{1.3cm}
@@ -352,7 +355,7 @@ f2 and f3 are the corresponding focal lengths of L2 and L3. Note that as long as
 \section{The Digital Image}
 %evt Fysikken bak bildet 
 %Info hentet fra bok: techniques and applications of hyperspectral image analysis
-From the mid-20th century, images have been stored in digital format (Geladi and Grahn, 2000). A digital image is an array of rows (i) and columns (j) consistent of i x j gray-values. A gray-value, better known as an intensity or a pixel, is simply one of many small squares in an image. If the image is to consist of colors however, a third dimension is needed. This dimension is characterized as the depth, and can be found as the height in Figure \ref{fig:pogv}b) \todo[inline]{LEGG INN EN BOKS TIL SOM ER VOXEL!}. The depth is three layers deep, consisting of red, green and blue. What was previously a gray pixel is now a voxel illustrated in \ref{fig:pogv}b), with triplet of red, green and blue - each of which contains different information. Note that the height of the voxel is almost undetectable, as the voxel only consists of the tiniest distinguishable element of a 3D object.
+From the mid-20th century, images have been stored in digital format (Geladi and Grahn, 2000). A digital image is an array of rows (i) and columns (j) consistent of i x j gray-values. A gray-value, better known as an intensity or a pixel, is simply one of many small squares in an image. If the image is to consist of colors however, a third dimension is needed. This dimension is characterized as the depth, and can be found as the height in Figure \ref{fig:pogv}b). \todo[inline]{LEGG INN EN BOKS TIL SOM ER VOXEL!} The depth is three layers deep, consisting of red, green and blue. What was previously a gray pixel is now a voxel illustrated in \ref{fig:pogv}b), with triplet of red, green and blue - each of which contains different information. Note that the height of the voxel is almost undetectable, as the voxel only consists of the tiniest distinguishable element of a 3D object.
 \\\\
 However, if the interval separating the layers is chosen to be a shorter wavelength, the number of layers will increase. The resulting image is then called a multivariate image, illustrated in Figure \ref{fig:pogv}c). If k denote the depth dimension and thus determine the number of wavelengths which in turn will constitute the number of layers, the resulting array will be of the size i x j x k.
 \\\\
@@ -382,6 +385,46 @@ For the human eye to be able to perceive a color image, only three wavelengths/l
 
 \vspace{1.3cm}
 \section{Hyperspectral Imaging}
+
+First, the main purpose of a spectrograph is that it generates images of the entrance slit as a function of color. The number of colored slit images on the CCD depends on the width of the entrance slit and the dispersive element’s ability to spread – diffract the colors, and is directly connected to the spectral resolution of the instrument. 
+
+Secondly, focusing light from a target by a front lens (L1) onto the slit - plane, forces the instrument to accept structure of the target along the slit. The resulting image (spectrogram) recorded by the CCD is the intensity distribution as a function of wavelength (color) and position along the slit. The spectrogram contains both spectral and spatial information along a thin track of the target object. In our case the target is snow cover land surface and ocean ice flakes.
+
+Finally, in order to obtain the object's full spatial extent, it is necessary to sample the whole object. This requires that the instrument must be moved relative to the target. The whole idea is to record spectrograms for each track of the object as the image at the entrance plane is moved across the slit. Our movement can be created by the airplane itself, so we are in another word pushing/ recording spectrograms as we fly over the ground target. 
+
+An alternative way is to move the image while holding the camera still. So depending on the application, the relative movement between sensor and target may be obtained by rotating the whole instrument, use of scanning mirrors as front optics, or moving the target itself. The target may, for example, be located on a conveyor belt or on a sliding table. 
+
+--------------------------
+
+The maximum number of color planes or spectral channels that a hyperspectral imager
+can produce depends on the bandpass and the spectral range of the instrument, not the number of pixels along the wavelength axis of the detector. In addition, the bandpass also
+affects the spatial resolution through the field of view along the x-direction of the flight.
+
+The field of view of the slit as seen through the front lens along the direction of flight, defines the spatial resolution. The distance dx defines the ground segment seen by the instrument at time t = t0.
+
+SIDE 30
+
+dx =...
+
+The spatial resolution then becomes equal to the distance from point A to B...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 %Use of Underwater Hyperspectral Imager (UHI) in Marine Archaeology 2014, Øyvind Ødegård1,3, Geir Johnsen2 and Asgeir J. Sørensen1
 Hyperspectral imagery is defined as images that contain a spectrum of reflected light with a spectral resolution of 1-5 nm per image pixel (4). Materials or compositions of materials (object of interest, OOI) will absorb, scatter and reflect light of different portions of the visible spectrum, giving them their own optical fingerprints that are unique, and can be used for classification with high degree of confidence (4). 
 \\\\
