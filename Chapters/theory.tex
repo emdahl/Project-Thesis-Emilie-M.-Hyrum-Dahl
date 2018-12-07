@@ -9,41 +9,175 @@
 %(alt dette kan evt komme kort i motivasjon) 
 
 
-\section{Light}
+\section{Light} \label{sec:light}
 %Color Registration of Underwater Images for Underwater Sensing with Consideration of Light Attenuation
 %https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4209801
 Light is electromagnetic radiation. The human eye can detect electromagnetic radiation within wavelengths of 400 and 750 nm, approximately. This electromagnetic spectrum is called visible light. Radiation with shorter wavelength than 400 nm is called ultraviolet, whereas infrared radiation has longer wavelength than visible light.
 \\\\
 When light from a light source hits an object surface, the light is reflected before eventually reaching the eye. In this task, the endpoint will not only be the human eye, but other viewpoints, for instance a camera lens. The observation of the reflected colors in the viewpoint, is affected by properties of object surfaces, the light intensity of light source and traveling distance of the light.
 \\\\
-Light in air behaves differently than in water. In air, the light will not be attenuated, which means that the reflection can be expressed by the light intensity, $I_ {\lambda}$ (eq \ref{eq:int}), describing the colors observed on the object.
+%PDF FRA TTK20
+Breaking down the definition of light, light can be defined as tiny packets called photons. The properties addressed to the photons are wave like. Because of this, the wave of light can be represented as a sine wave. The wave amplitude in 2D can be expressed as follows: 
 
+\begin{equation}
+    E(x,t) = E_0 sin(kx+\omega t)
+    \label{eq:aml2d}
+\end{equation}
+$E_0$ represents the maximum amplitude of the wave. The wave repeats itself periodically with the period T. k is the wave number defined by $k= \frac{2 \pi}{\lambda}$, while $\omega$ is the angular velocity expressed as $k= \frac{2 \pi}{T}$.
+\\\\
+The wave can also be expressed as the real part of a complex number, $z = E_0(cos(\phi) + i sin(\phi))$, when $\phi$ is the phase shift represented by $\phi = kx + \omega t$. Using Euler's formula: $e^{i \phi} = cos(\phi) + i sin(\phi)$, a 3D wave can be expressed by: 
+
+\begin{equation}
+    \textbf{E}(\textbf{r},t) = \textbf{E}_0 e^{i \phi},
+    \label{eq:aml3d}
+\end{equation}
+
+where $\textbf{r}$ is the position of the phase now defined as 
+
+\begin{equation}
+    \phi = \textbf{k}\cdot \textbf{r} - \omega t + \xi,
+    \label{eq:phase}
+\end{equation}
+
+where $\xi$ is the initial phase of the wave. 
+\\\\
+However, this equations above is representing no more than one wave. Two waves not interacting with each other will propagate like represented above, but what happens when two or more waves meets and in fact do interact with each other? 
+
+\vspace{1.3cm}
+\section{Interference}
+Interference consider the case when two or more waves act together. Starting with two waves, respectively S1 and S2, interacting with each other at P as illustrated in Figure \ref{fig:interference}. Of equation \ref{eq:aml3d}, the S1 and S2 are represented by
+
+\begin{equation}
+    \begin{split}
+    \textbf{E}_1 = \textbf{E}_{01} e^{i \phi_1}\\ %\text{\hspace{0.6cm}and\hspace{0.6cm}}
+    \textbf{E}_2 = \textbf{E}_{02} e^{i \phi_2}
+    \end{split}
+    \label{eq:2int}
+\end{equation}
+\\\\
+with their associated phase shift expressed as presented in equation \ref{eq:phase}:
+\begin{equation}
+    \begin{split}
+    \phi_1 = \textbf{k}_1\cdot \textbf{r}_1 - \omega t + \xi_1\\
+    \phi_2 = \textbf{k}_2\cdot \textbf{r}_2 - \omega t + \xi_2
+    \end{split}
+    \label{eq:2intphase}
+\end{equation}
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=0.3\textwidth]{Images/theory/interference.png}
+    \caption{Two waves, S1 and S2, interfering}
+    \label{fig:interference}
+\end{figure}
+Of Figure \ref{fig:interference}, one can see that the resulting wave, $\textbf{E}$ must be the sum of the two vectors interacting, $\textbf{E} = \textbf{E}_1 + \textbf{E}_2$. This applies to the resulting phase difference too, which thereby can be retrieved from equation \ref{eq:2intphase}: $\sigma = \textbf{k}_1\cdot \textbf{r}_1 - \textbf{k}_2\cdot \textbf{r}_2 + (\xi_1 - \xi_2)$. Now, the intensity of the final wave can be found by multiplying this resulting wave-vector, $\textbf{E}$, with its conjugate, $\textbf{E}^*$: 
+
+\begin{equation}
+    I = \textbf{E} \cdot \textbf{E}^* = \textbf{E}_{01}^2 + \textbf{E}_{02}^2 + 2\textbf{E}_{01}\cdot \textbf{E}_{02} cos(\sigma)
+    \label{eq:two-wave-intensity}
+\end{equation}
+\\\\
+The intensity in the equation above, eq \ref{eq:two-wave-intensity}, represents constructive interference at its maximum, whenever $cos(\sigma)$ is equal to 1, and expresses destructive interference at its minimum, when $cos(\sigma)$ equals -1. Constructive interference is hence present when the phase shift, $\sigma$ is expressed as:
+
+\begin{equation}
+    \sigma = 2 n \pi,
+    \label{eq:maks}
+\end{equation}
+
+where n is the spectral order, a positive or negative integer. 
+\\\\
+Now, let us apply this to N number of waves, with several wave sources, up to $S_N$, as displayed in the figure below, Figure \ref{fig:Ninterference}.
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=0.3\textwidth]{Images/theory/Ninterference.png}
+    \caption{N number waves propagating with a constant distance a}
+    \label{fig:Ninterference}
+\end{figure}
+\\\\
+The N waves are emitted by $S_N$ coherent and monochromatic sources separated by a distance, $a$. As the waves are coherent, the phase difference between the waves are constant. This means that the second term in equation \ref{eq:2intphase} can be ignored because $\xi_1$ = $\xi_2$ = ... = $\xi_N$. The phase difference is thus only due to the path difference between the waves, $\sigma = \textbf{k} \cdot \textbf{r}$. Of Figure \ref{fig:Ninterference}
+$\textbf{r}$ can be retrieved as $a sin (\beta)$, while $k= \frac{2 \pi}{\lambda}$. Combining this with equation \ref{eq:maks}, $\textit{the grating equation}$ is found: 
+\begin{equation}
+    n \lambda = a sin(\beta)
+    \label{eq:transgrating}
+\end{equation}
+
+\vspace{1.3cm}
+\section{Diffraction}
+While interference is a result of individual sources
+interacting with each other, diffraction is present when a wave is distorted by an external object, with a comparable dimension to the wavelength of the wave. The figure below, Figure \ref{fig:diffraction} exemplifies diffraction with a port entrance wall as the external object. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{Images/theory/diffraction.png}
+    \caption{Diffraction as a result of waves hitting an entrance port}
+    \label{fig:diffraction}
+\end{figure}
+\\\\
+When the waves hit the external object in the figure above, a number of new waves originated from only one propagating wave, will be born. These children waves will, in turn, hit each other. This way, diffraction on the finite wave can be calculated as interference of the wave itself.
+
+%TIL GRISM: 
+%that the location of the intensity maxima for each order increases for increasing wavelength. This effect is the opposite of what happens with a prism, where there are no spectral orders and blue light is more refracted than red.
+
+\subsection{Reflective Gratings}
+The grating equation in \ref{eq:transgrating} assumes a grating transmitting light. The reflective grating, however, reflects the light. This grating can be thought of as a polished surface with parallel grooves - as shown in Figure \ref{fig:refgrating}. Between the grooves, parallel mirrors constitutes the grating, each mirror acting as a source of interference. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Images/theory/refgrating.png}
+    \caption{(1) Reflective
+grating. (2) Resulting rays, where the red lines describe the associated phase difference}
+    \label{fig:refgrating}
+\end{figure}
+\\\\
+As explained in Section \ref{sec:light}, the phase difference of waves propagating from coherent sources is $\sigma = \frac{2 \pi}{\lambda} \cdot \textbf{r}$. Of the figure above, Figure \ref{fig:refgrating}, $\textbf{r}$ can be calculated as $(BC - (-AD))$. Based on this, the phase difference as a function of reflective grating can be presented as:
+\begin{equation}
+    \sigma = \frac{2 \pi}{\lambda}(BC + AD) = \frac{2 \pi}{\lambda} (a sin(\alpha) + a sin(\beta))
+\end{equation}
+\\\\
+At maximum intensity (equation \ref{eq:maks}), the reflecting grating equation is found:
+\begin{equation}
+    n \lambda = a (sin(\beta) + cos(\alpha))
+    \label{eq:refgrating}
+\end{equation}
+\\\\
+Once again, n is the spectral order. $\alpha$ is the incident angle, and $\beta$ represents the diffracted angle of the grating.
+\\\\
+\subsection{Angular Dispersion}
+Angular dispersion is a measure of how the diffracting waves are spread, per unit wavelength. The angular dispersion of a grating is defined as $d\beta/d\lambda$. This can be derived by differentiating the grating equation, equation \ref{eq:refgrating}. 
+\begin{equation}
+    \frac{d\beta}{d\lambda} = \frac{n}{a cos(\beta)}
+    \label{eq:angdisp}
+\end{equation}
+\\\\
+\vspace{1.3cm}
+
+\section{The GRISM}
+A GRISM is a combination of a grating and a prism - hence the name. The GRISM is a prism stacked in series with a transmission grating, as can be seen from Figure \ref{fig:grism} below.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/theory/GRISM.png}
+    \caption{Light passing through a prism, P, dispersing blue light more than red, and a grating, G, diffracting red light more than blue}
+    \label{fig:grism}
+\end{figure}
+\\\\
+For a grating, the intensity maximum for each spectral order, n, increases with increasing wavelength. A prism however, have no spectral orders and refracts blue light more than red. The net effect is a compact spectrum centered
+straight through the wavelength of the GRISM, parallel to the x-axis. This on-axis effect, makes it easy to stack additional optics in both ends - the front and the back side of the GRISM. Due to absence of off-axis effects, image quality is preserved.
+\\\\
+When calculating the angular dispersion of a GRISM, the result is equal to the angular dispersion of a grating (equation \ref{eq:angdisp}), except for one additional term. This turns out to be a non-negative term, implying that the GRISM has an increased angular dispersion compared to a grating alone.
+
+\vspace{1.3cm}
+\section{The Behavior of Light in Air}
+Light in air behaves differently than in water. In air, the light will not be attenuated, which means that the reflection can be expressed by the light intensity, $I_ {\lambda}$ (eq \ref{eq:int}), describing the colors observed on the object.
 \begin{equation} \label{eq:int}
     I_ {\lambda} (L, z) = \frac{S \cdot \kappa_{\lambda}\cdot cos^{3}\cdot (\alpha)}{z^2}
 \end{equation}
 \\\\
 In equation \ref{eq:int}, $I_{\lambda}$ represents the light intensity at a given wavelength, lambda, while S is the light source. L is the distance between the object and the viewpoint, while z describes the distance from the object to the light source. Furthermore, $\kappa_{\lambda}$ describes the reflectance ratio of the object's surface at a given wavelength, $\lambda$. $\alpha$ is the angle between the ray vector from the light source and the normal vector of the object surface.
-
-
 \begin{figure}[H]
 \centering
-  \includegraphics[width=12cm]{Images/theory/reflectance.png}
+  \includegraphics[width=8cm]{Images/theory/reflectance.png}
   \caption{Light refraction in liquid}
   \label{fig:reflectance}
 \end{figure}
 \\\\
-However, it is different if we do the same underwater. In water, light attenuation will be present and affect how the light is reflected.
-\vspace{1.3cm}
-\section{Properties of Photons}
-\subsection{Flux}
-\subsection{Intensity}
-\subsection{Throughput}
-\subsection{Etendue}
-
-\vspace{1.3cm}
-\section{Interference}
-\vspace{1.3cm}
-\section{Diffraction}
+However, it is different if we do the same underwater. In water, light attenuation will be present and affect how the light is reflected. This will be elaborated in the following section.
 
 \vspace{1.3cm}
 \section{The Behavior of Light in Water}
@@ -53,7 +187,6 @@ The reason why the color of objects is different under water and in air, is that
 From figure \ref{fig:lightinwater}, it can be observed that the intensity of the different colors decreases differently, even at the same distance, r. If the light source is 2 m away, red light will shine at half intensity, while blue light remains close to unchanged. At a distance of 20 meters, blue light will brighten at half-intensity. In this case, red and orange color will disappear.
 %Color Registration of Underwater Images for Underwater Sensing with Consideration of Light Attenuation
 %https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4209801
-
 \begin{figure}[H]
 \centering
   \includegraphics[width=9.5cm]{Images/theory/intensity.png}
@@ -93,13 +226,25 @@ When interpreting eq \ref{eq:intw}, one can see that the intensity of light decr
 Note: If cameras and objects are in the different condition where the refraction index differs from each other, several problems occur and a precise measurement cannot be achieved.
 
 \subsection{Near Infrared Light Transmission in Water}
+%http://www1.lsbu.ac.uk/water/water_vibrational_spectrum.html
+Water absorbs wavelengths covering a wide range of electromagnetic radiation. For light with wavelengths larger than 200 nm, this absorption is due to rotational transitions and intermolecular vibrations. As the H2O-molecule has a particularly small moment of inertia on rotation, a rich vibrational-rotational spectrum appears, sometimes containing millions of absorption lines. 
+\\\\
+The water absorption spectrum is therefore very complex. The water molecule may vibrate in several ways, at several states affected by the environment. For the specific case of H2O, the absorption spectrum is displayed in Figure \ref{fig:absspec} below. The spectrum may vary based on the condition of the water and placement of measurement - for instance whether one looks at the open sea or the coastal areas. However, the trends represented in the figure, should more or less remain. The spectrum clearly shows how the water absorption is at its lowest in visible light, making this range of wavelengths more optimal when detecting objects underwater.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=8cm]{Images/theory/Absorption_spectrum_of_liquid_water.png}
+    \caption{Absorption spectrum of liquid water}
+    \label{fig:absspec}
+\end{figure}
+
+\begin{comment}
 %PAPER: Identification and Classification of Plastic Resins using Near Infrared Reflectance PSpectroscopy: https://www.researchgate.net/publication/285330830_Identification_and_classification_of_plastic_resins_using_near_infrared_reflectance_spectroscopy
 
 %https://oceanoptics.com/plastic-recycling-nir-spectroscopy/ Plastic Recycling with NIR Spectroscopy - denne inneholder signaturene til plast i NIR
 %Another important observation in these experiments, is the condition of the microplastic used. The material is pure and white, making the results independent of color. 
 
-\todo[inline]{Ha med Light Transmission in Water - utover synlig lys (også NIR)}
+
 Water absorption: 
 %https://commons.wikimedia.org/wiki/File:Absorption_spectrum_of_liquid_water.png
 This logarithmic (log-log) graph shows water’s absorption behavior at different colors wavelength. As seen in the graph, water absorption is minimised between 400 -600 nm
@@ -107,9 +252,19 @@ This logarithmic (log-log) graph shows water’s absorption behavior at differen
 
 Light Transmission in the Ocean: http://www.waterencyclopedia.com/La-Mi/Light-Transmission-in-the-Ocean.html
 https://manoa.hawaii.edu/exploringourfluidearth/physical/ocean-depths/light-ocean
+\end{comment}
+
+
+
 \vspace{1.3cm}
-\section{System Optics}
-Alt fra TTK20
+\section{Properties of Photons}
+Photons...
+\subsection{Flux}
+\subsection{Intensity}
+\subsection{Throughput}
+\subsection{Etendue}
+
+
 
 \vspace{1.3cm}
 \section{Inherent Optical Properties}
@@ -117,8 +272,7 @@ Alt fra TTK20
 %noe av dette har blitt sagt i hyp også:
 When retrieving an optical fingerprint it is important to know the optical properties impacting the resulting signature. There are mainly three physical processes reducing the energy of light on its way to reaching the receiver. The object of interest (the materials or the compositions of materials) will absorb, scatter and reflect light of different portions of the visible spectrum. This way, the material of the object of interest and the wavelength will affect the properties of these processes. 
 \\\\
-Scattering, absorption and reflection are both a result of photons interacting with the object of interest. 
-\\\\
+Scattering, absorption and reflection are all results of photons interacting with the object of interest. 
 %http://www.oceanopticsbook.info/view/overview_of_optical_oceanography/inherent_optical_properties
 \subsection{Absorption}
 During the photon-IOO interaction, the energy of the photon can be converted to another form, leaving the photon to disappear and hence the light to be absorbed. 
@@ -128,8 +282,8 @@ Atoms and thereby molecules contain elections. Given the specific atom, these el
 \\\\
 Different atoms will absorb light at different wavelengths, because they hold different sets of natural vibration frequencies. 
 
-\todo[inline]{pluss coeff og internsitets-likn?}
-\todo[inline]{pluss figur?}
+%{pluss coeff og internsitets-likn?}
+%{pluss figur?}
 
 \subsection{Scattering}
 During the photon-IOO interaction, the photon might either change its direction, its energy or both. Either of these processes are called scattering. %http://iopscience.iop.org/article/10.1088/0034-4885/36/12/002/pdf 
@@ -142,12 +296,14 @@ In the ocean, the physical characteristics of the IOO are highly affected by the
 
 
 \subsection{Spectral Reflectance}
-\todo[inline]{skriv om denne}
+Light reflection from an object means that waves of light hitting the surface of the object is sent back from the surface. Reflection happens when the wavelength of the light waves do not match the natural vibration frequencies of the hit object. Whenever such waves of light strike the object, the electrons in the atoms of the object will vibrate. However, this is not the same type of vibration as seen before. Now, the electrons vibrate in small amplitudes for no more than brief periods of time. This causes the energy to re-emit as a wave of light, rather than turn into vibration energy an be absorbed at resonance vibration. 
+\\\\
+\begin{comment}
 %Underwater hyperspectral imaging: a new tool for marine archaeology 2018, ØYVIND ØDEGÅRD,1,2,* AKSEL ALSTAD MOGSTAD,3 GEIR JOHNSEN,3 ASGEIR J. SØRENSEN, AND MARTIN LUDVIGSEN1
 Raw data consists of more than upwelling radiance reflected from the object. Reflections from the water column, ambient light and noise sensors are all parts of the data collected. However, the spectral reflectance reference is independent of the illumination and the water column properties. 
-\\\\
+\end{comment}
 %Underwater hyperspectral imagery to create biogeochemical maps of seafloor properties 2013, G. JOHNSEN, NTNU
-The spectral reflectance or ‘optical fingerprint’ can be described as a percentage of how much light at each wavelength is reflected off an object. Different objects absorb and reflect different wavelengths. In plants, red and blue wavelengths are highly absorbed, leaving the reflected color to be more or less green. Mathematically speaking, the spectral reflectance, $R(\lambda)$ is upwelling irradiance coming off the object, $Lu(\lambda)$, divided by the spectral downwelling irradiance towards the object, $Ed(\lambda)$.
+The spectral reflectance, also called the optical fingerprint can be described as a percentage of the light amount reflected off an object at each wavelength. As mentioned, different objects absorb and reflect different wavelengths. In plants, red and blue wavelengths are highly absorbed, leaving the reflected color to be more or less green. Mathematically speaking, the spectral reflectance, $R(\lambda)$ is upwelling irradiance coming off the object, $Lu(\lambda)$, divided by the spectral downwelling irradiance towards the object, $Ed(\lambda)$.
 \\\\
 %The use of underwater hyperspectral imaging deployed on remotely operated vehicles – methods and applications - geir og asgeir
 \begin{equation} \label{eq:specref}
@@ -156,8 +312,17 @@ The spectral reflectance or ‘optical fingerprint’ can be described as a perc
 \\\\
 Where $Lu(\lambda)$ denotes the raw data of the object, including signature from light source, while $Ed(\lambda)$ is the spectral radiance from measurements of spectrally neutral reflectance standard.
 \\\\
-Note: For eq \ref{eq:specref} to hold true, all surfaces are assumed to behave like Lambertian reflectors. 
+Note: For eq \ref{eq:specref} to hold true, all surfaces are assumed to behave like Lambertian reflectors, meaning that the reference surface has a perfectly diffuse/matte property. This ensures that the radiant intensity, regardless of the reflected direction, is proportional to the cosine of the angle of the surface's normal. This is known as Lamberts Cosine law. 
+%det siste er tatt fra TTK20-heftet
+
+
 %The use of underwater hyperspectral imaging deployed on remotely operated vehicles – methods and applications - geir og asgeir
+
+\vspace{1.3cm}
+\section{System Optics}
+Alt fra TTK20
+\subsection{The GRISM Spectrograph}
+
 
 \vspace{1.3cm}
 \section{The Digital Image}
@@ -202,17 +367,13 @@ Hyperspectral imagery is defined as images that contain a spectrum of reflected 
 \\\\
 %Info hentet fra yt
 In order to study the reflecting light from the target, a spectrometer is needed. A spectrometer is an instrument that splits the incoming light into a spectrum. Measuring this reflectance spectra is the most common way to use hyperspectral imaging.
-
 \todo[inline]{Masse mer fra modul om hvordan spektrometer fungerer}
-
 \\\\
 Hyperspectral imaging uses an imaging spectrometer (also called a hyperspectral camera) to collect spectral information. As mentioned, the difference between a hyperspectral image and a regular photo, is that the hyperspectral camera measures hundreds of thousands of spectra instead of single spectrum, creating a multispectral image. But in contrast to multispectral imagers, which are sensitive in only a few selected wavebands, hyperspectral imagers (HI) measure the spectral upwelling radiance Lu(λ) or reflectance R (λ) per image pixel of bio-geo-chemical object of interest (Klonowski et al. 2007; Volent et al. 2007; Johnsen et al. 2009, 2013b). %(Development of hyperspectral imaging as a bio-optical taxonomic tool for pigmented marine organisms - geir)
 \\\\
-This way, the resulting image of the target includes a complete spectrum for each pixel in the image. By doing this, it is possible to extract useful information about the image. 
+This way, the resulting image of the target includes a complete spectrum for each pixel in the image. By doing this, it is possible to extract useful information about the image.
 \\\\
 %The spectral information in every pixel creates a third dimension, providing a collection of data called a data cube. Now, how does this data differ from the data and images from other types of cameras? Digital camera, shoots the target in red, green and blue, in order to match the human vision. These camera leaves a combination of the three colors, which is what we can see with our eyes. This means that the information constituting the third dimension consists of nothing more than three colors, while the hyperspectral camera records hundreds of wavelengths. This way, the hyperspectral camera can collect more detailed information about the target, not only in visible light, but also in infrared and ultra violet. By combining different wavelengths, pixel by pixel, one can extract useful information about the properties of the target. 
-
-
 
 
 %Hyperspectral imaging and data analysis for detecting and determining plastic contamination in seawater filtrates, 2016,  Bert van Bavela
@@ -277,7 +438,6 @@ In raster system, points are represented by single cells, lines by sequence of n
 \\\\
 %http://desktop.arcgis.com/en/arcmap/10.3/manage-data/raster-and-images/fundamentals-for-georeferencing-a-raster-dataset.htm
 Georeferencing means to relate an internal coordinate system to a spatial coordinate system. The internal coordinate system could for instance be a raster image of a map. 
-\\\\
 %http://www.gisresources.com/georeferencing-2/
 Note that raster systems represents points by single cells and lines by several neighboring cells. Areas are represented by a collection of continuous cells. 
 \\\\
