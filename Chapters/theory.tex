@@ -157,8 +157,7 @@ A GRISM is a combination of a grating and a prism - hence the name. The GRISM is
     \label{fig:grism}
 \end{figure}
 \\\\
-For a grating, the intensity maximum for each spectral order, n, increases with increasing wavelength. A prism however, have no spectral orders and refracts blue light more than red. The net effect is a compact spectrum centered
-straight through the wavelength of the GRISM, parallel to the x-axis. This on-axis effect, makes it easy to stack additional optics in both ends - the front and the back side of the GRISM. Due to absence of off-axis effects, image quality is preserved.
+For a grating, the intensity maximum for each spectral order, n, increases with increasing wavelength. A prism however, have no spectral orders and refracts blue light more than red. The net effect is a compact spectrum able to obtain a straight through center wavelength, parallel to the optical axis of the system. This on-axis effect, makes it easy to stack additional optics in both ends - the front and the back side of the GRISM. Due to absence of off-axis effects, image quality is preserved.
 \\\\
 When calculating the angular dispersion of a GRISM, the result is equal to the angular dispersion of a grating (equation \ref{eq:angdisp}), except for one additional term. This turns out to be a non-negative term, implying that the GRISM has an increased angular dispersion compared to a grating alone.
 
@@ -320,19 +319,44 @@ Note: For eq \ref{eq:specref} to hold true, all surfaces are assumed to behave l
 
 \vspace{1.3cm}
 \section{System Optics}
-Alt fra TTK20
+Rays travelling through a spectrometer can be described by an optical diagram like the one presented below in Figure \ref{fig:sysopt}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 12cm]{Images/theory/sysop.png}
+    \caption{Optical diagram of a Spectrometer}
+    \label{fig:sysopt}
+\end{figure}
+\noindent
+From the figure, one can see S as the source of light. S illuminates the front lens, L1, with the angle $\Omega$. Furthermore the front lens focuses the light onto the entrance slit, resulting in the imaged area, S1. G is the grating, either transmitting or reflecting, in which L2 collimates with light passing through the entrance slit area, S2, at an angle  $\Omega_2$. The diffracted beam of light from the grating is then focused onto the exit slit by L3, as a function of wavelength. This makes S3 the area of the diffracted entrance slit image. 
+\\\\
+f2 and f3 are the corresponding focal lengths of L2 and L3. Note that as long as L1, L2 and L3 are able to focus or collimate the beam of light, they can be mirrors instead of lenses. 
+
+%\subsection{Bandpass and Resolution}
+
 \subsection{The GRISM Spectrograph}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 12cm]{Images/theory/grismspec.png}
+    \caption{The GRISM spectrograph}
+    \label{fig:sysopt}
+\end{figure}
 
+\vspace{1.3cm}
+\section{Imaging Process}
+%Denne skal jeg få tilsendt av Asgeir
+???????????
+
+%burde denne komme før optics?
 \vspace{1.3cm}
 \section{The Digital Image}
 %evt Fysikken bak bildet 
 %Info hentet fra bok: techniques and applications of hyperspectral image analysis
-From the mid-20th century, images have been stored in digital format (Geladi and Grahn, 2000). A digital image is an array of rows (i) and columns (j) consistent of i x j gray-values. A gray-value, better known as an intensity or a pixel, is simply one of many small squares in an image. If the image is to consist of colors however, a third dimension is needed. This dimension is shown as the depth in FIGURE.. The depth is three intensities/layers deep, consisting of red, green and blue. What was previously a gray pixel is now a voxel, a triplet of red, green and blue.
+From the mid-20th century, images have been stored in digital format (Geladi and Grahn, 2000). A digital image is an array of rows (i) and columns (j) consistent of i x j gray-values. A gray-value, better known as an intensity or a pixel, is simply one of many small squares in an image. If the image is to consist of colors however, a third dimension is needed. This dimension is characterized as the depth, and can be found as the height in Figure \ref{fig:pogv}b) \todo[inline]{LEGG INN EN BOKS TIL SOM ER VOXEL!}. The depth is three layers deep, consisting of red, green and blue. What was previously a gray pixel is now a voxel illustrated in \ref{fig:pogv}b), with triplet of red, green and blue - each of which contains different information. Note that the height of the voxel is almost undetectable, as the voxel only consists of the tiniest distinguishable element of a 3D object.
 \\\\
-One can say that a color image has three layers, red, green and blue, each of which contains different information. However, if the interval separating the layers is chosen to be a shorter wavelength, the number of layers will increase. The resulting image is then called a multivariate image. If k denote the depth dimension and thus determine the number of wavelengths which in turn will constitute the number of layers, the resulting array will be of the size i x j x k. FIGURE!
+However, if the interval separating the layers is chosen to be a shorter wavelength, the number of layers will increase. The resulting image is then called a multivariate image, illustrated in Figure \ref{fig:pogv}c). If k denote the depth dimension and thus determine the number of wavelengths which in turn will constitute the number of layers, the resulting array will be of the size i x j x k.
 \\\\
-For a human eye to be able to perceive a color image, only three wavelengths / layers are needed, namely red, green and blue. It therefore rarely makes sense to create multiple layers unless the goal is to capture information the eye cannot see. This is where hyperspectral imaging enters the playing field, which by definition has more than 100 layers and can express each pixel as a spectrum.
+For the human eye to be able to perceive a color image, only three wavelengths/layers are needed, namely red, green and blue. It therefore rarely makes sense to create multiple layers unless the goal is to capture information the eye cannot see. This is where hyperspectral imaging enters the playing field, which by definition has more than 100 layers and can express each pixel as a spectrum.
 
 \begin{figure}[H]
   \newcommand*\FigVSkip{0.5em}
@@ -349,16 +373,12 @@ For a human eye to be able to perceive a color image, only three wavelengths / l
   \sbox{\FigBox}{\includegraphics[scale=0.5]{Images/theory/voxel.png}}
   \begin{minipage}{\wd\FigBox}
     \centering\usebox{\FigBox}
-    \subcaption{b) Voxel}
+    \subcaption{c) Multivariate Image)}
   \end{minipage}\hspace*{\FigHSkip}
   % Save second image 
-  \label{head}
+  \caption{Pixel, Voxel and Multivariate Image}
+  \label{fig:pogv}
 \end{figure}
-
-\vspace{1.3cm}
-\section{Imaging Process}
-%Denne skal jeg få tilsendt av Asgeir
-???????????
 
 \vspace{1.3cm}
 \section{Hyperspectral Imaging}
@@ -462,9 +482,9 @@ As mentioned, plastics have permeated almost every aspect of modern day life wit
 %Plastic polymers commonly found in the environment are polypropylene (PP), polyethylene (PE), polyethylene terephthalate (PET), polystyrene (PS) and polyvinylchloride (PVC).8 Together these comprise 72.9 percent of the plastic produced globally.9
 
 \subsection{Polyethylene}
-The molecules in polyethylene (PE) has the chemical formula $C_2H_4$ \todo{figur av struktur}. Polyethylene is the most common type of plastic, with 34\% of all plastic produced being PE. The reason to its commonness is the broad application of it in consumer products. Plastic bags, bottles and food wrapping are good examples of polyethylene. However, these three products seem to have a significantly different material. For instance are plastic bags rarely as rigid and as bottles. This variation in polyethylene creates two sub-types defined by the degree of density – HDPE and LDPE, high-density polyethylene and low-density polyethylene respectively. 
+The molecules in polyethylene (PE) has the chemical formula $C_2H_4$. Polyethylene is the most common type of plastic. The reason to its commonness is the broad application of it in consumer products. Plastic bags, bottles and food wrapping are good examples of polyethylene. However, these three products seem to have a significantly different material. For instance are plastic bags rarely as rigid and as bottles. This variation in polyethylene creates two sub-types defined by the degree of density – HDPE and LDPE, high-density polyethylene and low-density polyethylene respectively. 
 \\\\
-The LPDE-molecules are more branched, meaning that a chain is replacing for instance a hydrogen atom. As a result of this, the molecules are less tightly packed, leading to a lower density.  As LDPE has more branching than HDPE, its intermolecular forces are weaker. \todo{FIGUR av branch-forskjellene!}
+The LPDE-molecules are more branched, meaning that a chain is replacing for instance a hydrogen atom. As a result of this, the molecules are less tightly packed, leading to a lower density.  As LDPE has more branching than HDPE, its intermolecular forces are weaker. \todo{FIGUR av branch-forskjellene?}
 
 
 \subsection{Polypropylene}
@@ -518,12 +538,6 @@ This first line created is called the first principal component. The second prin
   % Save second image 
   \label{head}
 \end{figure}
-
-
-
-\todo[inline]{Skrive om den under til både forsøksrelevant og ny}
-%Underwater hyperspectral imaging: a new tool for marine archaeology 2018, ØYVIND ØDEGÅRD,1,2,* AKSEL ALSTAD MOGSTAD,3 GEIR JOHNSEN,3 ASGEIR J. SØRENSEN, AND MARTIN LUDVIGSEN1
-To assess the spectral relationship between different objects and materials, principal component analyses were performed on the laboratory-acquired reflectance data. The principal components can be seen as the axes in an ellipsoid with n dimensions that describes the data. The longest axis accounts for the largest variance in the data, and corresponds to principal component 1 (PC1). The second-longest axis corresponds to PC2, and so on.
 
 \subsection{Scores, Loadings, F-residuals, Hotellings T^2 }
 https://learnche.org/pid/latent-variable-modelling/principal-component-analysis/interpreting-the-residuals
