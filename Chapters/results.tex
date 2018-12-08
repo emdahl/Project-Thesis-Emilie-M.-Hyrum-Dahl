@@ -28,9 +28,8 @@ As can be seen in the plot in figure \ref{fig:PCA_plastics_only_full_scat}, PC1 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Images/results/PCA_plastics_full_only_scat.png}
-    \label{fig:PCA_plastics_only_full_scat}
-    %\caption{Scatter plot of the results of the PCA with all plastic samples.}
     \caption{Scatter plot of the results of the PCA with all plastic samples}
+    \label{fig:PCA_plastics_only_full_scat}
 \end{figure}
 
 
@@ -52,8 +51,10 @@ As can be seen in the plot in figure \ref{fig:PCA_plastics_only_full_scat}, PC1 
 However, despite the lower explanation percentage of PC2, there are clusters. These are quite apparent in the top and bottom of the scatter plot in figure \ref{fig:PCA_plastics_reduced_only_scat}. The issue arise when comparing these clusters to their respective plastic type. There are no other clear clusters related to these types of plastic. The clear clusters these types are a part of are based on the color of the plastic and not inherent properties of the material. The bottom cluster consists of PE Recyclate of the color blue together with samples from the blue in the logo on a plastic bag. Similarly, the top cluster consists of PE Regrind and PE Yellow Fish Box Beached Texel, both of which are yellow in color. It is therefore difficult to argue that these clusters indicate anything other than the color additives in the material.
 \\\\
 %Tenke på å markere clusterene med tall, slik at det blir lettere å omtale
-Based on the tendency of the clear plastic to be on the left side of the cluster on can assume that the white paper background have had an impact on the results, and subsequently on the principal components. The samples of PS Pristine were particularly clear, as may be seen in the \textit{Materials} subsection of \textit{Methods}. Given that these are the main contributions to the spread along the horizontal axis, one could argue that without the light background, the lightness and clearness of the material would be less prominent in the first principal component. This would possibly further change the composition of the principal components and subsequently change the patterns on the scatter plots. 
+Based on the tendency of the clear plastic to be on the left side of the cluster, one can assume that the white paper background have had an impact on the results, and subsequently on the principal components. The samples of PS Pristine were particularly clear, as may be seen in the \textit{Materials} subsection of \textit{Methods}. Given that these are the main contributions to the spread along the horizontal axis, one could argue that without the light background, the lightness and clearness of the material would be less prominent in the first principal component. This would possibly further change the composition of the principal components and subsequently change the patterns on the scatter plots. 
 \\\\%Snakke med Asgeir om dette og høre hva han tenker om at papiret har påvirket resultatene og at vi i utgangspunktet ikke har tid til å tilbringe en hel ny dag på laben for å teste på nytt. Aksel har gjort tester tidligere der han har fått samme resultat med at "lysheten" til prøvene har hatt stor innvirkning
+\todo[inline, color = orange!40]{burde avsnittene over heller være i discussion}
+\noindent
 The contribution plot of the second principal component does show that the lower end of the spectrum has ha larger impact than the larger wavelengths. 
 
 \begin{figure}[H]
@@ -80,7 +81,7 @@ The contribution plot of the second principal component does show that the lower
 \subsection{PCA with Biological Components}
 When compared to results from testing on biological pigments, a more prominent trend became apparent. The natural occurring pigment in algae and crustaceans differed from the plastic in the scatter plot. This shows potential for distinguishing plastic in general from organic pigments naturally occurring in the marine environment.
 \\\\%Argumentere med at her ser man at den klare plasten ligger utenfor konfidens intervallet og kan dermed mulig ekskluderes i en ny runde med forsøk, eventuelt at man endre bakgrunnen slik at den ikke er hvit og dermed ikke påvirker lysheten i tilsvarende grad. 
-Below are plots with the same composition as those which solely contain plastic. The contribution on the first principal component does not differ much from that in the previous plots. However, given the aforementioned effect of the clear plastic, this might change with the use of a less reflective background. Furthermore, in figure \ref{fig:PCA_plastics_and_biology_scat} all plastic samples are gathered in one confidence interval ring. The clear result is that the previously mentioned clear plastic lies outside the confidence interval. This would further underline the previous suspicion that there is a prominent effect from the white background on the results.
+Below are plots with the same composition as those which solely contain plastic. The contribution on the first principal component does not differ much from that in the previous plots. However, given the mentioned effect of the clear plastic, this might change with the use of a less reflective background. Furthermore, in figure \ref{fig:PCA_plastics_and_biology_scat} all plastic samples are gathered in one confidence interval ring. The clear result is that the previously mentioned clear plastic lies outside the confidence interval. This would further underline the previous suspicion that there is a prominent effect from the white background on the results.
 \\\\
 Experience has shown that the brightness/lightness of the samples is highly relevant also when not investigating plastic. Therefore, the change in background might affect the results, but it is not expected to revolutionize them.
 
@@ -91,26 +92,189 @@ Experience has shown that the brightness/lightness of the samples is highly rele
     \label{fig:PCA_plastics_and_biology_scat}
 \end{figure}
 
+
 \begin{figure}[H]
-\centering
-\begin{subfigure}{.5\textwidth}
+  \newcommand*\FigVSkip{0.5em}
+  \newcommand*\FigHSkip{0.1em}
+  \newsavebox\FigBox
   \centering
-  \includegraphics[width=\textwidth]{Images/results/PCA_plastics_and_biology_cont_pc1.png}
-  \caption{Contribution plot of PC1}
-  \label{fig:PCA_plastics_and_biology_cont_pc1}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\textwidth]{Images/results/PCA_plastics_and_biology_cont_pc2.png}
-  \caption{Contribution plot of PC2}
+  % Top image is centered, so no need to get width
+ \sbox{\FigBox}{\includegraphics[scale=0.5]{Images/results/PCA_plastics_and_biology_cont_pc1.png}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
+     \label{fig:PCA_plastics_and_biology_cont_pc1}
+  \end{minipage}
+    % Top image is centered, so no need to get width
+ \sbox{\FigBox}{\includegraphics[scale=0.5]{Images/results/PCA_plastics_and_biology_cont_pc2.png}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
   \label{fig:PCA_plastics_and_biology_cont_pc2}
-\end{subfigure}
-\caption{Contribution plots for the PCA with plastic and biological samples}
+  \end{minipage}
+  % Save second image 
+  \caption{Contribution plots for the PCA with plastic and biological samples}
 \label{fig:PCA_and_bio_cont_plots}
 \end{figure}
 
+
 \vspace{1.3cm}
 \section{Signatures}
-As previously mentioned, it was not possible to acquire distinct signatures for the individual types of plastic. Neither was is possible to find a general signature for the plastic which could be used as an end-member or for Spectral Angle Mapping. Despite seeing a resemblance of a signature in the second principal component it is important to keep in mind the components does not represent actual signatures. They rather depict the wavelengths which have a larger influence on the vertical distinguishing of the samples.
+
+\subsection{Constant Color}
+The resulting signatures were highly affected by the color of the targeted plastic pellets. The figure below, Figure \ref{fig:plastcomp1}, shows the spectrum of two types, PP and PVC respectively. 
+
+\begin{figure}[H]
+  \newcommand*\FigVSkip{0.5em}
+  \newcommand*\FigHSkip{0.1em}
+  \newsavebox\FigBox
+  \centering
+  % Top image is centered, so no need to get width
+ \sbox{\FigBox}{\includegraphics[scale=0.36]{Images/appendix/pp-pristine-clear.eps}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
+    \subcaption{a) PP Pristine}
+  \end{minipage}
+    % Top image is centered, so no need to get width
+ \sbox{\FigBox}{\includegraphics[scale=0.36]{Images/appendix/pvc-soft-pristine-clear.eps}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
+    \subcaption{b) PVC Soft Pristine}
+  \end{minipage}
+  % Save second image 
+  \caption{A comparison of the resulting signature for PP and PVC - both clear-colored}
+  \label{fig:plastcomp1}
+\end{figure}
+
+%denne viser gule for pe og pe-hd, men de er kanskje for like..
+\begin{comment}
+\begin{figure}[H]
+  \newcommand*\FigVSkip{0.5em}
+  \newcommand*\FigHSkip{0.1em}
+  \newsavebox\FigBox
+  \centering
+  % Top image is centered, so no need to get width
+ \sbox{\FigBox}{\includegraphics[scale=0.36]{Images/appendix/p-env_yellowbowl.eps}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
+    \subcaption{a) PE Environment}
+  \end{minipage}
+    % Top image is centered, so no need to get width
+ \sbox{\FigBox}{\includegraphics[scale=0.36]{Images/appendix/pe-hd-postconsum.eps}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
+    \subcaption{b) PE-HD Post Consumer}
+  \end{minipage}
+  % Save second image 
+  \caption{A comparison of the resulting signature for  and PVC - both in a yellow color}
+  \label{fig:plastcomp1}
+\end{figure}
+\end{comment}
+
+
+\noindent
+As can be seen from Figure \ref{fig:plastcomp1}, the signatures of the two types are almost identical, with a possibility of deviations due to measurements errors. From section \ref{sec:microplastic}, we know for a fact that the structure of these two are very different. PP contains several molecules with the chemical formula of $C_3H_6$, while PVC has molecules with the following formula, $C_2H_3Cl$, even containing additional chlorine-atoms, Cl.  
 \\\\
-Based on the absence of clear clusters it was deemed not possible to acquire signature for the plastic at this stage. All three analyses do show vertical spread, but the large number of overlapping samples made it difficult to argue for the existence of clear signatures at this stage. In the analysis with the presence of the organic pigments, there are some indication of separation, but not enough argue for a general signature for the plastic. However, the clustering seen in the sample does pose an opportunity of distinguishing plastic from the natural occurring pigments.
+\subsection{Various Colors}
+Another result is from the more colorful pieces of microplastics. Figure \ref{fig:green}, \ref{fig:red} and \ref{fig:blue} below display the resulting signatures of green-colored PE-HD, red-colored PE-HD and blue-colored PE-LD, with their associated wavelength circled on the visible light spectrum.  
+%grønn
+\begin{figure}[H]
+  \newcommand*\FigVSkip{0.5em}
+  \newcommand*\FigHSkip{0.1em}
+  \newsavebox\FigBox
+  \centering
+% Top image is centered, so no need to get width
+ \sbox{\FigBox}{\includegraphics[scale=0.36]{Images/appendix/pe-hd-postconsumer-green.eps}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
+    \subcaption{a) PE-HD Post Consumer, Green}
+  \end{minipage}
+  % Save second image 
+  % Top image is centered, so no need to get width
+ \sbox{\FigBox}{\includegraphics[scale=0.4]{Images/results/specgreen.png}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
+    \subcaption{b) The visible light spectrum, circled at green}
+  \end{minipage}
+  \caption{A comparison of the resulting signature for green-colored PE-HD and the visible light spectrum-reference}
+  \label{fig:green}
+\end{figure}
+
+%red
+\begin{figure}[H]
+  \newcommand*\FigVSkip{0.5em}
+  \newcommand*\FigHSkip{0.1em}
+  \newsavebox\FigBox
+  \centering
+  % Top image is centered, so no need to get width
+ \sbox{\FigBox}{\includegraphics[scale=0.36]{Images/appendix/pe-hd-postconsum-red.eps}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
+    \subcaption{a) PE-HD Post Consumer, Red}
+  \end{minipage}
+    % Top image is centered, so no need to get width
+ \sbox{\FigBox}{\includegraphics[scale=0.4]{Images/results/specred.png}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
+    \subcaption{b) The visible light spectrum, circled at red}
+  \end{minipage}
+  % Save second image 
+  \caption{A comparison of the resulting signature for red-colored PE-HD and the visible light spectrum-reference}
+  \label{fig:red}
+\end{figure}
+
+%blue
+\begin{figure}[H]
+  \newcommand*\FigVSkip{0.5em}
+  \newcommand*\FigHSkip{0.1em}
+  \newsavebox\FigBox
+  \centering
+  % Top image is centered, so no need to get width
+ \sbox{\FigBox}{\includegraphics[scale=0.36]{Images/appendix/pe-ld-postindust-blue.eps}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
+    \subcaption{a) PE-LD Post Industrial, Blue}
+  \end{minipage}
+    % Top image is centered, so no need to get width
+ \sbox{\FigBox}{\includegraphics[scale=0.4]{Images/results/specblue.png}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
+    \subcaption{b) The visible light spectrum, circled at blue}
+  \end{minipage}
+  % Save second image 
+  \caption{A comparison of the resulting signature for blue-colored PE-LD and the visible light spectrum-reference}
+  \label{fig:blue}
+\end{figure}
+
+%kilde for visible light reference
+%https://www.khanacademy.org/science/physics/light-waves/introduction-to-light-waves/a/light-and-the-electromagnetic-spectrum
+
+\noindent
+This result support the earlier assertion about the color being dominant when detecting the spectral image of the plastic. Figure \ref{fig:green} and \ref{fig:red} is even the result of the same type of plastic, PE-HD. However, there is not much resemblance in the plots.
+\\\\
+The color variation is also found from the PCA as the second principal component. It is therefore reasonable to conclude that the specific color has a large influence.
+\\\\
+\subsection{Various Sizes}
+Another interesting comparison is the result of the same type of plastic, in different sizes. In this section, illustrated by Figure \ref{fig:size}, a clear empty bottle of Farris, existent of PET-plastic, is compared to clear PET Amorphous. The pieces of PET Amorphous are 3mm thick, while the piece from the bottle is significantly larger. 
+
+\begin{figure}[H]
+  \newcommand*\FigVSkip{0.5em}
+  \newcommand*\FigHSkip{0.1em}
+  \newsavebox\FigBox
+  \centering
+  % Top image is centered, so no need to get width
+ \sbox{\FigBox}{\includegraphics[scale=0.36]{Images/appendix/farris.eps}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
+    \subcaption{a) Clear Farris Bottle}
+  \end{minipage}
+    % Top image is centered, so no need to get width
+ \sbox{\FigBox}{\includegraphics[scale=0.36]{Images/appendix/pet-amorphous-pristine-clear.eps}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
+    \subcaption{b) Clear PET Amorphous}
+  \end{minipage}
+  % Save second image 
+  \caption{A comparison of a large PET piece from a Farris bottle and tiny PET Amorphous pieces}
+  \label{fig:size}
+\end{figure}
+\noindent
+When comparing the resulting signatures above, it is clear that they share trends. A quick look at the figure reveals many similarities. Nevertheless, looking at the y-axis displaying intensity, one can observe a tripled intensity from the microplastic. 

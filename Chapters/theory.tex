@@ -1,5 +1,5 @@
-\chapter{Theory}
-\label{chap:theory}
+\chapter{Theory I - Optics}
+\label{chap:theory1}
 %- Hva karakterieserer plast utifra hva vi vet
 %- ulike sensorer for deteksjon og kartlegging (vise sammenhengen til dette og en bredere oversikt - dette blir isåfall bare her, men tas ikke med videre - i metode kan vi heller si at vi avgrenser mot cam)
 %- aktuelle sensorer 
@@ -44,7 +44,7 @@ However, this equations above is representing no more than one wave. Two waves n
 
 \vspace{1.3cm}
 \section{Interference}
-Interference consider the case when two or more waves act together. Starting with two waves, respectively S1 and S2, interacting with each other at P as illustrated in Figure \ref{fig:interference}. Of equation \ref{eq:aml3d}, the S1 and S2 are represented by
+Interference consider the case when two or more waves act together. Starting with two waves, respectively $S_1$ and $S_2$, interacting with each other at P as illustrated in Figure \ref{fig:interference}. Of equation \ref{eq:aml3d}, the $S_1$ and $S_2$ are represented by
 
 \begin{equation}
     \begin{split}
@@ -65,10 +65,10 @@ with their associated phase shift expressed as presented in equation \ref{eq:pha
 \begin{figure}[h]
   \centering
     \includegraphics[width=0.3\textwidth]{Images/theory/interference.png}
-    \caption{Two waves, S1 and S2, interfering}
+    \caption{Two waves, $S_1$ and $S_2$, interfering}
     \label{fig:interference}
 \end{figure}
-Of Figure \ref{fig:interference}, one can see that the resulting wave, $\textbf{E}$ must be the sum of the two vectors interacting, $\textbf{E} = \textbf{E}_1 + \textbf{E}_2$. This applies to the resulting phase difference too, which thereby can be retrieved from equation \ref{eq:2intphase}: $\sigma = \textbf{k}_1\cdot \textbf{r}_1 - \textbf{k}_2\cdot \textbf{r}_2 + (\xi_1 - \xi_2)$. Now, the intensity of the final wave can be found by multiplying this resulting wave-vector, $\textbf{E}$, with its conjugate, $\textbf{E}^*$: 
+Of Figure \ref{fig:interference}, one can conclude that the resulting wave, $\textbf{E}$ must be the sum of the two vectors interacting, $\textbf{E} = \textbf{E}_1 + \textbf{E}_2$. This applies to the resulting phase difference too, which thereby can be retrieved from equation \ref{eq:2intphase}: $\sigma = \textbf{k}_1\cdot \textbf{r}_1 - \textbf{k}_2\cdot \textbf{r}_2 + (\xi_1 - \xi_2)$. Now, the intensity of the final wave can be found by multiplying this resulting wave-vector, $\textbf{E}$, with its conjugate, $\textbf{E}^*$: 
 
 \begin{equation}
     I = \textbf{E} \cdot \textbf{E}^* = \textbf{E}_{01}^2 + \textbf{E}_{02}^2 + 2\textbf{E}_{01}\cdot \textbf{E}_{02} cos(\sigma)
@@ -146,7 +146,7 @@ Angular dispersion is a measure of how the diffracting waves are spread, per uni
 \end{equation}
 \\\\
 \section{The GRISM} \label{sec:grism}
-A GRISM is a combination of a grating and a prism - hence the name. The GRISM is a prism stacked in series with a transmission grating, as can be seen from Figure \ref{fig:grism} below.
+A GRISM is a combination of a grating and a prism - hence the name. The GRISM is a prism stacked in series with a transmission grating, as can be observed in Figure \ref{fig:grism} below.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{Images/theory/GRISM.png}
@@ -207,7 +207,7 @@ By taking the attenuation coefficient, $c_{\lambda}$, into consideration, the li
     I_ {\lambda} (L, z) = \frac{S \cdot \kappa_{\lambda}\cdot cos^{3}\cdot (\alpha)}{z^2} \cdot exp \left(-c_{\lambda}\left(\frac{z}{cos(\alpha)}\frac{L}{cos(\theta)}\right)\right)
 \end{equation}
 \\\\
-When interpreting eq \ref{eq:intw}, one can see that the intensity of light decreases when $c_{\lambda}$ increases. If $c_{\lambda} = 0$, meaning the light attenuation not being present, the resulting intensity becomes the same as the light intensity in air, eq \ref{eq:int}. 
+Interpreting eq \ref{eq:intw}, the intensity of light decreases when $c_{\lambda}$ increases. If $c_{\lambda} = 0$, meaning the light attenuation not being present, the resulting intensity becomes the same as the light intensity in air, eq \ref{eq:int}. 
 
 \begin{figure}[H]
 \centering
@@ -225,11 +225,11 @@ When interpreting eq \ref{eq:intw}, one can see that the intensity of light decr
 \noindent
 Note: If cameras and objects are in the different condition where the refraction index differs from each other, several problems occur and a precise measurement cannot be achieved.
 
-\subsection{Near Infrared Light Transmission in Water}
+\subsection{Near Infrared Light Transmission in Water} \label{sec:waterabs}
 %http://www1.lsbu.ac.uk/water/water_vibrational_spectrum.html
 Water absorbs wavelengths covering a wide range of electromagnetic radiation. For light with wavelengths larger than 200 nm, this absorption is due to rotational transitions and intermolecular vibrations. As the H2O-molecule has a particularly small moment of inertia on rotation, a rich vibrational-rotational spectrum appears, sometimes containing millions of absorption lines. 
 \\\\
-The water absorption spectrum is therefore very complex. The water molecule may vibrate in several ways, at several states affected by the environment. For the specific case of H2O, the absorption spectrum is displayed in Figure \ref{fig:absspec} below. The spectrum may vary based on the condition of the water and placement of measurement - for instance whether one looks at the open sea or the coastal areas. However, the trends represented in the figure, should more or less remain. The spectrum clearly shows how the water absorption is at its lowest in visible light, making this range of wavelengths more optimal when detecting objects underwater.
+The water absorption spectrum is therefore very complex. The water molecule may vibrate in several ways, at several states affected by the environment. For the specific case of H2O, the absorption spectrum is displayed in Figure \ref{fig:absspec} below. The spectrum may vary based on the condition of the water and placement of measurement - for instance whether one looks at the open sea or the coastal areas. However, the trends represented in the figure, should more or less remain. The spectrum clearly shows how the water absorption is at its lowest in visible light, making this range of wavelengths more optimal when detecting objects underwater. Near infrared light on the other hand will quickly disappear over short distances. This could result in large variations in the resulting spectral signatures, leaving a possibly non-representable set of data.
 
 \begin{figure}[H]
     \centering
@@ -237,6 +237,7 @@ The water absorption spectrum is therefore very complex. The water molecule may 
     \caption{Absorption spectrum of liquid water}
     \label{fig:absspec}
 \end{figure}
+
 
 \begin{comment}
 %PAPER: Identification and Classification of Plastic Resins using Near Infrared Reflectance PSpectroscopy: https://www.researchgate.net/publication/285330830_Identification_and_classification_of_plastic_resins_using_near_infrared_reflectance_spectroscopy
@@ -270,11 +271,11 @@ Photons...
 \section{Inherent Optical Properties}
 %http://iopscience.iop.org/article/10.1088/0034-4885/36/12/002/pdf
 %noe av dette har blitt sagt i hyp også:
-When retrieving an optical fingerprint it is important to know the optical properties impacting the resulting signature. There are mainly three physical processes reducing the energy of light on its way to reaching the receiver. The object of interest (the materials or the compositions of materials) will absorb, scatter and reflect light of different portions of the visible spectrum. This way, the material of the object of interest and the wavelength will affect the properties of these processes. 
+When retrieving an optical fingerprint it is important to know the optical properties impacting the resulting signature. There are mainly three physical processes reducing the energy of light on its way to reaching the receiver. The OOI (the materials or the compositions of materials) will absorb, scatter and reflect light of different portions of the visible spectrum. This way, the material of the OOI and the wavelength will affect the properties of these processes. 
 \\\\
-Scattering, absorption and reflection are all results of photons interacting with the object of interest. 
+Scattering, absorption and reflection are all results of photons interacting with the OOI. 
 %http://www.oceanopticsbook.info/view/overview_of_optical_oceanography/inherent_optical_properties
-\subsection{Absorption}
+\subsection{Absorption} \label{sec:abs}
 During the photon-IOO interaction, the energy of the photon can be converted to another form, leaving the photon to disappear and hence the light to be absorbed. 
 \\\\
 %https://www.physicsclassroom.com/class/light/Lesson-2/Light-Absorption,-Reflection,-and-Transmission
@@ -295,8 +296,8 @@ As mentioned, these inherent optical properties are again dependent on many othe
 In the ocean, the physical characteristics of the IOO are highly affected by the surroundings, implying that the IOPs are too. As an example, a change in the concentration of plankton or being in coastal waters instead of the open ocean, will contribute to a significant change in both the resulting absorption and scattering. 
 
 
-\subsection{Spectral Reflectance}
-Light reflection from an object means that waves of light hitting the surface of the object is sent back from the surface. Reflection happens when the wavelength of the light waves do not match the natural vibration frequencies of the hit object. Whenever such waves of light strike the object, the electrons in the atoms of the object will vibrate. However, this is not the same type of vibration as seen before. Now, the electrons vibrate in small amplitudes for no more than brief periods of time. This causes the energy to re-emit as a wave of light, rather than turn into vibration energy an be absorbed at resonance vibration. 
+\subsection{Spectral Reflectance}\label{sec:specref}
+Light reflection from an object means that waves of light hitting the surface of the object is sent back from the surface. Reflection happens when the wavelength of the light waves do not match the natural vibration frequencies of the hit object. Whenever such waves of light strike the object, the electrons in the atoms of the object will vibrate. However, this is not the same type of vibration as the one discussed above (Section \ref{sec:abs}). Now, the electrons vibrate in small amplitudes for no more than brief periods of time. This causes the energy to re-emit as a wave of light, rather than turn into vibration energy an be absorbed at resonance vibration. 
 \\\\
 \begin{comment}
 %Underwater hyperspectral imaging: a new tool for marine archaeology 2018, ØYVIND ØDEGÅRD,1,2,* AKSEL ALSTAD MOGSTAD,3 GEIR JOHNSEN,3 ASGEIR J. SØRENSEN, AND MARTIN LUDVIGSEN1
@@ -328,15 +329,15 @@ Rays travelling through a spectrometer can be described by an optical diagram li
     \label{fig:sysopt}
 \end{figure}
 \noindent
-From the figure, one can see S as the source of light. S illuminates the front lens, L1, with the angle $\Omega$. Furthermore the front lens focuses the light onto the entrance slit, resulting in the imaged area, S1. G is the grating, either transmitting or reflecting, in which L2 collimates with light passing through the entrance slit area, S2, at an angle  $\Omega_2$. The diffracted beam of light from the grating is then focused onto the exit slit by L3, as a function of wavelength. This makes S3 the area of the diffracted entrance slit image. 
+From the figure, one can extract $S$ as the source of light. $S$ illuminates the front lens, $L_1$, with the angle $\Omega$. Furthermore the front lens focuses the light onto the entrance slit, resulting in the imaged area, $S_1$. $G$ is the grating, either transmitting or reflecting, in which $L_2$ collimates with light passing through the entrance slit area, $S_2$, at an angle  $\Omega_2$. The diffracted beam of light from the grating is then focused onto the exit slit by $L_3$, as a function of wavelength. This makes $S_3$ the area of the diffracted entrance slit image. 
 \\\\
-f2 and f3 are the corresponding focal lengths of L2 and L3. Note that as long as L1, L2 and L3 are able to focus or collimate the beam of light, they can be mirrors instead of lenses. 
+$f_2$ and $f_3$ are the corresponding focal lengths of $L_2$ and $L_3$. Note that as long as $L_1$, $L_2$ and $L_3$ are able to focus or collimate the beam of light, they can be mirrors instead of lenses. 
 
 %\subsection{Bandpass and Resolution}
 \subsection{The GRISM Spectrograph}
-In section \ref{sec:grism}, the GRISM, and how it could obtain a straight through center wavelength parallel to the optical axis, was elaborated. Therefore, using a GRISM as the dispersive element is popular when designing a spectrometer. Figure \ref{fig:grismspec} shows a typical 3D configuration of a GRISM spectrograph in hyperspectral image mode, illustrating the basic elements of hyperspectral imaging. Of the illustration, one can see how the elements are stacked at the right next to each other (on axis), supporting the previous stated properties of the GRISM. This on-axis design reduces geometrical aberrations and thereby improves the resolution. 
+In section \ref{sec:grism}, the GRISM, and how it could obtain a straight through center wavelength parallel to the optical axis, was elaborated. Therefore, using a GRISM as the dispersive element is popular when designing a spectrometer. Figure \ref{fig:grismspec} shows a typical 3D configuration of a GRISM spectrograph in hyperspectral image mode, illustrating the basic elements of hyperspectral imaging. Of the illustration, one can observe how the elements are stacked at the right next to each other (on axis), supporting the previous stated properties of the GRISM. This on-axis design reduces geometrical aberrations and thereby improves the resolution. 
 \\\\
-Similar to the spectrometer already discussed above (section \ref{sec:sysopt}), the front lens focuses light onto the entrance slit S1, while L2 collimates the GRISM. The diffracted light is then focused into the image detector (CCD), by L3. 
+Similar to the spectrometer already discussed above (section \ref{sec:sysopt}), the front lens focuses light onto the entrance slit $S_1$, while $L_2$ collimates the GRISM. The diffracted light is then focused into the image detector (CCD), by $L_3$. 
 
 \begin{figure}[H]
     \centering
@@ -345,17 +346,17 @@ Similar to the spectrometer already discussed above (section \ref{sec:sysopt}), 
     \label{fig:grismspec}
 \end{figure}
 
-\vspace{1.3cm}
-\section{Imaging Process}
-%Denne skal jeg få tilsendt av Asgeir
-???????????
 
-%burde denne komme før optics?
-\vspace{1.3cm}
+\chapter{Theory II - Imaging}
+\label{chap:theory2}
+\todo[inline, color = orange!40]{Imaging Precess}
+%Denne skal jeg få tilsendt av Asgeir
+
+
 \section{The Digital Image}
 %evt Fysikken bak bildet 
 %Info hentet fra bok: techniques and applications of hyperspectral image analysis
-From the mid-20th century, images have been stored in digital format (Geladi and Grahn, 2000). A digital image is an array of rows (i) and columns (j) consistent of i x j gray-values. A gray-value, better known as an intensity or a pixel, is simply one of many small squares in an image. If the image is to consist of colors however, a third dimension is needed. This dimension is characterized as the depth, and can be found as the height in Figure \ref{fig:pogv}b). \todo[inline]{LEGG INN EN BOKS TIL SOM ER VOXEL!} The depth is three layers deep, consisting of red, green and blue. What was previously a gray pixel is now a voxel illustrated in \ref{fig:pogv}b), with triplet of red, green and blue - each of which contains different information. Note that the height of the voxel is almost undetectable, as the voxel only consists of the tiniest distinguishable element of a 3D object.
+From the mid-20th century, images have been stored in digital format (Geladi and Grahn, 2000). A digital image is an array of rows (i) and columns (j) consistent of i x j gray-values. A gray-value, better known as an intensity or a pixel, is simply one of many small squares in an image. If the image is to consist of colors however, a third dimension is needed. This dimension is characterized as the depth, and can be found as the height in Figure \ref{fig:pogv}b). The depth is three layers deep, consisting of red, green and blue. What was previously a gray pixel is now a voxel illustrated in \ref{fig:pogv}b), with triplet of red, green and blue - each of which contains different information. Note that the height of the voxel is almost undetectable, as the voxel only consists of the tiniest distinguishable element of a 3D object.
 \\\\
 However, if the interval separating the layers is chosen to be a shorter wavelength, the number of layers will increase. The resulting image is then called a multivariate image, illustrated in Figure \ref{fig:pogv}c). If k denote the depth dimension and thus determine the number of wavelengths which in turn will constitute the number of layers, the resulting array will be of the size i x j x k.
 \\\\
@@ -367,16 +368,22 @@ For the human eye to be able to perceive a color image, only three wavelengths/l
   \newsavebox\FigBox
   \centering
   % Top image is centered, so no need to get width
- \sbox{\FigBox}{\includegraphics[scale=0.5]{Images/theory/pixel.png}}
+ \sbox{\FigBox}{\includegraphics[scale=0.4]{Images/theory/pixel.png}}
   \begin{minipage}{\wd\FigBox}
     \centering\usebox{\FigBox}
     \subcaption{a) Pixel}
   \end{minipage}
-  % Save first image in a box to get the width
-  \sbox{\FigBox}{\includegraphics[scale=0.5]{Images/theory/voxel.png}}
+    % Top image is centered, so no need to get width
+ \sbox{\FigBox}{\includegraphics[scale=0.29]{Images/theory/voxel0.png}}
   \begin{minipage}{\wd\FigBox}
     \centering\usebox{\FigBox}
-    \subcaption{c) Multivariate Image)}
+    \subcaption{b) Voxel}
+  \end{minipage}
+  % Save first image in a box to get the width
+  \sbox{\FigBox}{\includegraphics[scale=0.4]{Images/theory/voxel.png}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
+    \subcaption{c) Multivariate Image}
   \end{minipage}\hspace*{\FigHSkip}
   % Save second image 
   \caption{Pixel, Voxel and Multivariate Image}
@@ -385,76 +392,67 @@ For the human eye to be able to perceive a color image, only three wavelengths/l
 
 \vspace{1.3cm}
 \section{Hyperspectral Imaging}
-
-First, the main purpose of a spectrograph is that it generates images of the entrance slit as a function of color. The number of colored slit images on the CCD depends on the width of the entrance slit and the dispersive element’s ability to spread – diffract the colors, and is directly connected to the spectral resolution of the instrument. 
-
-Secondly, focusing light from a target by a front lens (L1) onto the slit - plane, forces the instrument to accept structure of the target along the slit. The resulting image (spectrogram) recorded by the CCD is the intensity distribution as a function of wavelength (color) and position along the slit. The spectrogram contains both spectral and spatial information along a thin track of the target object. In our case the target is snow cover land surface and ocean ice flakes.
-
-Finally, in order to obtain the object's full spatial extent, it is necessary to sample the whole object. This requires that the instrument must be moved relative to the target. The whole idea is to record spectrograms for each track of the object as the image at the entrance plane is moved across the slit. Our movement can be created by the airplane itself, so we are in another word pushing/ recording spectrograms as we fly over the ground target. 
-
-An alternative way is to move the image while holding the camera still. So depending on the application, the relative movement between sensor and target may be obtained by rotating the whole instrument, use of scanning mirrors as front optics, or moving the target itself. The target may, for example, be located on a conveyor belt or on a sliding table. 
-
---------------------------
-
-The maximum number of color planes or spectral channels that a hyperspectral imager
-can produce depends on the bandpass and the spectral range of the instrument, not the number of pixels along the wavelength axis of the detector. In addition, the bandpass also
-affects the spatial resolution through the field of view along the x-direction of the flight.
-
-The field of view of the slit as seen through the front lens along the direction of flight, defines the spatial resolution. The distance dx defines the ground segment seen by the instrument at time t = t0.
-
-SIDE 30
-
-dx =...
-
-The spatial resolution then becomes equal to the distance from point A to B...
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-%Use of Underwater Hyperspectral Imager (UHI) in Marine Archaeology 2014, Øyvind Ødegård1,3, Geir Johnsen2 and Asgeir J. Sørensen1
-Hyperspectral imagery is defined as images that contain a spectrum of reflected light with a spectral resolution of 1-5 nm per image pixel (4). Materials or compositions of materials (object of interest, OOI) will absorb, scatter and reflect light of different portions of the visible spectrum, giving them their own optical fingerprints that are unique, and can be used for classification with high degree of confidence (4). 
-\\\\
 %Info hentet fra yt
 In order to study the reflecting light from the target, a spectrometer is needed. A spectrometer is an instrument that splits the incoming light into a spectrum. Measuring this reflectance spectra is the most common way to use hyperspectral imaging.
-\todo[inline]{Masse mer fra modul om hvordan spektrometer fungerer}
 \\\\
-Hyperspectral imaging uses an imaging spectrometer (also called a hyperspectral camera) to collect spectral information. As mentioned, the difference between a hyperspectral image and a regular photo, is that the hyperspectral camera measures hundreds of thousands of spectra instead of single spectrum, creating a multispectral image. But in contrast to multispectral imagers, which are sensitive in only a few selected wavebands, hyperspectral imagers (HI) measure the spectral upwelling radiance Lu(λ) or reflectance R (λ) per image pixel of bio-geo-chemical object of interest (Klonowski et al. 2007; Volent et al. 2007; Johnsen et al. 2009, 2013b). %(Development of hyperspectral imaging as a bio-optical taxonomic tool for pigmented marine organisms - geir)
+Hyperspectral imaging uses a hyperspectral camera (imaging spectrometer) to collect spectral information. As mentioned, the difference between a hyperspectral image and a regular photo, is that the hyperspectral camera measures hundreds of thousands of spectra instead of single spectrum, creating not only a multispectral image, but a hyperspectral image. In contrast to multispectral imagers, which are sensitive in only a few selected wavebands, hyperspectral imagers (HI) measure the spectral reflectance per image pixel of the OOI, leaving a complete spectrum for each pixel in the image. %(Development of hyperspectral imaging as a bio-optical taxonomic tool for pigmented marine organisms - geir)
+\subsection{On a Detailed Level}
+%The Spatial Resolution
+In detail, a spectrograph, illustrated in Figure \ref{fig:grismspec}, generates images from the entrance slit, as a function of wavelength (color). The amount of images detected by the CCD at the exit slit, is dependent on the entrance slit width and the element’s ability diffract the colors. The width of the exit slit being dependent on width of the entrance slit, among other things, can be seen from the equations in section.. describing optimal etendue \todo{legge inn dette I etendue osv}. A large amount of detected images at the exit slit will directly improve the spectral resolution of the instrument. The resulted image recorded by the CCD is called a spectrogram (an illustration of a spectrogram can be found as the last element in fig \ref{fig:grismspec}). The spectrogram contains both spectral and spatial information and can be described by the intensity distribution and position along the slit. 
 \\\\
-This way, the resulting image of the target includes a complete spectrum for each pixel in the image. By doing this, it is possible to extract useful information about the image.
+However, the information retrieved is information about the covered area of the target object, which is nothing but a very thin track covering only a small part of the object. In order to obtain the object's full spatial extent, the entire object surface needs to be sampled. 
 \\\\
+Now, how can this be done? The recording instrument must be moved relative to the target. The velocity, $\nu$ of the instrument is crucial, as the instrument will under sample (miss samples of the target area) if the distance moved during readout time, $\tau$, exceeds the length of the measured area, $dx$ (displayed in Figure \ref{fig:spatialres}). This requirement is shown in equation \ref{eq:req}.
+
+\begin{equation}
+    \nu \cdot \tau \leq dx
+    \label{eq:req}
+\end{equation}
+This way, the image at the entrance plane moves across the slit so that the CCD can record spectrograms for each track of the object. This is called the push broom technique, which will be illustrated in Section \ref{sec:push}. When summarizing all samples, information on the continuous image can be retrieved.
+\\\\
+The required movement is based on the instrument and target moving relative to each other. Hence the movement can be created in two ways. Either the instrument can move, or the viewed target can be moved while keeping the imager still. If the target is located at a conveyor belt, it might be suitable to keep the instrument still. However, as mentioned, the magnitude of the relative movement is important. This means that if the conveyor belt is moving too fast, the instrument needs to move as well, in order to reduce the relative movement.
+\\\\
+Figure \ref{fig:spatialres} describes the situation where a hyperspectral imager is attached to an airplane moving at a velocity, $\nu$. In the illustration, $S$ is the slit, while $w$ is the associated width. $z$ describes the altitude above ground level. The front lens is denoted $L_1$, and has a focal length of $f_1$. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=7cm]{Images/theory/spatialres.png}
+    \caption{Spatial resolution - Field of view (from a moving airplane)}
+    \label{fig:spatialres}
+\end{figure}
+\noindent
+It is common to believe that the spatial resolution is dependent on the number of pixels present along the wavelength axis of the detector. However, the amount of information is described by the number of spectral layers that hyperspectral imager can produce (illustrated as the height of the column in Figure \ref {fig:pogv}c)). The spectral layers define a dimension independent of the pixel-plane, only dependent on the bandpass (see section bandpass) and the spectral range of the instrument. Using similarity of form, $dx$ can be calculated from the lengths of the figure.
+\begin{equation}
+    dx = \frac{z \cdot w}{f_1}
+    \label{eq:dx}
+\end{equation}
+Equation \ref{eq:dx} shows how $dx$ is connected to spectral bandpass through the slit width, $w$. 
+
+
+\todo[inline, color=blue!30]{legg inn bandpass i teori del 1}
+%Info hentet fra bok: techniques and applications of hyperspectral image analysis
+ %oppsettene inkluderer lyskilde, et filtersystem som disperse the light into bands of wavelenghts, en sample. Hvis kilden inneholder et bredt lysspekter, kan man velge ut bølgelengder ved å bruke bandpass-filters etter ønske.
+
+
 %The spectral information in every pixel creates a third dimension, providing a collection of data called a data cube. Now, how does this data differ from the data and images from other types of cameras? Digital camera, shoots the target in red, green and blue, in order to match the human vision. These camera leaves a combination of the three colors, which is what we can see with our eyes. This means that the information constituting the third dimension consists of nothing more than three colors, while the hyperspectral camera records hundreds of wavelengths. This way, the hyperspectral camera can collect more detailed information about the target, not only in visible light, but also in infrared and ultra violet. By combining different wavelengths, pixel by pixel, one can extract useful information about the properties of the target. 
 
-
+\subsection{On an Environmental Level}
 %Hyperspectral imaging and data analysis for detecting and determining plastic contamination in seawater filtrates, 2016,  Bert van Bavela
 %http://journals.sagepub.com/doi/pdf/10.1255/jnirs.1212
+\noindent
 Concerning plastics, this translates to receiving information on both spatial location of plastic material, and the plastic materials composition. 
 %Volent, Z., Johnsen, G., & Sigernes, F. (2007). Kelp forest mapping by use of airborne hyperspectral imager. Journal of Applied Remote Sensing, 1, 011503–011521.
 %Volent, Z., Johnsen, G., & Sigernes, F. (2009). Microscopic hyperspectral imaging used as a bio-optical taxonomic tool for micro- and macroalgae. Applied Optics, 48, 4170–4176.
 \\\\
 %(Development of hyperspectral imaging as a bio-optical taxonomic tool for pigmented marine organisms - geir)
+\noindent
 HI and UHI can be used as a taxonomical identification tool to make optical fingerprints of marine organisms only if the pigment composition and corresponding absorption signature of the organism is known and can be used to verify the reflectance signature
 \\\\
-When the hyperspectral camera is taken underwater, the lighting is limited. The UHI is therefore using its own light sources, in contrast to passive passive techniques using ambient light (Johnsen et al. 2013b).
+\noindent
+When the hyperspectral camera is taken underwater, the lighting is limited. The UHI is therefore using its own light sources, in contrast to passive passive techniques using ambient light.
 %(Development of hyperspectral imaging as a bio-optical taxonomic tool for pigmented marine organisms - geir) %The use of underwater hyperspectral imaging deployed on remotely operated vehicles – methods and applications - geir og asgeir
-
-
-%Info hentet fra bok: techniques and applications of hyperspectral image analysis
- %oppsettene inkluderer lyskilde, et filtersystem som disperse the light into bands of wavelenghts, en sample. Hvis kilden inneholder et bredt lysspekter, kan man velge ut bølgelengder ved å bruke bandpass-filters etter ønske.
-\\\\In this task, there are two methods for camera configurations, point scanning image and line scanning image.
+\\\\
+\noindent
+In this task, there are two methods for camera configurations, point scanning image and line scanning image.
 \subsection{Point Scanning Image}
 Point scanning image can be used to measure a complete spectrum in one spot/pixel. In every spot, all layers are measured vertically from this spot. To make the whole picture, the camera must scan across the entire surface, spot by spot.
 \\\\
@@ -475,7 +473,7 @@ figuren er hentet fra boken, techniques and applications of hyperspectral image 
 \end{figure}
 
 
-\subsection{Line Scanning Image}
+\subsection{Line Scanning Image} \label{sec:push}
 The line scanning image technique uses a two-dimensional detector, perpendicular/orthogonal to the surface of the measured target. This detector collects the spectrum of a whole line in the image, in one single scan. By moving the scan line with a push broom technique, one can map the entire image by combining all sets of spectra.
 \\\\
 figuren er hentet fra boken, techniques and applications of hyperspectral image analysis, side 7
@@ -495,31 +493,22 @@ figuren er hentet fra boken, techniques and applications of hyperspectral image 
 \end{figure}
 
 \vspace{1.3cm}
-\section{Georeferencing}
-%http://www.gisresources.com/georeferencing-2/
-In raster system, points are represented by single cells, lines by sequence of neighboring cells and area by collection of continuous cells
-\\\\
-%http://desktop.arcgis.com/en/arcmap/10.3/manage-data/raster-and-images/fundamentals-for-georeferencing-a-raster-dataset.htm
-Georeferencing means to relate an internal coordinate system to a spatial coordinate system. The internal coordinate system could for instance be a raster image of a map. 
-%http://www.gisresources.com/georeferencing-2/
-Note that raster systems represents points by single cells and lines by several neighboring cells. Areas are represented by a collection of continuous cells. 
-\\\\
-In order to georeference an image, control points need to be established. These control points are identified as a series of known x- and y-coordinates, linking locations in the raster dataset to its correspondant location in the spatially referenced data. The desired objective is to assign these coordinate systems to each other with minimal residuals. This means that the distance between the control points’ actual coordinates and the coordinates predicted by the model is the smallest is can be, making the process as accurate as possible. This way, georeferencing can explain how data, such as GPS points, are related to images.
-
-\vspace{1.3cm}
 \section{SINTEF SilCam}
 %https://github.com/emlynjdavies/PySilCam/wiki 
-The silhouette camera, SINTEF SilCam, is a holographic imager designed to overcome the limitations in depth-of-field scenarios related to restricted path length, which is a challenge when using today's conventional lens-based imaging. 
+The silhouette camera, SINTEF SilCam, is a holographic imager designed to overcome the limitations in depth-of-field scenarios related to restricted path length, which is a challenge when using today's conventional lens-based imaging. The imager is developed by SINTEF with one of the experts, Emlyn Davies, in the front.
 \\\\
 In order to reduce noise, each image is corrected using a clean background. From this, it is possible to produce a logical image of the particles detected, containing only zeros and ones. In turn, particle properties for each particle can be calculated from the binary image.
 \\\\
 This way, the system can be used for both large- and small-scale experiments. In smaller scale, the SilCam is able to quantify the distribution of suspended material. Zoo-plankton, larger phyto-plankton, mineral grains and marine snow are all examples of objects the SilCam can detect. 
 
-\vspace{1.3cm}
-\section{Microplastic}
+\chapter{Theory III - Data and Data Tracking} \label{cap:theory3}
+This chapter presents ways of handling data. In this thesis, the data collected is regarding the five types of microplastic, also elaborated here. 
+
+\section{Microplastic} \label{sec:microplastic}
 %ha med hva def av mikroplast og de ulike plasttypene
 %Kjemi
-\todo[inline]{ta med figur av alles struktur?}
+\todo[inline, color=orange!40]{ta med figur av alles struktur?}
+\noindent
 As mentioned, plastics have permeated almost every aspect of modern day life with its large applicability. We find plastics in the microchips in our computers, as well as in the bags we carry our groceries in. It seems that plastic covers a wide spectrum of applications.  One reason to this, is the many different types of plastic, covering different areas of need. Polyethylene (PE), polypropylene (PP), polyethylene terephthalate (PET), polyvinyl chloride (PVC) and polystyrene (PS), are the five most common types of plastic, in large part covering of the global plastic production. Besides containing Carbon-Hydrogen bindings, these are all structurally different and they are classified according to their chemical structure. In this section, these five types of plastic are presented in decreasing order. 
 \\\\
 %Plastic polymers commonly found in the environment are polypropylene (PP), polyethylene (PE), polyethylene terephthalate (PET), polystyrene (PS) and polyvinylchloride (PVC).8 Together these comprise 72.9 percent of the plastic produced globally.9
@@ -544,10 +533,23 @@ Polyethylene terephthalate (PET) consist of repeating ethylene terephthalate mol
 %https://www.azom.com/article.aspx?ArticleID=7915
 Polystyrene (PS) is an inexpensive plastic type commonly used for packaging purposes, with the chemical formula being $(C_8H_8)_n$. PS increasingly exists in the outdoor environment, particularly along shores. The plastic is naturally clear, hard and brittle. The latter fact is perhaps the main reason to why larger pieces of PS easily turn into microplastic. 
 
+\vspace{1.3cm}
+\section{Georeferencing}
+%http://www.gisresources.com/georeferencing-2/
+In raster system, points are represented by single cells, lines by sequence of neighboring cells and area by collection of continuous cells
+\\\\
+%http://desktop.arcgis.com/en/arcmap/10.3/manage-data/raster-and-images/fundamentals-for-georeferencing-a-raster-dataset.htm
+Georeferencing means to relate an internal coordinate system to a spatial coordinate system. The internal coordinate system could for instance be a raster image of a map. 
+%http://www.gisresources.com/georeferencing-2/
+Note that raster systems represents points by single cells and lines by several neighboring cells. Areas are represented by a collection of continuous cells. 
+\\\\
+In order to georeference an image, control points need to be established. These control points are identified as a series of known x- and y-coordinates, linking locations in the raster dataset to its correspondant location in the spatially referenced data. The desired objective is to assign these coordinate systems to each other with minimal residuals. This means that the distance between the control points’ actual coordinates and the coordinates predicted by the model is the smallest is can be, making the process as accurate as possible. This way, georeferencing can explain how data, such as GPS points, are related to images.
 
-
-\section{Principal Component Analysis}
-The purpose of conducting a principal component analysis is to extract the information from the data, while disregarding the noise, reducing the dimension of the dataset. The analysis converts a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called principal components. These principal components will describe the overall variation of the dataset and thereby serve as a latent variable. 
+\vspace{1.3cm}
+\section{Principal Component Analysis} \label{sec:pca}
+This section contain knowledge gained in TTK19...
+\\\\
+The purpose of conducting a principal component analysis (PCA) is to extract the information from the data, while disregarding the noise, reducing the dimension of the dataset. The analysis converts a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called principal components. These principal components will describe the overall variation of the dataset and thereby serve as a latent variable. 
 \\\\
 Now, how are these principal components found? Figure a) below describes the entire dataset with the dots describing single data observations. The analysis starts by finding the projection of each observation onto a line. The line is drawn with the purpose of explaining as many observations as possible with a minimal residual error, b). The distance from the origin to this projected point along the line is the score associated with the related observation. The direction of the line is now characterized with giving the largest variance of the scores, and is described by direction vectors called loadings. 
 \\\\
