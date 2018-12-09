@@ -144,39 +144,6 @@ Angular dispersion is a measure of how the diffracting waves are spread, per uni
     \frac{d\beta}{d\lambda} = \frac{n}{a cos(\beta)}
     \label{eq:angdisp}
 \end{equation}
-
-\subsection{The Spectral Bandpass}
-%https://www.horiba.com/en_en/bandpass-resolution/
-Both spectral bandpass and resolution characterize the ability the instrument has to separate adjacent spectral lines. This way, the bandpass defines the spectral interval to be isolated. This is assuming the light source is continuum. As will be shown below, the bandpass is mainly dependent on  the width of the grating, entrance and exit slit widths and the spatial resolution of the CCD. 
-\\\\
-The isolated spectral interval (bandpass) can be found from the recorded Full Width at Half Maximum (FWHM) of a monochromatic spectral line. In reality, there are no perfect spectrometer. This is why the bandpass is approximated to FWHM. Figure \ref{fig:bp} shows the effect of spectral resolution of a monochromatic line. As displayed, the bandpass at wavelength $\lambda_0$ can be found at half intensity, $B$. 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=5cm]{Images/theory/bp.png}
-    \caption{Spectral resolution of monochromatic line}
-    \label{fig:bp}
-\end{figure}
-\todo{lage en finere skisse}
-\noindent
-Note that the assumption of a monochromatic spectral line does not restrict to only one line. Any spectral structure can be considered as the sum of infinite single monochromatic lines at different wavelengths.
-\\\\
-The spectral bandpass can then be calculated as the wavelength distribution along the x-axis multiplied by the exit slit width. This wavelength distribution is called \textit{the linear dispersion}, and is defined as $d\lambda/dx$. Using the angular dispersion from equation \ref{eq:angdisp} and the similarity $dx = f_3 d\beta$, the spectral bandpass can be calculated. The exit slit width, $w'$ is dependent on the entrance slit width, $w$ through $w' = \frac{cos(\alpha)}{cos(\beta)}\cdot \frac{f_3}{f_2}\cdot w$.
-
-\begin{equation}
-    %\begin{split}
-    FWHM = \frac{d\lambda}{dx} \cdot w'\hspace{0.5cm}
-    = \frac{d\lambda}{d\beta} \frac{d\beta}{dx}\cdot w' \hspace{0.5cm}
-    = \frac{a cos(\beta)}{n} \frac{1}{f_3}\cdot w' \hspace{0.5cm}
-    = \frac{a cos(\alpha)}{n\cdot f_2}\cdot w
-    %\end{split}
-    \label{eq:bp}
-\end{equation}
-\\\\
-\noindent
-In Equation \ref{eq:bp}, $\alpha$ is the incident angle and $\beta$ is the diffracted angle. $f_2$ and $f_3$ are the focal lengths associated with the lenses $L_2$ and $L_3$ respectively. These properties and their relations will become more clear when looking at an illustration of a spectrometer in Figure \ref{fig:sysopt} in Section \ref{fig:sysopt}.
-
-
 \\\\
 \section{The GRISM} \label{sec:grism}
 A GRISM is a combination of a grating and a prism - hence the name. The GRISM is a prism stacked in series with a transmission grating, as can be observed in Figure \ref{fig:grism} below.
@@ -292,12 +259,84 @@ https://manoa.hawaii.edu/exploringourfluidearth/physical/ocean-depths/light-ocea
 
 \vspace{1.3cm}
 \section{Properties of Photons}
-Photons...
-\subsection{Flux}
-\subsection{Intensity}
-\subsection{Throughput}
-\subsection{Etendue}
+%https://snl.no/foton
+All electromagnetic radiation, including light, consists of photons. Just as all objects that have mass are built up of atoms, massless light rays are the result of many energy-consistent photons. In order to the determine the amount of light (number of photons) actually passing through a spectrometer, etendue and throughput must be defined. 
 
+\subsection{Etendue}\label{sec:etedue}
+The amount of light detected by the instrument is described by the acceptance area or the field of view photons can travel into. Etendue is the maximum geometric extent allowing traveling photons and thereby characterizing an optical system's ability to accept light. Figure \ref{fig:etendue} is an illustration showing how to review etendue. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 6cm]{Images/theory/etendue.png}
+    \caption{Set-up explaining Etendue}
+    \label{fig:etendue}
+\end{figure}
+\\\\
+\noindent
+S describes the emitting source of light, while Q is the solid angle of which the light propagates into (or out of). By definition, etendue, $G$ is found by $G := \int\int dS dQ$. For a simple spectrometer like the one viewed in this assignment, $G = S \cdot Q = \pi S sin^2(\Omega)$.
+\\\\
+An instrument is defined to be optimally constructed when the instrument can ensure an absence of light loss. This requires a constant etendue throughout the instrument without any reduction from geometrical blocking. The latter implies the similarity $G_2 = G_3$, or $\pi S_2 sin^2(\Omega_2) = \pi S_3 sin^2(\Omega_3)$. The relations between the latter properties will be easier to understand when after looking at the figure describing a spectrometer, Figure \ref{fig:sysopt} in Section \ref{sec:sysopt}. 
+\\\\
+The optimal exit slit width can be calculated from holding the etendue constant through the elements involved - starting at the entrance slit eventually reaching the exit slit. From the entrance slit, the etendue can be expressed by 
+\begin{equation}
+    G_2 = \frac{G_A cos(\alpha)}{f_2^2} \cdot w \cdot h
+    \label{eq:etenentr}
+\end{equation}
+
+Similarly can the etendue from the exit slit be described as follows
+
+\begin{equation}
+    G_3 = \frac{G_A cos(\beta)}{f_3^2} \cdot w' \cdot h'
+    \label{eq:etenexit}
+\end{equation}
+\noindent
+w and h is the entrance width and height, while w' and h' explains similar properties at the exit slit. $G_A cos(\alpha)$ and $G_A cos(\beta)$ defines the illuminated area of the grating as seen from the entrance and exit slit, respectively. Using similarity of form, $h \cdot f_2 = h' \cdot f_3$. Conducting calculations using all of the above, the resulting optimal exit slit width can be found by following similarity.
+\begin{equation}
+    w' = \frac{cos(\alpha)}{cos(\beta)}\cdot \frac{f_3}{f_2}\cdot w
+    \label{eq:exit}
+\end{equation}
+\\\\
+\noindent
+Expressing the exit slit as a function of the entrance slit, reveals useful information on the spectral bandpass and resolution discussed in Section\ref{sec:bp}. 
+
+\subsection{Flux}
+Flux is defined as the number of photons traveling into a solid angle Q, when emitted from a source, $S$, per unit time [sec]. By this definition, flux $\Phi$ can be expressed as:
+\begin{equation}
+    \Phi = \frac{#photons}{s}
+    \label{eq:flux}
+\end{equation}
+Flux can describe both the light intensity and the radiance. This intensity, $I$ is can be found by computing the flux, $\Phi$ per unit solid angle [$sr$]:
+\begin{equation}
+    I = \frac{\Phi}{Q} = \frac{#photons}{sr \cdot s}
+    \label{eq:i}
+\end{equation}
+The radiance, $B$ is the intensity through a unit surface area, A [cm], where A is the yellow area in Figure\ref{fig:etendue}. Given equation \ref{eq:flux} above, $B$ can also be described as the flux of photons per unit area and solid angle.
+\begin{equation}
+    B = \frac{I}{A} = \frac{#photons}{cm^2 \cdot sr \cdot s}
+    \label{eq:b}
+\end{equation}
+\\\\
+Applying the terms above to the definition of etendue, the photon flux through the geometric extent being the etendue, can be described as a function of etendue and radiance. 
+ \begin{equation}
+     \Phi := B\cdot G
+     \label{eq:flux2}
+ \end{equation}
+As will be shown in the next section, equation \ref{eq:flux2} is useful when evaluating the fluxes of photons entering and leaving a spectrometer.
+
+\subsection{Throughput}
+Throughput defines the amount of flux hitting the detector (CCD) at the end of the spectrometer. Simply put, throughput is the usable flux. From equation \ref{eq:etenentr} and \ref{eq:etenexit}, the following similarities can be stated. Assuming that $B_2$ is the total radiance of the entering source of light, equation \ref{eq:fluxinn} is the flux entering the entrance slit, while \ref{eq:fluxut} describes the flux exiting the spectrometer system. 
+
+\begin{equation}
+    \Phi_2 = B_2 \cdot G_2 = B_2 \cdot \frac{G_A cos(\alpha)}{f_2^2} \cdot w \cdot h
+    \label{eq:fluxinn}
+\end{equation}
+
+\begin{equation}
+    \Phi_{\lambda} = B_{r} \cdot G_3 = B_{\lambda}\cdot E_{\lambda}^n \cdot T_{\lambda} \cdot \frac{G_A cos(\beta)}{f_3^2} \cdot w' \cdot h'
+    \label{eq:fluxut}
+\end{equation}
+\noindent
+In equation \ref{eq:fluxut}, $B_{r}$ describes the remaining radiance at the end of the spectrometer, and includes the spectral radiance, $B_{\lambda}$,  multiplied with reducing factors due to loss. $E_{\lambda}^n$ describes the efficiency of the used grating at spectral order n. $T_{\lambda}$ is a factor describing losses due to geometry of the components in the spectrometer. For an optimal spectrometer with an unrealistically efficient gradient, both $E_{\lambda}^n$ and $T_{\lambda}$ are equal to 1.
 
 
 \vspace{1.3cm}
@@ -309,10 +348,10 @@ When retrieving an optical fingerprint it is important to know the optical prope
 Scattering, absorption and reflection are all results of photons interacting with the OOI. 
 %http://www.oceanopticsbook.info/view/overview_of_optical_oceanography/inherent_optical_properties
 \subsection{Absorption} \label{sec:abs}
-During the photon-IOO interaction, the energy of the photon can be converted to another form, leaving the photon to disappear and hence the light to be absorbed. 
+During the photon-OOI interaction, the energy of the photon can be converted to another form, leaving the photon to disappear and hence the light to be absorbed. 
 \\\\
 %https://www.physicsclassroom.com/class/light/Lesson-2/Light-Absorption,-Reflection,-and-Transmission
-Atoms and thereby molecules contain elections. Given the specific atom, these electrons hold a specific natural frequency. Whenever light hits these molecules, the electrons in that molecule will be given a vibrating motion if the frequency of the light is equal to the electrons natural frequency. This vibration is causing energy – energy taken from the lights photons. This way, the electrons absorb the energy of the light by turning it in to vibration energy, which cannot be converted back to light. 
+Atoms and thereby molecules contain elections. Given the specific atom, these electrons hold a specific natural frequency. Whenever light hits these molecules, the electrons in that molecule will be given a vibrating motion if the energy of the photon match the gap between the energy levels in the targeted atom. Then the frequency of the light is equal to the electrons natural frequency. The creation of vibration is a result of energy usage – energy taken from the photons in the light. This way, the electrons absorb the energy of the light by turning it in to vibration energy, which cannot be converted back to light. 
 \\\\
 Different atoms will absorb light at different wavelengths, because they hold different sets of natural vibration frequencies. 
 
@@ -320,13 +359,13 @@ Different atoms will absorb light at different wavelengths, because they hold di
 %{pluss figur?}
 
 \subsection{Scattering}
-During the photon-IOO interaction, the photon might either change its direction, its energy or both. Either of these processes are called scattering. %http://iopscience.iop.org/article/10.1088/0034-4885/36/12/002/pdf 
+During the photon-OOI interaction, the photon might either change its direction, its energy or both. Either of these processes are called scattering. %http://iopscience.iop.org/article/10.1088/0034-4885/36/12/002/pdf 
 More precisely, scattering can be defined as \textit{the change in direction of light flux produced by individual parcels of particulate matter called ‘scatterers’}. This means that light, or other moving particles, are forced to deviate from the straight trajectory they were on to being with, due to the collision between the light wave and the OOI. 
 \\\\
 %http://www.oceanopticsbook.info/view/overview_of_optical_oceanography/inherent_optical_properties 
 As mentioned, these inherent optical properties are again dependent on many other properties. Different materials absorb and scatter very much differently as a function of wavelength. If comparing to particles with the same volume, they will scatter light differently if are of different shapes. Similarly, particles with exact same shape will scatter light differently whenever the volume of the particles differ. A change in the material, size or shape (or the composition of them) will give different IOPs. 
 \\\\
-In the ocean, the physical characteristics of the IOO are highly affected by the surroundings, implying that the IOPs are too. As an example, a change in the concentration of plankton or being in coastal waters instead of the open ocean, will contribute to a significant change in both the resulting absorption and scattering. 
+In the ocean, the physical characteristics of the OOI are highly affected by the surroundings, implying that the IOPs are too. As an example, a change in the concentration of plankton or being in coastal waters instead of the open ocean, will contribute to a significant change in both the resulting absorption and scattering. 
 
 
 \subsection{Spectral Reflectance}\label{sec:specref}
@@ -365,7 +404,38 @@ Rays travelling through a spectrometer can be described by an optical diagram li
 From the figure, one can extract $S$ as the source of light. $S$ illuminates the front lens, $L_1$, with the angle $\Omega$. Furthermore the front lens focuses the light onto the entrance slit, resulting in the imaged area, $S_1$. $G$ is the grating, either transmitting or reflecting, in which $L_2$ collimates with light passing through the entrance slit area, $S_2$, at an angle  $\Omega_2$. The diffracted beam of light from the grating is then focused onto the exit slit by $L_3$, as a function of wavelength. This makes $S_3$ the area of the diffracted entrance slit image. 
 \\\\
 $f_2$ and $f_3$ are the corresponding focal lengths of $L_2$ and $L_3$. Note that as long as $L_1$, $L_2$ and $L_3$ are able to focus or collimate the beam of light, they can be mirrors instead of lenses. 
+\\\\
+\subsection{The Spectral Bandpass and Resolution} \label{sec:bp}
+%https://www.horiba.com/en_en/bandpass-resolution/
+Both spectral bandpass and resolution characterize the ability the instrument has to separate adjacent spectral lines. This way, the bandpass defines the spectral interval to be isolated. This is assuming the light source is continuum. As will be shown below, the bandpass is mainly dependent on  the width of the grating, entrance and exit slit widths and the spatial resolution of the CCD. 
+\\\\
+The isolated spectral interval (bandpass) can be found from the recorded Full Width at Half Maximum (FWHM) of a monochromatic spectral line. In reality, there are no perfect spectrometer. This is why the bandpass is approximated to FWHM. Figure \ref{fig:bp} shows the effect of spectral resolution of a monochromatic line. As displayed, the bandpass at wavelength $\lambda_0$ can be found at half intensity, $B$. 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=5cm]{Images/theory/bp.png}
+    \caption{Spectral resolution of monochromatic line}
+    \label{fig:bp}
+\end{figure}
+\todo{lage en finere skisse}
+\noindent
+Note that the assumption of a monochromatic spectral line does not restrict to only one line. Any spectral structure can be considered as the sum of infinite single monochromatic lines at different wavelengths.
+\\\\
+The spectral bandpass can then be calculated as the wavelength distribution along the x-axis multiplied by the exit slit width. This wavelength distribution is called \textit{the linear dispersion}, and is defined as $d\lambda/dx$. Using the angular dispersion from equation \ref{eq:angdisp} and the similarity $dx = f_3 d\beta$, the spectral bandpass can be calculated. As known from equation \ref{eq:exit} in Section\ref{fig:etendue}, the exit slit width, $w'$ is dependent on the entrance slit width, $w$ through $w' = \frac{cos(\alpha)}{cos(\beta)}\cdot \frac{f_3}{f_2}\cdot w$.
+
+\begin{equation}
+    %\begin{split}
+    FWHM = \frac{d\lambda}{dx} \cdot w'\hspace{0.5cm}
+    = \frac{d\lambda}{d\beta} \frac{d\beta}{dx}\cdot w' \hspace{0.5cm}
+    = \frac{a cos(\beta)}{n} \frac{1}{f_3}\cdot w' \hspace{0.5cm}
+    = \frac{a cos(\alpha)}{n\cdot f_2}\cdot w
+    %\end{split}
+    \label{eq:bp}
+\end{equation}
+\\\\
+\noindent
+In Equation \ref{eq:bp}, $\alpha$ is the incident angle and $\beta$ is the diffracted angle. $f_2$ and $f_3$ are, as mentioned, the focal lengths associated with the lenses $L_2$ and $L_3$ respectively.
+\\\\
 %\subsection{Bandpass and Resolution}
 \subsection{The GRISM Spectrograph}
 In section \ref{sec:grism}, the GRISM, and how it could obtain a straight through center wavelength parallel to the optical axis, was elaborated. Therefore, using a GRISM as the dispersive element is popular when designing a spectrometer. Figure \ref{fig:grismspec} shows a typical 3D configuration of a GRISM spectrograph in hyperspectral image mode, illustrating the basic elements of hyperspectral imaging. Of the illustration, one can observe how the elements are stacked at the right next to each other (on axis), supporting the previous stated properties of the GRISM. This on-axis design reduces geometrical aberrations and thereby improves the resolution. 
@@ -380,7 +450,7 @@ Similar to the spectrometer already discussed above (section \ref{sec:sysopt}), 
 \end{figure}
 
 
-\chapter{Theory II - Imaging}
+\chapter{Theory II - Imaging} %imaging
 \label{chap:theory2}
 \todo[inline, color = orange!40]{Imaging Precess}
 %Denne skal jeg få tilsendt av Asgeir
@@ -465,10 +535,8 @@ During the exposure, the airplane has moved from the first state to the second. 
     \label{eq:spares}
 \end{equation}
 \noindent
-Equation \ref{eq:dx} shows how $dx$, an thereby also the spatial resolution, is connected to the spectral bandpass through the slit width, $w$. 
+Equation \ref{eq:dx} shows how $dx$, an thereby also the spatial resolution, is connected to the spectral bandpass through the slit width, $w$, as described in Section \ref{sec:bp}. 
 
-
-\todo[inline, color=blue!30]{legg inn bandpass i teori del 1}
 %Info hentet fra bok: techniques and applications of hyperspectral image analysis
  %oppsettene inkluderer lyskilde, et filtersystem som disperse the light into bands of wavelenghts, en sample. Hvis kilden inneholder et bredt lysspekter, kan man velge ut bølgelengder ved å bruke bandpass-filters etter ønske.
 
@@ -542,6 +610,7 @@ In order to reduce noise, each image is corrected using a clean background. From
 \\\\
 This way, the system can be used for both large- and small-scale experiments. In smaller scale, the SilCam is able to quantify the distribution of suspended material. Zoo-plankton, larger phyto-plankton, mineral grains and marine snow are all examples of objects the SilCam can detect. 
 
+
 \chapter{Theory III - Data and Data Tracking} \label{cap:theory3}
 This chapter presents ways of handling data. In this thesis, the data collected is regarding the five types of microplastic, also elaborated here. 
 
@@ -590,16 +659,19 @@ In order to georeference an image, control points need to be established. These 
 \section{Principal Component Analysis} \label{sec:pca}
 This section contain knowledge gained in TTK19...
 \\\\
-The purpose of conducting a principal component analysis (PCA) is to extract the information from the data, while disregarding the noise, reducing the dimension of the dataset. The analysis converts a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called principal components. These principal components will describe the overall variation of the dataset and thereby serve as a latent variable. 
+The main purpose of conducting a principal component analysis (PCA) is to extract only the useful information from the dataset. The analysis converts a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called principal components. These principal components will describe the overall variation of the dataset and thereby serve as a latent variable. In most cases, only two or three principal components explain almost the entire dataset. By disregarding the remaining percentage (which often is explained with several components), the dimension of the dataset is reduced. In most cases, this reduction reveals and highlights only the relevant variations. In addition, a reduced set will often have a decreased error rate because of the lower amount of variables connected to the sample, excluding the relations typically regarded as noise. Lastly, the resulting set will have a lower computational time and thereby cost.
 \\\\
-Now, how are these principal components found? Figure a) below describes the entire dataset with the dots describing single data observations. The analysis starts by finding the projection of each observation onto a line. The line is drawn with the purpose of explaining as many observations as possible with a minimal residual error, b). The distance from the origin to this projected point along the line is the score associated with the related observation. The direction of the line is now characterized with giving the largest variance of the scores, and is described by direction vectors called loadings. 
+Now, how are these principal components found? Figure \ref{fig:pca1} a) below describes the entire dataset with one dot describing one sample/single data observation. The analysis begins with finding the projection of each observation onto a line. The line is drawn with the purpose of explaining as many observations as possible, but minimizing the total distance between the samples and their projection. This resulting line can be found in illustration b). The distance from the origin to this projected point along the line is the score associated with the related observation. 
+%The direction of the line is now characterized with giving the largest variance of the scores, and is described by direction vectors called loadings. 
 \\\\
 %Simply put, the original data is estimated by multiplying the scores with the associated loadings.
-This first line created is called the first principal component. The second principal component, c), is perpendicular to the first component’s direction and is otherwise found the same way. This way, the first principal component has the largest possible variance. Each following component will, in turn, have the highest variance possible under the constraint that it is perpendicular to the previous components. 
-
+\noindent
+This way, the first line created as the highest variance. This line is called the first principal component. When creating an additional space, the new component needs to be uncorrelated with the others. The second principal component, illustrated in c), is therefore perpendicular to the first component’s direction, but is otherwise found the same way. This way, the first principal component has the largest possible variance. Each following component will, in turn, have the highest variance possible under the constraint that it is perpendicular to the previous components.
+\\\\
+Of the results it is often possible to detect trends and clusters. This is typically for unsupervised learning, where the purpose is to gain knowledge about the samples relative to each other. This way, one can learn what factors provide the variation of the data and how the samples are correlated – even if the preknowledge regarding the dataset is next to nothing. 
 %FIGURENE:
 %https://learnche.org/pid/latent-variable-modelling/principal-component-analysis/geometric-explanation-of-pca
-\begin{figure}[H]
+\begin{figure}[H] \label{fig:pca1}
   \newcommand*\FigVSkip{0.5em}
   \newcommand*\FigHSkip{0.1em}
   \newsavebox\FigBox
@@ -622,13 +694,27 @@ This first line created is called the first principal component. The second prin
     \subcaption{c) Including second principal component}
   \end{minipage}\hspace*{\FigHSkip}
   % Save second image 
-  \label{head}
 \end{figure}
 
-\subsection{Scores, Loadings, F-residuals, Hotellings T^2 }
-https://learnche.org/pid/latent-variable-modelling/principal-component-analysis/interpreting-the-residuals
 
-\vspace{1.3cm}
-\section{Sensor Carrying Platform}
-%ulike sensorer for deteksjon og kartlegging (vise sammenhengen til dette og en bredere oversikt - dette blir isåfall bare her, men tas ikke med videre - i metode kan vi heller si at vi avgrenser mot cam. + aktuelle sensorer
+%https://learnche.org/pid/latent-variable-modelling/principal-component-analysis/interpreting-the-residuals
+\subsection{Scores}
+As mentioned, every sample has an associated score described by the distance along the principal component from the origin to the projected point of the sample. All scores of the reduced dataset are represented in a scatter plot. As the axes in this plot are fully consistent of the used principal components, it is possible to interpret the original data by detecting patterns in the score plot. 
+\\\\
+Now, how are these pattern detected? When searching for patterns it is common to look for clustering of samples indicating correlation between the samples due to similar values at a high degree of the variables. This will, in turn, indicate similar properties for the clustered samples. In addition, outliers can be found as a lonely sample located away from the rest of the set. Outliers are important as they may affect the result even more than the rest of the set, pulling the result in the direction of its location. Either the deviation is explainable, indicating that the sample should remain, or the sampling process has been noisy, making the outlier non-representable. In the latter case, the sample should be removed from the set. 
+
+\subsection{Loadings}
+The amount of influence each variable has on the principal components, defines the associated loading. This can be interpreted from the loadings plot, as its axes determines the effect the variables has on the first and second component, respectively (or any other component included in the reduced set). This way, a low loading is dedicated to variables with low contribution and vice versa. 
+
+\subsection{Residuals}
+Residuals describe the deviation in the predicted values. The residual plot is therefore a good visual indication of how well aligned the model is in reference to the actual measurements. The plot contains lines separating the samples at a given deviation percentage. This way, samples with residuals above this line, can for instance be interpreted further.
+\\\\
+Whenever large deviations occur, a contribution plot can be analyzed. A contribution plot is a visualization of the residuals for each principal component, making it easier to determine the cause of the deviation. 
+
+\subsection{Hotelling's $T^2$}
+Hotellings $T^2$ is simply the summation of all scores. Nevertheless, these results are very useful, especially when detecting outliers. The resulting plot consists of two ellipses defining two intervals in percent. The percentage determining these intervals value, but they are normally based on the confidence interval in a normal distribution - typically 95\% for the inner ellipse and 99\% for the outer. Normally the variables of the inner circle turns out to be more significant than the outer. 
+
+\subsection{Hotelling's $T^2$ VS Residual}
+The plot consistent of the hotelling’s $T^2$ values on the x-axis and residuals on the y-axis, is called a influence or leverage plot. This plot can be divided into four sections describing the relation between leverage and deviation of an observation. Bottom left contains low leveraged data with small deviations, while top right describes data with high influence and high associated residuals. It is especially important to detect an analyze the observations with both large deviation and large leverage, as these affect the results to a high degree while at the same time possibly pulling the results in the wrong direction (due to error). 
+
 
