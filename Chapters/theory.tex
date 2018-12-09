@@ -144,6 +144,39 @@ Angular dispersion is a measure of how the diffracting waves are spread, per uni
     \frac{d\beta}{d\lambda} = \frac{n}{a cos(\beta)}
     \label{eq:angdisp}
 \end{equation}
+
+\subsection{The Spectral Bandpass}
+%https://www.horiba.com/en_en/bandpass-resolution/
+Both spectral bandpass and resolution characterize the ability the instrument has to separate adjacent spectral lines. This way, the bandpass defines the spectral interval to be isolated. This is assuming the light source is continuum. As will be shown below, the bandpass is mainly dependent on  the width of the grating, entrance and exit slit widths and the spatial resolution of the CCD. 
+\\\\
+The isolated spectral interval (bandpass) can be found from the recorded Full Width at Half Maximum (FWHM) of a monochromatic spectral line. In reality, there are no perfect spectrometer. This is why the bandpass is approximated to FWHM. Figure \ref{fig:bp} shows the effect of spectral resolution of a monochromatic line. As displayed, the bandpass at wavelength $\lambda_0$ can be found at half intensity, $B$. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=5cm]{Images/theory/bp.png}
+    \caption{Spectral resolution of monochromatic line}
+    \label{fig:bp}
+\end{figure}
+\todo{lage en finere skisse}
+\noindent
+Note that the assumption of a monochromatic spectral line does not restrict to only one line. Any spectral structure can be considered as the sum of infinite single monochromatic lines at different wavelengths.
+\\\\
+The spectral bandpass can then be calculated as the wavelength distribution along the x-axis multiplied by the exit slit width. This wavelength distribution is called \textit{the linear dispersion}, and is defined as $d\lambda/dx$. Using the angular dispersion from equation \ref{eq:angdisp} and the similarity $dx = f_3 d\beta$, the spectral bandpass can be calculated. The exit slit width, $w'$ is dependent on the entrance slit width, $w$ through $w' = \frac{cos(\alpha)}{cos(\beta)}\cdot \frac{f_3}{f_2}\cdot w$.
+
+\begin{equation}
+    %\begin{split}
+    FWHM = \frac{d\lambda}{dx} \cdot w'\hspace{0.5cm}
+    = \frac{d\lambda}{d\beta} \frac{d\beta}{dx}\cdot w' \hspace{0.5cm}
+    = \frac{a cos(\beta)}{n} \frac{1}{f_3}\cdot w' \hspace{0.5cm}
+    = \frac{a cos(\alpha)}{n\cdot f_2}\cdot w
+    %\end{split}
+    \label{eq:bp}
+\end{equation}
+\\\\
+\noindent
+In Equation \ref{eq:bp}, $\alpha$ is the incident angle and $\beta$ is the diffracted angle. $f_2$ and $f_3$ are the focal lengths associated with the lenses $L_2$ and $L_3$ respectively. These properties and their relations will become more clear when looking at an illustration of a spectrometer in Figure \ref{fig:sysopt} in Section \ref{fig:sysopt}.
+
+
 \\\\
 \section{The GRISM} \label{sec:grism}
 A GRISM is a combination of a grating and a prism - hence the name. The GRISM is a prism stacked in series with a transmission grating, as can be observed in Figure \ref{fig:grism} below.
@@ -425,7 +458,14 @@ It is common to believe that the spatial resolution is dependent on the number o
     dx = \frac{z \cdot w}{f_1}
     \label{eq:dx}
 \end{equation}
-Equation \ref{eq:dx} shows how $dx$ is connected to spectral bandpass through the slit width, $w$. 
+During the exposure, the airplane has moved from the first state to the second. This distance can be calculated from the time spent at the constant velocity held: $distance = \nu \cdot (t_1 - t_0) = \nu \cdot \Delta t$. The spatial resolution becomes equal to the distance from A to B. Of the figure, this distance is observed as: 
+
+\begin{equation}
+    \Delta x = dx + \nu \cdot \Delta t
+    \label{eq:spares}
+\end{equation}
+\noindent
+Equation \ref{eq:dx} shows how $dx$, an thereby also the spatial resolution, is connected to the spectral bandpass through the slit width, $w$. 
 
 
 \todo[inline, color=blue!30]{legg inn bandpass i teori del 1}
@@ -439,13 +479,14 @@ Equation \ref{eq:dx} shows how $dx$ is connected to spectral bandpass through th
 %Hyperspectral imaging and data analysis for detecting and determining plastic contamination in seawater filtrates, 2016,  Bert van Bavela
 %http://journals.sagepub.com/doi/pdf/10.1255/jnirs.1212
 \noindent
-Concerning plastics, this translates to receiving information on both spatial location of plastic material, and the plastic materials composition. 
+Concerning plastic, this translates to receiving information on both spatial location of plastic material, and the plastic materials composition. 
 %Volent, Z., Johnsen, G., & Sigernes, F. (2007). Kelp forest mapping by use of airborne hyperspectral imager. Journal of Applied Remote Sensing, 1, 011503–011521.
 %Volent, Z., Johnsen, G., & Sigernes, F. (2009). Microscopic hyperspectral imaging used as a bio-optical taxonomic tool for micro- and macroalgae. Applied Optics, 48, 4170–4176.
-\\\\
+%
+%
 %(Development of hyperspectral imaging as a bio-optical taxonomic tool for pigmented marine organisms - geir)
 \noindent
-HI and UHI can be used as a taxonomical identification tool to make optical fingerprints of marine organisms only if the pigment composition and corresponding absorption signature of the organism is known and can be used to verify the reflectance signature
+HI and UHI can be used as a taxonomical identification tool to make optical fingerprints of marine organisms, only if the pigment composition and corresponding absorption signature of the organism is known and can be used to verify the reflectance signature.
 \\\\
 \noindent
 When the hyperspectral camera is taken underwater, the lighting is limited. The UHI is therefore using its own light sources, in contrast to passive passive techniques using ambient light.
@@ -509,7 +550,7 @@ This chapter presents ways of handling data. In this thesis, the data collected 
 %Kjemi
 \todo[inline, color=orange!40]{ta med figur av alles struktur?}
 \noindent
-As mentioned, plastics have permeated almost every aspect of modern day life with its large applicability. We find plastics in the microchips in our computers, as well as in the bags we carry our groceries in. It seems that plastic covers a wide spectrum of applications.  One reason to this, is the many different types of plastic, covering different areas of need. Polyethylene (PE), polypropylene (PP), polyethylene terephthalate (PET), polyvinyl chloride (PVC) and polystyrene (PS), are the five most common types of plastic, in large part covering of the global plastic production. Besides containing Carbon-Hydrogen bindings, these are all structurally different and they are classified according to their chemical structure. In this section, these five types of plastic are presented in decreasing order. 
+As mentioned, plastics have permeated almost every aspect of modern day life with its large applicability. We find plastic in the microchips in our computers, as well as in the bags we carry our groceries in. It seems that plastic covers a wide spectrum of applications.  One reason to this, is the many different types of plastic, covering different areas of need. Polyethylene (PE), polypropylene (PP), polyethylene terephthalate (PET), polyvinyl chloride (PVC) and polystyrene (PS), are the five most common types of plastic, in large part covering of the global plastic production. Besides containing Carbon-Hydrogen bindings, these are all structurally different and they are classified according to their chemical structure. In this section, these five types of plastic are presented in decreasing order. 
 \\\\
 %Plastic polymers commonly found in the environment are polypropylene (PP), polyethylene (PE), polyethylene terephthalate (PET), polystyrene (PS) and polyvinylchloride (PVC).8 Together these comprise 72.9 percent of the plastic produced globally.9
 
@@ -529,7 +570,7 @@ Polyvinyl chloride (PVC) with a number of vinyl chloride molecules formulated by
 \subsection{Polyethylene terephthalate}
 Polyethylene terephthalate (PET) consist of repeating ethylene terephthalate molecules, holding the chemical formula $C_{10}H_8O_4$. Typically PET is used in plastic bottles and in fibers for clothing. For the latter use, the type is commonly known as polyester. Depending on the specific particle's size and crystal structure, the semi crystalline material, PET, might appear transparent. 
 
-\subsection{Polystyrene (PS)}
+\subsection{Polystyrene}
 %https://www.azom.com/article.aspx?ArticleID=7915
 Polystyrene (PS) is an inexpensive plastic type commonly used for packaging purposes, with the chemical formula being $(C_8H_8)_n$. PS increasingly exists in the outdoor environment, particularly along shores. The plastic is naturally clear, hard and brittle. The latter fact is perhaps the main reason to why larger pieces of PS easily turn into microplastic. 
 
