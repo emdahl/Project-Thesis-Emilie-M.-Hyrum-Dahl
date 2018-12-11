@@ -1,4 +1,4 @@
-\chapter{Theory I - Optics}
+\chapter{Fundamentals of Optics}
 \label{chap:theory1}
 %- Hva karakterieserer plast utifra hva vi vet
 %- ulike sensorer for deteksjon og kartlegging (vise sammenhengen til dette og en bredere oversikt - dette blir isåfall bare her, men tas ikke med videre - i metode kan vi heller si at vi avgrenser mot cam)
@@ -22,7 +22,7 @@ Breaking down the definition of light, light can be defined as tiny packets call
     E(x,t) = E_0 sin(kx+\omega t)
     \label{eq:aml2d}
 \end{equation}
-$E_0$ represents the maximum amplitude of the wave. The wave repeats itself periodically with the period T. k is the wave number defined by $k= \frac{2 \pi}{\lambda}$, while $\omega$ is the angular velocity expressed as $k= \frac{2 \pi}{T}$.
+$E_0$ represents the maximum amplitude of the wave. The wave repeats itself periodically with the period T. k is the wave number defined by $k= \frac{2 \pi}{\lambda}$, while $\omega$ is the angular velocity expressed as $\omega = \frac{2 \pi}{T}$.
 \\\\
 The wave can also be expressed as the real part of a complex number, $z = E_0(cos(\phi) + i sin(\phi))$, when $\phi$ is the phase shift represented by $\phi = kx + \omega t$. Using Euler's formula: $e^{i \phi} = cos(\phi) + i sin(\phi)$, a 3D wave can be expressed by: 
 
@@ -31,20 +31,20 @@ The wave can also be expressed as the real part of a complex number, $z = E_0(co
     \label{eq:aml3d}
 \end{equation}
 
-where $\textbf{r}$ is the position of the phase now defined as 
+where $\textbf{r} \in \textbf{R}^3$ is the position of the phase now defined as 
 
 \begin{equation}
     \phi = \textbf{k}\cdot \textbf{r} - \omega t + \xi,
     \label{eq:phase}
 \end{equation}
 
-where $\xi$ is the initial phase of the wave. 
+where $\textbf{k} \in \textbf{R}^3$ is the 3D wave number and $\xi$ is the initial phase of the wave. 
 \\\\
-However, this equations above is representing no more than one wave. Two waves not interacting with each other will propagate like represented above, but what happens when two or more waves meets and in fact do interact with each other? 
+However, the equations above are representing no more than one wave. Two waves not interacting with each other will propagate like represented above, but what happens when two or more waves meets and in fact do interact with each other? 
 
 \vspace{1.3cm}
 \section{Interference}
-Interference consider the case when two or more waves act together. Starting with two waves, respectively $S_1$ and $S_2$, interacting with each other at P as illustrated in Figure \ref{fig:interference}. Of equation \ref{eq:aml3d}, the $S_1$ and $S_2$ are represented by
+Interference consider the case when two or more waves act together. Starting with two waves, respectively $S_1$ and $S_2$, interacting with each other at P as illustrated in Figure \ref{fig:interference}. From (\ref{eq:aml3d}), the $S_1$ and $S_2$ are represented by
 
 \begin{equation}
     \begin{split}
@@ -54,7 +54,7 @@ Interference consider the case when two or more waves act together. Starting wit
     \label{eq:2int}
 \end{equation}
 \\\\
-with their associated phase shift expressed as presented in equation \ref{eq:phase}:
+with their associated phase shift expressed as presented in (\ref{eq:phase}):
 \begin{equation}
     \begin{split}
     \phi_1 = \textbf{k}_1\cdot \textbf{r}_1 - \omega t + \xi_1\\
@@ -68,14 +68,14 @@ with their associated phase shift expressed as presented in equation \ref{eq:pha
     \caption{Two waves, $S_1$ and $S_2$, interfering}
     \label{fig:interference}
 \end{figure}
-Of Figure \ref{fig:interference}, one can conclude that the resulting wave, $\textbf{E}$ must be the sum of the two vectors interacting, $\textbf{E} = \textbf{E}_1 + \textbf{E}_2$. This applies to the resulting phase difference too, which thereby can be retrieved from equation \ref{eq:2intphase}: $\sigma = \textbf{k}_1\cdot \textbf{r}_1 - \textbf{k}_2\cdot \textbf{r}_2 + (\xi_1 - \xi_2)$. Now, the intensity of the final wave can be found by multiplying this resulting wave-vector, $\textbf{E}$, with its conjugate, $\textbf{E}^*$: 
+Of Figure \ref{fig:interference}, one can conclude that the resulting wave, $\textbf{E}$ must be the sum of the two vectors interacting, $\textbf{E} = \textbf{E}_1 + \textbf{E}_2$. This applies to the resulting phase difference too, which thereby can be retrieved from (\ref{eq:2intphase}): $\sigma = \textbf{k}_1\cdot \textbf{r}_1 - \textbf{k}_2\cdot \textbf{r}_2 + (\xi_1 - \xi_2)$. Now, the intensity of the final wave can be found by multiplying this resulting wave-vector, $\textbf{E}$, with its conjugate, $\textbf{E}^*$: 
 
 \begin{equation}
     I = \textbf{E} \cdot \textbf{E}^* = \textbf{E}_{01}^2 + \textbf{E}_{02}^2 + 2\textbf{E}_{01}\cdot \textbf{E}_{02} cos(\sigma)
     \label{eq:two-wave-intensity}
 \end{equation}
 \\\\
-The intensity in the equation above, eq \ref{eq:two-wave-intensity}, represents constructive interference at its maximum, whenever $cos(\sigma)$ is equal to 1, and expresses destructive interference at its minimum, when $cos(\sigma)$ equals -1. Constructive interference is hence present when the phase shift, $\sigma$ is expressed as:
+The intensity in the equation above, (\ref{eq:two-wave-intensity}), represents constructive interference at its maximum, whenever $cos(\sigma)$ is equal to 1, and expresses destructive interference at its minimum, when $cos(\sigma)$ equals -1. Constructive interference is hence present when the phase shift, $\sigma$ is expressed as:
 
 \begin{equation}
     \sigma = 2 n \pi,
@@ -92,8 +92,8 @@ Now, let us apply this to N number of waves, with several wave sources, up to $S
     \label{fig:Ninterference}
 \end{figure}
 \\\\
-The N waves are emitted by $S_N$ coherent and monochromatic sources separated by a distance, $a$. As the waves are coherent, the phase difference between the waves are constant. This means that the second term in equation \ref{eq:2intphase} can be ignored because $\xi_1$ = $\xi_2$ = ... = $\xi_N$. The phase difference is thus only due to the path difference between the waves, $\sigma = \textbf{k} \cdot \textbf{r}$. Of Figure \ref{fig:Ninterference}
-$\textbf{r}$ can be retrieved as $a sin (\beta)$, while $k= \frac{2 \pi}{\lambda}$. Combining this with equation \ref{eq:maks}, $\textit{the grating equation}$ is found: 
+The N waves are emitted by $S_N$ coherent and monochromatic sources separated by a distance, $a$. As the waves are coherent, the phase difference between the waves are constant. This means that the second term in (\ref{eq:2intphase}) can be ignored because $\xi_1$ = $\xi_2$ = ... = $\xi_N$. The phase difference is thus only due to the path difference between the waves, $\sigma = \textbf{k} \cdot \textbf{r}$. Of Figure \ref{fig:Ninterference}
+$\textbf{r}$ can be retrieved as $a sin (\beta)$, while $k= \frac{2 \pi}{\lambda}$. Combining this with (\ref{eq:maks}), $\textit{the grating equation}$ is found: 
 \begin{equation}
     n \lambda = a sin(\beta)
     \label{eq:transgrating}
@@ -101,8 +101,7 @@ $\textbf{r}$ can be retrieved as $a sin (\beta)$, while $k= \frac{2 \pi}{\lambda
 
 \vspace{1.3cm}
 \section{Diffraction}
-While interference is a result of individual sources
-interacting with each other, diffraction is present when a wave is distorted by an external object, with a comparable dimension to the wavelength of the wave. The figure below, Figure \ref{fig:diffraction} exemplifies diffraction with a port entrance wall as the external object. 
+While interference is a result of individual sources interacting with each other, diffraction is present when a wave is distorted by an external object, with a comparable dimension to the wavelength of the wave. Figure \ref{fig:diffraction} exemplifies diffraction with a port entrance wall as the external object. 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.3\textwidth]{Images/theory/diffraction.png}
@@ -116,7 +115,7 @@ When the waves hit the external object in the figure above, a number of new wave
 %that the location of the intensity maxima for each order increases for increasing wavelength. This effect is the opposite of what happens with a prism, where there are no spectral orders and blue light is more refracted than red.
 
 \subsection{Reflective Gratings}
-The grating equation in \ref{eq:transgrating} assumes a grating transmitting light. The reflective grating, however, reflects the light. This grating can be thought of as a polished surface with parallel grooves - as shown in Figure \ref{fig:refgrating}. Between the grooves, parallel mirrors constitutes the grating, each mirror acting as a source of interference. 
+The grating equation, (\ref{eq:transgrating}), assumes a grating transmitting light. The reflective grating, however, reflects the light. This grating can be thought of as a polished surface with parallel grooves - as shown in Figure \ref{fig:refgrating}. Between the grooves, parallel mirrors constitutes the grating, each mirror acting as a source of interference. 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.4\textwidth]{Images/theory/refgrating.png}
@@ -130,7 +129,7 @@ As explained in Section \ref{sec:light}, the phase difference of waves propagati
     \sigma = \frac{2 \pi}{\lambda}(BC + AD) = \frac{2 \pi}{\lambda} (a sin(\alpha) + a sin(\beta))
 \end{equation}
 \\\\
-At maximum intensity (equation \ref{eq:maks}), the reflecting grating equation is found:
+At maximum intensity (\ref{eq:maks}), the reflecting grating equation is found:
 \begin{equation}
     n \lambda = a (sin(\beta) + cos(\alpha))
     \label{eq:refgrating}
@@ -139,7 +138,7 @@ At maximum intensity (equation \ref{eq:maks}), the reflecting grating equation i
 Once again, n is the spectral order. $\alpha$ is the incident angle, and $\beta$ represents the diffracted angle of the grating.
 \\\\
 \subsection{Angular Dispersion}
-Angular dispersion is a measure of how the diffracting waves are spread, per unit wavelength. The angular dispersion of a grating is defined as $d\beta/d\lambda$. This can be derived by differentiating the grating equation, equation \ref{eq:refgrating}. 
+Angular dispersion is a measure of how the diffracting waves are spread, per unit wavelength. The angular dispersion of a grating is defined as $d\beta/d\lambda$. This can be derived by differentiating the grating equation, (\ref{eq:refgrating}). 
 \begin{equation}
     \frac{d\beta}{d\lambda} = \frac{n}{a cos(\beta)}
     \label{eq:angdisp}
@@ -157,16 +156,16 @@ A GRISM is a combination of a grating and a prism - hence the name. The GRISM is
 \noindent
 For a grating, the intensity maximum for each spectral order, n, increases with increasing wavelength. A prism however, have no spectral orders and refracts blue light more than red. The net effect is a compact spectrum able to obtain a straight through center wavelength, parallel to the optical axis of the system. This on-axis effect, makes it easy to stack additional optics in both ends - the front and the back side of the GRISM. Due to absence of off-axis effects, image quality is preserved.
 \\\\
-When calculating the angular dispersion of a GRISM, the result is equal to the angular dispersion of a grating (equation \ref{eq:angdisp}), except for one additional term. This turns out to be a non-negative term, implying that the GRISM has an increased angular dispersion compared to a grating alone.
+When calculating the angular dispersion of a GRISM, the result is equal to the angular dispersion of a grating (\ref{eq:angdisp}), except for one additional term. This turns out to be a non-negative term, implying that the GRISM has an increased angular dispersion compared to a grating alone.
 
 \vspace{1.3cm}
 \section{The Behavior of Light in Air}
-Light in air behaves differently than in water. In air, the light will not be attenuated, which means that the reflection can be expressed by the light intensity, $I_ {\lambda}$ (eq \ref{eq:int}), describing the colors observed on the object.
+Light in air behaves differently than in water. In air, the light will not be attenuated, which means that the reflection can be expressed by the light intensity, $I_ {\lambda}$ (\ref{eq:int}), describing the colors observed on the object.
 \begin{equation} \label{eq:int}
     I_ {\lambda} (L, z) = \frac{S \cdot \kappa_{\lambda}\cdot cos^{3}\cdot (\alpha)}{z^2}
 \end{equation}
 \\\\
-In equation \ref{eq:int}, $I_{\lambda}$ represents the light intensity at a given wavelength, lambda, while S is the light source. L is the distance between the object and the viewpoint, while z describes the distance from the object to the light source. Furthermore, $\kappa_{\lambda}$ describes the reflectance ratio of the object's surface at a given wavelength, $\lambda$. $\alpha$ is the angle between the ray vector from the light source and the normal vector of the object surface.
+In (\ref{eq:int}), $I_{\lambda}$ represents the light intensity at a given wavelength, lambda, while S is the light source. L is the distance between the object and the viewpoint, while z describes the distance from the object to the light source. Furthermore, $\kappa_{\lambda}$ describes the reflectance ratio of the object's surface at a given wavelength, $\lambda$. $\alpha$ is the angle between the ray vector from the light source and the normal vector of the object surface.
 \begin{figure}[H]
 \centering
   \includegraphics[width=8cm]{Images/theory/reflectance.png}
@@ -178,11 +177,11 @@ In equation \ref{eq:int}, $I_{\lambda}$ represents the light intensity at a give
 However, it is different if we do the same underwater. In water, light attenuation will be present and affect how the light is reflected. This will be elaborated in the following section.
 
 \vspace{1.3cm}
-\section{The Behavior of Light in Water}
+\section{The Behavior of Light in Water}\label{lightinwater}
 %The light intensity decreases with the distance from objects in water by light attenuation depending on the wavelength of light. Red light decreases easier than blue light in water [E. O. Hulburt: “Optics of Distilled and Natural Water,” Journal of the Optical Society of America, Vol.35, pp.689–705, 1945].
-The reason why the color of objects is different under water and in air, is that the light intensity, in water, decreases with the distance (r) to the object. This is, as mentioned, due to light attenuation, which again depends on the wavelength of the light. %([E. O. Hulburt: “Optics of Distilled and Natural Water,” Journal of the Optical Society of America, Vol.35, pp.689–705, 1945].) 
+The reason why the color of objects underwater differ from when in air, is that the light intensity, in water, decreases with the distance (r) to the object. This is, as mentioned, due to light attenuation, which again depends on the wavelength of the light. %([E. O. Hulburt: “Optics of Distilled and Natural Water,” Journal of the Optical Society of America, Vol.35, pp.689–705, 1945].) 
 \\\\
-From figure \ref{fig:lightinwater}, it can be observed that the intensity of the different colors decreases differently, even at the same distance, r. If the light source is 2 m away, red light will shine at half intensity, while blue light remains close to unchanged. At a distance of 20 meters, blue light will brighten at half-intensity. In this case, red and orange color will disappear.
+From Figure \ref{fig:lightinwater}, it can be observed that the intensity of the different colors decreases differently, even at the same distance, r. If the light source is 2 m away, red light will shine at half intensity, while blue light remains close to unchanged. At a distance of 20 meters, blue light will brighten at half-intensity. In this case, red and orange color will disappear.
 %Color Registration of Underwater Images for Underwater Sensing with Consideration of Light Attenuation
 %https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4209801
 \begin{figure}[H]
@@ -199,7 +198,7 @@ As shown in the figure \ref{fig:lightinwater}, the light intensity decreases exp
 S_{\lambda} (z) = S_0 \cdot exp (-c_{\lambda} \cdot r)
 \end{equation}
 \\\\
-In eq \ref{eq:source}, $S_{\lambda}$ describes the light intensity at wavelength $\lambda$, while $S_0$ is the intensity at the light source. Furthermore, r describes the distance between the light source and the viewpoint, while $c_{\lambda}$ is the attenuation coefficient of the wavelength $\lambda$, illustrated by figure \ref{fig:attcoeff}.
+In (\ref{eq:source}), $S_{\lambda}$ describes the light intensity at wavelength $\lambda$, while $S_0$ is the intensity at the light source. Furthermore, r describes the distance between the light source and the viewpoint, while $c_{\lambda}$ is the attenuation coefficient of the wavelength $\lambda$, illustrated by Figure \ref{fig:attcoeff}.
 \\\\
 By taking the attenuation coefficient, $c_{\lambda}$, into consideration, the light intensity in water can be expressed by the following similarity. 
 
@@ -207,7 +206,7 @@ By taking the attenuation coefficient, $c_{\lambda}$, into consideration, the li
     I_ {\lambda} (L, z) = \frac{S \cdot \kappa_{\lambda}\cdot cos^{3}\cdot (\alpha)}{z^2} \cdot exp \left(-c_{\lambda}\left(\frac{z}{cos(\alpha)}\frac{L}{cos(\theta)}\right)\right)
 \end{equation}
 \\\\
-Interpreting eq \ref{eq:intw}, the intensity of light decreases when $c_{\lambda}$ increases. If $c_{\lambda} = 0$, meaning the light attenuation not being present, the resulting intensity becomes the same as the light intensity in air, eq \ref{eq:int}. 
+Interpreting (\ref{eq:intw}), the intensity of light decreases when $c_{\lambda}$ increases. If $c_{\lambda} = 0$, meaning the light attenuation not being present, the resulting intensity becomes the same as the light intensity in air, (\ref{eq:int}). 
 
 \begin{figure}[H]
 \centering
@@ -222,14 +221,16 @@ Interpreting eq \ref{eq:intw}, the intensity of light decreases when $c_{\lambda
 
 %Stereo Measurement of Objects in Liquid and Estimation of Refractive Index of Liquid by Using Images of Water Surface
 %http://www.robot.t.u-tokyo.ac.jp/~yamashita/paper/B/B047Final.pdf
+%\noindent
+%Note that if cameras and objects are in the different condition where the refraction index differs from each other, several problems occur and a precise measurement cannot be achieved.
+\vspace{1.6cm}
 \noindent
-Note: If cameras and objects are in the different condition where the refraction index differs from each other, several problems occur and a precise measurement cannot be achieved.
-
-\subsection{Near Infrared Light Transmission in Water} \label{sec:waterabs}
+However, the analysis above applies to visual light. What happens when exploring a larger part of the wave spectra? As it turns out, the earlier viewed trends are no longer linear.
+\\\\
 %http://www1.lsbu.ac.uk/water/water_vibrational_spectrum.html
 Water absorbs wavelengths covering a wide range of electromagnetic radiation. For light with wavelengths larger than 200 nm, this absorption is due to rotational transitions and intermolecular vibrations. As the H2O-molecule has a particularly small moment of inertia on rotation, a rich vibrational-rotational spectrum appears, sometimes containing millions of absorption lines. 
 \\\\
-The water absorption spectrum is therefore very complex. The water molecule may vibrate in several ways, at several states affected by the environment. For the specific case of H2O, the absorption spectrum is displayed in Figure \ref{fig:absspec} below. The spectrum may vary based on the condition of the water and placement of measurement - for instance whether one looks at the open sea or the coastal areas. However, the trends represented in the figure, should more or less remain. The spectrum clearly shows how the water absorption is at its lowest in visible light, making this range of wavelengths more optimal when detecting objects underwater. Near infrared light on the other hand will quickly disappear over short distances. This could result in large variations in the resulting spectral signatures, leaving a possibly non-representable set of data.
+The water absorption spectrum is therefore very complex. The water molecule may vibrate in several ways, at several states affected by the environment. For the specific case of H2O, the absorption spectrum is displayed in Figure \ref{fig:absspec}. The spectrum may vary based on the condition of the water and placement of measurement - for instance whether one looks at the open sea or the coastal areas. However, the trends represented in the figure, should more or less remain. The spectrum clearly shows how the water absorption is at its lowest in visible light, making this range of wavelengths more optimal when detecting objects underwater. Near infrared light, on the other hand, will quickly disappear over short distances. This could result in large variations in the resulting spectral signatures, leaving a possibly non-representable set of data.
 
 \begin{figure}[H]
     \centering
@@ -310,7 +311,7 @@ Flux can describe both the light intensity and the radiance. This intensity, $I$
     I = \frac{\Phi}{Q} = \frac{#photons}{sr \cdot s}
     \label{eq:i}
 \end{equation}
-The radiance, $B$ is the intensity through a unit surface area, A [cm], where A is the yellow area in Figure\ref{fig:etendue}. Given equation \ref{eq:flux} above, $B$ can also be described as the flux of photons per unit area and solid angle.
+The radiance, $B$ is the intensity through a unit surface area, A [cm], where A is the yellow area in Figure\ref{fig:etendue}. Given (\ref{eq:flux}), $B$ can also be described as the flux of photons per unit area and solid angle.
 \begin{equation}
     B = \frac{I}{A} = \frac{#photons}{cm^2 \cdot sr \cdot s}
     \label{eq:b}
@@ -321,10 +322,10 @@ Applying the terms above to the definition of etendue, the photon flux through t
      \Phi := B\cdot G
      \label{eq:flux2}
  \end{equation}
-As will be shown in the next section, equation \ref{eq:flux2} is useful when evaluating the fluxes of photons entering and leaving a spectrometer.
+As will be shown in Section \ref{sec:tput}, (\ref{eq:flux2}) is useful when evaluating the fluxes of photons entering and leaving a spectrometer.
 
-\subsection{Throughput}
-Throughput defines the amount of flux hitting the detector (CCD) at the end of the spectrometer. Simply put, throughput is the usable flux. From equation \ref{eq:etenentr} and \ref{eq:etenexit}, the following similarities can be stated. Assuming that $B_2$ is the total radiance of the entering source of light, equation \ref{eq:fluxinn} is the flux entering the entrance slit, while \ref{eq:fluxut} describes the flux exiting the spectrometer system. 
+\subsection{Throughput} \label{sec:tput}
+Throughput defines the amount of flux hitting the detector (CCD) at the end of the spectrometer. Simply put, throughput is the usable flux. From (\ref{eq:etenentr}) and (\ref{eq:etenexit}), the following similarities can be stated. Assuming that $B_2$ is the total radiance of the entering source of light, (\ref{eq:fluxinn}) describes the flux entering the entrance slit, while (\ref{eq:fluxut}) describes the flux exiting the spectrometer system. 
 
 \begin{equation}
     \Phi_2 = B_2 \cdot G_2 = B_2 \cdot \frac{G_A cos(\alpha)}{f_2^2} \cdot w \cdot h
@@ -336,11 +337,11 @@ Throughput defines the amount of flux hitting the detector (CCD) at the end of t
     \label{eq:fluxut}
 \end{equation}
 \noindent
-In equation \ref{eq:fluxut}, $B_{r}$ describes the remaining radiance at the end of the spectrometer, and includes the spectral radiance, $B_{\lambda}$,  multiplied with reducing factors due to loss. $E_{\lambda}^n$ describes the efficiency of the used grating at spectral order n. $T_{\lambda}$ is a factor describing losses due to geometry of the components in the spectrometer. For an optimal spectrometer with an unrealistically efficient gradient, both $E_{\lambda}^n$ and $T_{\lambda}$ are equal to 1.
+In (\ref{eq:fluxut}), $B_{r}$ describes the remaining radiance at the end of the spectrometer, and includes the spectral radiance, $B_{\lambda}$,  multiplied with reducing factors due to loss. $E_{\lambda}^n$ describes the efficiency of the used grating at spectral order n. $T_{\lambda}$ is a factor describing losses due to geometry of the components in the spectrometer. For an optimal spectrometer with an unrealistically efficient gradient, both $E_{\lambda}^n$ and $T_{\lambda}$ are equal to 1.
 
 
 \vspace{1.3cm}
-\section{Inherent Optical Properties}
+\section{Inherent Optical Properties (IOP)}
 %http://iopscience.iop.org/article/10.1088/0034-4885/36/12/002/pdf
 %noe av dette har blitt sagt i hyp også:
 When retrieving an optical fingerprint it is important to know the optical properties impacting the resulting signature. There are mainly three physical processes reducing the energy of light on its way to reaching the receiver. The OOI (the materials or the compositions of materials) will absorb, scatter and reflect light of different portions of the visible spectrum. This way, the material of the OOI and the wavelength will affect the properties of these processes. 
@@ -385,7 +386,7 @@ The spectral reflectance, also called the optical fingerprint can be described a
 \\\\
 Where $Lu(\lambda)$ denotes the raw data of the object, including signature from light source, while $Ed(\lambda)$ is the spectral radiance from measurements of spectrally neutral reflectance standard.
 \\\\
-Note: For eq \ref{eq:specref} to hold true, all surfaces are assumed to behave like Lambertian reflectors, meaning that the reference surface has a perfectly diffuse/matte property. This ensures that the radiant intensity, regardless of the reflected direction, is proportional to the cosine of the angle of the surface's normal. This is known as Lamberts Cosine law. 
+Note: For (\ref{eq:specref}) to hold true, all surfaces are assumed to behave like Lambertian reflectors, meaning that the reference surface has a perfectly diffuse/matte property. This ensures that the radiant intensity, regardless of the reflected direction, is proportional to the cosine of the angle of the surface's normal. This is known as Lamberts Cosine law. 
 %det siste er tatt fra TTK20-heftet
 
 
@@ -421,7 +422,7 @@ The isolated spectral interval (bandpass) can be found from the recorded Full Wi
 \noindent
 Note that the assumption of a monochromatic spectral line does not restrict to only one line. Any spectral structure can be considered as the sum of infinite single monochromatic lines at different wavelengths.
 \\\\
-The spectral bandpass can then be calculated as the wavelength distribution along the x-axis multiplied by the exit slit width. This wavelength distribution is called \textit{the linear dispersion}, and is defined as $d\lambda/dx$. Using the angular dispersion from equation \ref{eq:angdisp} and the similarity $dx = f_3 d\beta$, the spectral bandpass can be calculated. As known from equation \ref{eq:exit} in Section\ref{fig:etendue}, the exit slit width, $w'$ is dependent on the entrance slit width, $w$ through $w' = \frac{cos(\alpha)}{cos(\beta)}\cdot \frac{f_3}{f_2}\cdot w$.
+The spectral bandpass can then be calculated as the wavelength distribution along the x-axis multiplied by the exit slit width. This wavelength distribution is called \textit{the linear dispersion}, and is defined as $d\lambda/dx$. Using the angular dispersion from (\ref{eq:angdisp}) and the similarity $dx = f_3 d\beta$, the spectral bandpass can be calculated. As known from (\ref{eq:exit}) in Section\ref{fig:etendue}, the exit slit width, $w'$ is dependent on the entrance slit width, $w$ through $w' = \frac{cos(\alpha)}{cos(\beta)}\cdot \frac{f_3}{f_2}\cdot w$.
 
 \begin{equation}
     %\begin{split}
@@ -434,7 +435,7 @@ The spectral bandpass can then be calculated as the wavelength distribution alon
 \end{equation}
 \\\\
 \noindent
-In Equation \ref{eq:bp}, $\alpha$ is the incident angle and $\beta$ is the diffracted angle. $f_2$ and $f_3$ are, as mentioned, the focal lengths associated with the lenses $L_2$ and $L_3$ respectively.
+In (\ref{eq:bp}), $\alpha$ is the incident angle and $\beta$ is the diffracted angle. $f_2$ and $f_3$ are, as mentioned, the focal lengths associated with the lenses $L_2$ and $L_3$ respectively.
 \\\\
 %\subsection{Bandpass and Resolution}
 \subsection{The GRISM Spectrograph}
@@ -450,9 +451,9 @@ Similar to the spectrometer already discussed above (section \ref{sec:sysopt}), 
 \end{figure}
 
 
-\chapter{Theory II - Imaging} %imaging
+\chapter{Imaging} %imaging
 \label{chap:theory2}
-\todo[inline, color = orange!40]{Imaging Precess}
+\todo[inline, color = orange!40]{Imaging Process - litt tekst om kap!!}
 %Denne skal jeg få tilsendt av Asgeir
 
 
@@ -501,11 +502,11 @@ In order to study the reflecting light from the target, a spectrometer is needed
 Hyperspectral imaging uses a hyperspectral camera (imaging spectrometer) to collect spectral information. As mentioned, the difference between a hyperspectral image and a regular photo, is that the hyperspectral camera measures hundreds of thousands of spectra instead of single spectrum, creating not only a multispectral image, but a hyperspectral image. In contrast to multispectral imagers, which are sensitive in only a few selected wavebands, hyperspectral imagers (HI) measure the spectral reflectance per image pixel of the OOI, leaving a complete spectrum for each pixel in the image. %(Development of hyperspectral imaging as a bio-optical taxonomic tool for pigmented marine organisms - geir)
 \subsection{On a Detailed Level}
 %The Spatial Resolution
-In detail, a spectrograph, illustrated in Figure \ref{fig:grismspec}, generates images from the entrance slit, as a function of wavelength (color). The amount of images detected by the CCD at the exit slit, is dependent on the entrance slit width and the element’s ability diffract the colors. The width of the exit slit being dependent on width of the entrance slit, among other things, can be seen from the equations in section.. describing optimal etendue \todo{legge inn dette I etendue osv}. A large amount of detected images at the exit slit will directly improve the spectral resolution of the instrument. The resulted image recorded by the CCD is called a spectrogram (an illustration of a spectrogram can be found as the last element in fig \ref{fig:grismspec}). The spectrogram contains both spectral and spatial information and can be described by the intensity distribution and position along the slit. 
+In detail, a spectrograph, illustrated in Figure \ref{fig:grismspec}, generates images from the entrance slit, as a function of wavelength (color). The amount of images detected by the CCD at the exit slit, is dependent on the entrance slit width and the element’s ability diffract the colors. The width of the exit slit being dependent on width of the entrance slit, was derived in (\ref{eq:exit}) in Section \ref{sec:etedue}, describing optimal etendue. A large amount of detected images at the exit slit will directly improve the spectral resolution of the instrument. The resulted image recorded by the CCD is called a spectrogram (an illustration of a spectrogram can be found as the last element in Figure \ref{fig:grismspec}). The spectrogram contains both spectral and spatial information and can be described by the intensity distribution and position along the slit. 
 \\\\
 However, the information retrieved is information about the covered area of the target object, which is nothing but a very thin track covering only a small part of the object. In order to obtain the object's full spatial extent, the entire object surface needs to be sampled. 
 \\\\
-Now, how can this be done? The recording instrument must be moved relative to the target. The velocity, $\nu$ of the instrument is crucial, as the instrument will under sample (miss samples of the target area) if the distance moved during readout time, $\tau$, exceeds the length of the measured area, $dx$ (displayed in Figure \ref{fig:spatialres}). This requirement is shown in equation \ref{eq:req}.
+Now, how can this be done? The recording instrument must be moved relative to the target. The velocity, $\nu$ of the instrument is crucial, as the instrument will under sample (miss samples of the target area) if the distance moved during readout time, $\tau$, exceeds the length of the measured area, $dx$ (displayed in Figure \ref{fig:spatialres}). This requirement is shown in (\ref{eq:req}).
 
 \begin{equation}
     \nu \cdot \tau \leq dx
@@ -535,7 +536,7 @@ During the exposure, the airplane has moved from the first state to the second. 
     \label{eq:spares}
 \end{equation}
 \noindent
-Equation \ref{eq:dx} shows how $dx$, an thereby also the spatial resolution, is connected to the spectral bandpass through the slit width, $w$, as described in Section \ref{sec:bp}. 
+(\ref{eq:dx}) shows how $dx$, an thereby also the spatial resolution, is connected to the spectral bandpass through the slit width, $w$, as described in Section \ref{sec:bp}. 
 
 %Info hentet fra bok: techniques and applications of hyperspectral image analysis
  %oppsettene inkluderer lyskilde, et filtersystem som disperse the light into bands of wavelenghts, en sample. Hvis kilden inneholder et bredt lysspekter, kan man velge ut bølgelengder ved å bruke bandpass-filters etter ønske.
@@ -564,8 +565,7 @@ When the hyperspectral camera is taken underwater, the lighting is limited. The 
 In this task, there are two methods for camera configurations, point scanning image and line scanning image.
 \subsection{Point Scanning Image}
 Point scanning image can be used to measure a complete spectrum in one spot/pixel. In every spot, all layers are measured vertically from this spot. To make the whole picture, the camera must scan across the entire surface, spot by spot.
-\\\\
-figuren er hentet fra boken, techniques and applications of hyperspectral image analysis, side 6
+
 
 % \begin{figure}[H]
 %   \includegraphics[height=12cm]{Images/theory/pointscan.png}
@@ -576,7 +576,7 @@ figuren er hentet fra boken, techniques and applications of hyperspectral image 
 
 \begin{figure}[H]
 \centering
-  \includegraphics[height=6cm]{Images/theory/voxel.png}
+  \includegraphics[height=5cm]{Images/theory/voxel.png}
   \caption{ Resulting scan}
   \label{fig:voxel2}
 \end{figure}
@@ -584,8 +584,6 @@ figuren er hentet fra boken, techniques and applications of hyperspectral image 
 
 \subsection{Line Scanning Image} \label{sec:push}
 The line scanning image technique uses a two-dimensional detector, perpendicular/orthogonal to the surface of the measured target. This detector collects the spectrum of a whole line in the image, in one single scan. By moving the scan line with a push broom technique, one can map the entire image by combining all sets of spectra.
-\\\\
-figuren er hentet fra boken, techniques and applications of hyperspectral image analysis, side 7
 
 % \begin{figure}[H]
 % \centering
@@ -596,7 +594,7 @@ figuren er hentet fra boken, techniques and applications of hyperspectral image 
 
 \begin{figure}[H]
 \centering
-  \includegraphics[height=6cm]{Images/theory/pushbroom.png}
+  \includegraphics[height=5cm]{Images/theory/pushbroom.png}
   \caption{ Resulting scan}
   \label{fig:pushbroom}
 \end{figure}
@@ -611,8 +609,8 @@ In order to reduce noise, each image is corrected using a clean background. From
 This way, the system can be used for both large- and small-scale experiments. In smaller scale, the SilCam is able to quantify the distribution of suspended material. Zoo-plankton, larger phyto-plankton, mineral grains and marine snow are all examples of objects the SilCam can detect. 
 
 
-\chapter{Theory III - Data and Data Tracking} \label{cap:theory3}
-This chapter presents ways of handling data. In this thesis, the data collected is regarding the five types of microplastic, also elaborated here. 
+\chapter{Data Tracking and Analysis} \label{cap:theory3}
+This chapter presents ways of handling data. In this thesis, the data collected is regarding the five types of microplastic, also elaborated here. \todo{mer om kap}
 
 \section{Microplastic} \label{sec:microplastic}
 %ha med hva def av mikroplast og de ulike plasttypene
@@ -661,17 +659,17 @@ This section contain knowledge gained in TTK19...
 \\\\
 The main purpose of conducting a principal component analysis (PCA) is to extract only the useful information from the dataset. The analysis converts a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called principal components. These principal components will describe the overall variation of the dataset and thereby serve as a latent variable. In most cases, only two or three principal components explain almost the entire dataset. By disregarding the remaining percentage (which often is explained with several components), the dimension of the dataset is reduced. In most cases, this reduction reveals and highlights only the relevant variations. In addition, a reduced set will often have a decreased error rate because of the lower amount of variables connected to the sample, excluding the relations typically regarded as noise. Lastly, the resulting set will have a lower computational time and thereby cost.
 \\\\
-Now, how are these principal components found? Figure \ref{fig:pca1} a) below describes the entire dataset with one dot describing one sample/single data observation. The analysis begins with finding the projection of each observation onto a line. The line is drawn with the purpose of explaining as many observations as possible, but minimizing the total distance between the samples and their projection. This resulting line can be found in illustration b). The distance from the origin to this projected point along the line is the score associated with the related observation. 
+Now, how are these principal components found? Figure \ref{fig:pca1} a) describes the entire dataset with one dot describing one sample/single data observation. The analysis begins with finding the projection of each observation onto a line. The line is drawn with the purpose of explaining as many observations as possible, but minimizing the total distance between the samples and their projection. This resulting line is illustrated in \ref{fig:pca1}b). The distance from the origin to this projected point along the line is the score associated with the related observation. 
 %The direction of the line is now characterized with giving the largest variance of the scores, and is described by direction vectors called loadings. 
 \\\\
 %Simply put, the original data is estimated by multiplying the scores with the associated loadings.
 \noindent
-This way, the first line created as the highest variance. This line is called the first principal component. When creating an additional space, the new component needs to be uncorrelated with the others. The second principal component, illustrated in c), is therefore perpendicular to the first component’s direction, but is otherwise found the same way. This way, the first principal component has the largest possible variance. Each following component will, in turn, have the highest variance possible under the constraint that it is perpendicular to the previous components.
+This way, the first line created as the highest variance. This line is called the first principal component. When creating an additional space, the new component needs to be uncorrelated with the others. The second principal component, illustrated in \ref{fig:pca1}c), is therefore perpendicular to the first component’s direction, but is otherwise found the same way. This way, the first principal component has the largest possible variance. Each following component will, in turn, have the highest variance possible under the constraint that it is perpendicular to the previous components.
 \\\\
 Of the results it is often possible to detect trends and clusters. This is typically for unsupervised learning, where the purpose is to gain knowledge about the samples relative to each other. This way, one can learn what factors provide the variation of the data and how the samples are correlated – even if the preknowledge regarding the dataset is next to nothing. 
 %FIGURENE:
 %https://learnche.org/pid/latent-variable-modelling/principal-component-analysis/geometric-explanation-of-pca
-\begin{figure}[H] \label{fig:pca1}
+\begin{figure}[H]
   \newcommand*\FigVSkip{0.5em}
   \newcommand*\FigHSkip{0.1em}
   \newsavebox\FigBox
@@ -694,6 +692,8 @@ Of the results it is often possible to detect trends and clusters. This is typic
     \subcaption{c) Including second principal component}
   \end{minipage}\hspace*{\FigHSkip}
   % Save second image 
+  \caption{Coordinate system with observations and principal components}
+  \label{fig:pca1}
 \end{figure}
 
 
@@ -711,10 +711,10 @@ Residuals describe the deviation in the predicted values. The residual plot is t
 \\\\
 Whenever large deviations occur, a contribution plot can be analyzed. A contribution plot is a visualization of the residuals for each principal component, making it easier to determine the cause of the deviation. 
 
-\subsection{Hotelling's $T^2$}
+\subsection{Hotelling's $T^2$} \label{sec:hotellings}
 Hotellings $T^2$ is simply the summation of all scores. Nevertheless, these results are very useful, especially when detecting outliers. The resulting plot consists of two ellipses defining two intervals in percent. The percentage determining these intervals value, but they are normally based on the confidence interval in a normal distribution - typically 95\% for the inner ellipse and 99\% for the outer. Normally the variables of the inner circle turns out to be more significant than the outer. 
 
-\subsection{Hotelling's $T^2$ VS Residual}
+\subsection{Hotelling's $T^2$ VS Residual} \label{sec:vs}
 The plot consistent of the hotelling’s $T^2$ values on the x-axis and residuals on the y-axis, is called a influence or leverage plot. This plot can be divided into four sections describing the relation between leverage and deviation of an observation. Bottom left contains low leveraged data with small deviations, while top right describes data with high influence and high associated residuals. It is especially important to detect an analyze the observations with both large deviation and large leverage, as these affect the results to a high degree while at the same time possibly pulling the results in the wrong direction (due to error). 
 
 

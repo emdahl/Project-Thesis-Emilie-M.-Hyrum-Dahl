@@ -1,9 +1,12 @@
-\chapter{Method}
+\chapter{Method for Experimental Work}
 \label{chap:method}
 %In this chapter the methodology for the creation of the two models will be described.
 
 \section{Laboratory Testing}
+\todo[inline, color=red!60]{litt tekst om kap}
+
 \subsection{The Set-Up}
+\todo[inline, color = red!60]{vis oppsettet i bilder!}
 The spectrometer was turned on and connected to the software OceanView 1.6.7 via a standard external computer. In OceanView, the spectrometer was sat to a constant temperature of 15 degrees (Celsius). The QR400-7-VIS-BX reflection probe was connected to the spectrometer through one cable, and a light source through another. The cables are fiber optic, and are assumed to not have a noteworthy effect the results. The light source used was Schott KL1500 electronic light source, a 150 W halogen light delivering a constant spectral signature - after given some time to heat up. In addition, the reflection probe was placed in a reflective probe holder, angling the light output (and the sensor inlet) in order to avoid specular reflection. This angle was sat to 45 degrees and the distance to 1 centimeter.
 \\\\
 Furthermore, the reflective probe was placed over the object to be measured. Initially, this was the WS-1 Reflectance Standards with 100 percent reflectance within the range of 250-1500 nanometers. This was measured in OceanView and sat the standard for white. The reflectance was assumed to be 100\% for the reflectance standard. Note that this is the Lambertian surface mentioned in Section \ref{sec:specref}. The reflectance standard will calibrate the software such that all further measurement will be a relative size compared to the original standard white. An effect of measurements being relative to the original white is the accounting of, and subsequent omittance of the noise due to the light source. 
@@ -21,18 +24,18 @@ Going further, a layer of plastic was placed in a glass petridish with a double 
 The movement of the reflective probe holder can affect the scanner and thereby change the angle affecting the reflectance. In between samples and after conducting five samples of the same material, the the software was therefore calibrated with the standard white. Given the software’s relative measuring, this hopefully ensured the maintenance of correct reflectance for all signatures.
 \\\\
 \subsection{Choice of Spectrum}
-As discussed in Section \ref{sec:waterabs}, infrared and near-infrared light has a poor "performance" in water. Due to infrared and near-infrared light being low-energy it quickly disappears over a short distance in water. This will make it difficult to measure and could possibly result in large variations in the signature, which would be difficult to account for. This, in addition to information extracted from the water absorption figure displayed in the same section (\ref{sec:waterabs}), points towards the visible light spectrum as the better alternative, underwater.
+As discussed in Section \ref{lightinwater}, infrared and near-infrared light has a poor "performance" in water. Due to infrared and near-infrared light being low-energy it quickly disappears over a short distance in water. This will make it difficult to measure and could possibly result in large variations in the signature, which would be difficult to account for. This, in addition to information extracted from the water absorption figure, Figure \ref{fig:absspec} displayed in Section \ref{lightinwater}, point towards the visible light spectrum as the better alternative, underwater.
 \\\\
 Furthermore, higher wave lengths depicted high levels of noise and inconsistencies in the measured values. This was most likely due to the relative measurements of the software. The measured values are relative in the sense that the "actual" measured value is divided by the reflective standard. The reflective standard yielded low values in the IR and NIR spectra. Since small values in the divisor cause large variations as it will be greatly multiplied, the variations were large. Also, UV-lighting and other light with wavelengths outside the visible spectrum were neglected.
 \\\\
 Because of all of the above, the visible spectrum was measured in the interval 400nm - 700nm. The resulting intensity was measured approximately every 0,758 nanometers. 
 
-\section{Materials}
-In order to cover a wide range of plastic, eventually turning into microplastic, the material tested were the most common types of plastic. The table below shows the types of plastic tested, their state and additives:
+\section{Materials} \label{sec:material}
+In order to cover a wide range of plastic, eventually turning into microplastic, the material tested were the most common types of plastic. Table \ref{tab:tested:plastic} shows the types of plastic tested, their state and additives:
 
 \begin{center}
 \begin{table}[H]
-\begin{tabular}{ |l|l|l|l|l| } 
+\begin{tabular}{ |l|l|l|l|l| }
  \hline
  \textbf{State} & \textbf{Class} & \textbf{Additives}\\ 
 Post-Industrial Recyclate Pellets & PE: LDPE/LLDPE & Colorants \& printing inks\\
@@ -49,7 +52,8 @@ Pellets & PVC Soft & Yes, softener\\
 Pellets & PVC Hard & Yes, softener \& mineral filler\\
  \hline
 \end{tabular}
-\caption{Table of tested plastic types} \label{tab:tested:plastic}
+\caption{Table of tested plastic types}
+\label{tab:tested:plastic}
 \end{table}
 \end{center}
 \noindent
@@ -66,30 +70,41 @@ A more extensive list of the plastic samples can be found in Appendix \autoref{a
 
 
 \section{Data Processing and Analysis}
-The data obtained from the laboratory testing were interpreted using PCA and the software Unscrambler X. The acquired data was exported to Microsoft Excel from Oceanview, where each cell represented the measured value at a given wavelength. The spreadsheet was subsequently made to fit the required structure of The Unscrambler X. The PCA was run using The Unscrambler X, while the results were visualized using a R-script.
+The data obtained from the laboratory testing were interpreted using PCA and the software Unscrambler X. The acquired data was exported to Microsoft Excel from Oceanview, where each cell represented the measured value at a given wavelength. The spreadsheet was subsequently made to fit the required structure of The Unscrambler X. The PCA was run using The Unscrambler X, while the results were visualized using a R-script. To assess the spectral relationship between different objects and materials, principal component analyses were performed on the laboratory-acquired reflectance data. 
 
-\subsection{Principal Component Analysis}
 %Underwater hyperspectral imaging: a new tool for marine archaeology 2018, ØYVIND ØDEGÅRD,1,2,* AKSEL ALSTAD MOGSTAD,3 GEIR JOHNSEN,3 ASGEIR J. SØRENSEN, AND MARTIN LUDVIGSEN1
-To assess the spectral relationship between different objects and materials, principal component analyses were performed on the laboratory-acquired reflectance data. 
+
 \\\\
-Extracting information from the data acquired was done using the software \textit{The Unscrambler X 10.1}. The software is originally developed by Harald Martens, an external professor at NTNU, and is a commercial software product for multivariate data analysis. The possible variables for the analysis were the wavelengths from the spectrometer and the size of the pellets. The software processes the data according to the principal described in Section \ref{sec:pca} in chapter \ref{cap:theory3}. The analysis takes the data set as an input including the variables based on the formatting of the spreadsheet. 
+\noindent
+Extracting information from the data acquired was done using the software \textit{The Unscrambler X 10.1}. The software is originally developed by Harald Martens, an adjunct professor at NTNU, and is a commercial software product for multivariate data analysis. The possible variables for the analysis were the wavelengths from the spectrometer and the size of the pellets. The software processes the data according to the principal described in Section \ref{sec:pca} in Chapter \ref{cap:theory3}. The analysis takes the data set as an input including the variables based on the formatting of the spreadsheet. 
 \\\\
 Subsequently, a standard Principal Component Analysis was ran using seven principal components and 100 iterations. With the use of two components, 97,8 \% were explained. Therefore, a third component, only complicating the visualization of the results, was not needed.
 \\\\
-Furthermore, an uncertainty test on the data, as well as a sampling test, was ran. The latter will run several analyses excluding different samples each time in order to see whether the data is consistent or not. The uncertainty test checks whether the data is within certain limits. These tests were based on the confidence interval seen in the Hotelling's $T^2$ and the F-residuals. 
+Furthermore, an uncertainty test on the data, as well as a sampling test, was ran. The latter ran several analyses excluding different samples each time in order to see whether the data was consistent or not. The uncertainty test checked whether the data was within certain limits. These tests were based on the confidence interval from the Hotelling's $T^2$ plot described in Section \ref{sec:hotellings} from Chapter \ref{cap:theory3}. 
 \\\\
 Lastly, the results were visualized in a large number of plots generated by the software, letting the user assess the results more intuitively. 
 \\\\
 Due to the unproportional effect on the principal components of some samples, these were excluded from the analysis. As previously explained in the theory section of PCA, the principal components are measure based on the largest variance in the samples. Therefore, certain samples with unlikely values due to other effects will skew the result. This can result in the variance being almost fully explained by the change in one variable. This way, the results having an unproportionally high effect on the results, were excluded.
-\todo{legge inn leverageplot i PCA i teoridelen}
 \\\\%Dette burde begrunnes i en hotelling's, da kan man vise residual og leverage
-The previously mentioned samples which skewed the results, were identified using the hotelling $T^2$ in combination with the F-residuals. This plot shows the samples having large deviation from the norm and a large deviation. The combination of the two shows the impact each samples have on the final result. Whenever a sample is abnormally far to the right, that sample influence the result much more than the rest of the dataset. As there was no explainable reason to why these samples had such an impact, the samples were removed from the dataset. After excluding these samples, the resulting explained percentage was 94,5 \%, with PC1 explaining 80,1 \% and PC2 13,4 \%. PC1 is still considerable, but less than before.
+The previously mentioned samples which skewed the results, were identified using the Hotelling's $T^2$ VS Residual plot described in Section \ref{sec:vs} from Chapter \ref{cap:theory3}. This plot shows the samples having large deviation from the norm and a large deviation. The combination of the two shows the impact each samples have on the final result. Whenever a sample is abnormally far to the right, that sample influence the result much more than the rest of the dataset. As there was no explainable reason to why these samples had such an impact, the samples were removed from the dataset. After excluding these samples, the resulting explained percentage was 94,5 \%, with PC1 explaining 80,1 \% and PC2 13,4 \%. PC1 is still considerable, but less than before.
 \\\\
 The results from the PCA were visualized using R programming through a script. The script assigns each sample a color in the scatter and encloses the measurements in a 95 \% confidence interval. It also centers a circle in the origin which have vectors depicting the direction having a certain increasing color, i.e., a red arrow vector would represent the direction with an increasing red color component. Furthermore, the script visualize the contribution of the different wavelengths. The continuous graph changes color according to the corresponding wavelength. The line representing the average contribution is also represented. Given a sample every 0.758 nanometers and 300 possible wavelengths results in the line representing $100\% \cdot 0.758/300 \approx 0.253 \% $
 \\\\
 Using already existing dataset from crustaceans and algae, provided by one of the experts, Aksel Alstad Mogstad, it was possible to compare the dataset regarding plastic with similar measurements from microorganisms containing natural pigments. These are microorganisms that co-exist with plastic in a marine environment. The algae used were; brown algae, green algae and red coralline algae.
 \\\\
 When plotting the signatures of the associated type of plastic, the average of all ten samples were used. This was done in MATLAB. All signatures can be found in Appendix \ref{app:signatures}.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

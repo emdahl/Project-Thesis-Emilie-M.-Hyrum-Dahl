@@ -186,16 +186,26 @@
 	
 	\begin{minipage}{0.4\textwidth}
 		\begin{flushleft} \large
-			\emph{Supervisor:}\\
-			Professor Asgeir J. S{\o}rensen
+			\emph{Author:} \\
+	    	Emilie M. Hyrum Dahl
 			\end{flushleft}
 			\end{minipage}~
 			\begin{minipage}{0.4\textwidth}
             
 			\begin{flushright} \large
-			\emph{Author:} \\
-	    	Emilie M. Hyrum Dahl
+	        \emph{Supervisor:}\\
+			Professor Asgeir J. S{\o}rensen\\
 		\end{flushright}
+		\end{minipage}\\[0.5 cm]
+		
+		
+			\begin{minipage}{0.8\textwidth}
+			\begin{flushright} \large
+			\emph{Co-supervisors:}\\
+			Professor Geir Johnsen\\
+			Aksel Alstad Mogstad
+			\end{flushright}
+		
         
 	\end{minipage}\\[2 cm]
 	
@@ -210,12 +220,12 @@
 \include{Chapters/preface}
 \include{Chapters/acknowledgments}
 \include{Chapters/abstract}
-\include{Chapters/summary}
 \tableofcontents
 
 \hypersetup{pageanchor=true}
 
 % Comment with a percent to remove figures or tables:
+\newpage
 \listoffigures
 %\lstlistoflistings
 \begin{comment}
@@ -243,7 +253,7 @@
 \include{Chapters/conclusion}
 
 
-\include{Chapters/appendix}
+
 
 
 \ifthenelse{\boolean{HarvardCitations}}{%
@@ -253,7 +263,7 @@
 }
 
 \bibliography{MastersExample}
-
+\include{Chapters/appendix}
 
 %\appendix
 %\include{inc/appendixA}
