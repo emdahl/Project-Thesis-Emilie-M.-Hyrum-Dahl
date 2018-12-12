@@ -21,7 +21,6 @@ The plastic types compared with algae
 \end{comment}
 
 
-\vspace{1.3cm}
 \section{Signatures}
 The following section will present, discuss and compare a representative set of signatures. The set was chosen based on similar traits and their explanatory ability. The full set of signatures is available in Appendix \ref{app:signatures}.
 
@@ -78,7 +77,8 @@ As previously mentioned, the plastic samples had a variety of additives, one of 
 
 \noindent
 As can be seen from Figure \ref{fig:plastcomp1}, the signatures of the two types are almost identical, with a possibility of deviations due to measurements errors. From Section \ref{sec:microplastic}, we know for a fact that the structure of these two are very different. PP contains several monomers with the chemical formula of $C_3H_6$, while PVC has monomers with the following formula, $C_2H_3Cl$, even containing additional chlorine-atoms, Cl.  The large similarity between the two samples, despite their highly different chemical composition does argue in favor of there either being a general signature, or simply that the samples are of the same color. From the pictures of the samples it is possible to see that the two samples are highly similar. In combination with the results seen below, it is hard to argue that the similarity is due to anything other than the equivalent color of the samples. 
-\\\\
+
+
 \subsection{Various Colors}
 The results from the more colorful pieces of microplastics are presented below. Figures \ref{fig:green}, \ref{fig:red} and \ref{fig:blue} display the resulting signatures of green-colored PE-HD, red-colored PE-HD and blue-colored PE-LD, with their associated peak wavelength circled on the visible light spectrum.  
 %grønn
@@ -158,7 +158,8 @@ This result support the earlier assertion about the color being dominant when de
 \\\\
 %The color variation is also found from the PCA as the second principal component. It is therefore reasonable to conclude that the specific color has a large influence.
 In order to obtain a color-free spectrum, one idea could be to subtract the color spectrum from the resulting spectrum retrieved from the experiments. However, most pieces of plastic do not have one specific color, making it difficult to determine the spectrum to subtract. Another argument disagreeing with this is the comparison of the un-colored plastic types, revealing no signature difference for different types of plastic. Nevertheless, this argument alone is not enough to dismiss the idea of subtraction. 
-\\\\
+
+
 \subsection{Various Sizes}
 Another interesting comparison is the result of the same type of plastic, in different sizes. In this section, illustrated by Figure \ref{fig:size}, a clear empty bottle of Farris, existent of PET-plastic, is compared to clear PET Amorphous. The pieces of PET Amorphous are 3mm thick, while the piece from the bottle is significantly larger. 
 
@@ -188,7 +189,7 @@ When comparing the resulting signatures above, it is clear that they share trend
 \\\\
 When experimenting with different types of plastics having more or less the same colors, the results turned out next to identical. At first, a thought was that this was due to the color being too dominant in relation to the rest of the properties. However, conducting the same experiment with non-colored pieces of plastic, gave the same end-result; no difference in spectral signature even if the types of plastics differ. The visible light may not be able to identify the chemical differences in the materials and therefore is not able to yield distinct signatures for the individual types.
 
-\vspace{1.3cm}
+
 \section{Principal Component Analysis}
 
 As mentioned in the previous sections, the results from scanning the plastic samples using hyper spectral imaging, are presented in plots. For each analysis, the plots retrieved from the PCA, executed using the R programming, are mainly a scatter plot and a contribution plot. 
@@ -283,13 +284,13 @@ Figures \ref{fig:PCA_plastics_and_biology_scat} and \ref{fig:PCA_and_bio_cont_pl
   \newsavebox\FigBox
   \centering
   % Top image is centered, so no need to get width
- \sbox{\FigBox}{\includegraphics[scale=0.5]{Images/results/PCA_plastics_and_biology_cont_pc1.png}}
+ \sbox{\FigBox}{\includegraphics[scale=0.56]{Images/results/PCA_plastics_and_biology_cont_pc1.png}}
   \begin{minipage}{\wd\FigBox}
     \centering\usebox{\FigBox}
      \label{fig:PCA_plastics_and_biology_cont_pc1}
   \end{minipage}
     % Top image is centered, so no need to get width
- \sbox{\FigBox}{\includegraphics[scale=0.5]{Images/results/PCA_plastics_and_biology_cont_pc2.png}}
+ \sbox{\FigBox}{\includegraphics[scale=0.56]{Images/results/PCA_plastics_and_biology_cont_pc2.png}}
   \begin{minipage}{\wd\FigBox}
     \centering\usebox{\FigBox}
   \label{fig:PCA_plastics_and_biology_cont_pc2}
@@ -310,20 +311,20 @@ Despite seeing a resemblance of a signature in the second principal component it
 Based on the absence of clear clusters it was deemed not possible to acquire what is thought of as unique signatures for the plastic. All three analyses do show vertical spread, but the large number of overlapping samples made it difficult to argue for the existence of clear signatures at this stage. In the analysis with the presence of the organic pigments, there are some indication of separation, but not enough to argue in favor of a general signature for the plastic. However, the clustering seen in the sample does pose an opportunity of distinguishing plastic from the natural occurring pigments. 
 
 \section{Sources of Error}
-Due to the ambient environment and sensors related to Hyper Spectral Imaging noise will be next to impossible to exclude. There is always some dark noise due to the sensors of the system. Also, since the measured values are based of a ratio rather than absolute values small changes could have large outcomes due to the fact that the values are divided by extremely small values. A change in the divisor may be small, but the outcome large due to the relative change. However, the tests were limited to the visible spectrum, whereas the biggest variation were in the infrared or near-infrared spectrum. Even though there were variations in the visible spectrum the results were satisfactory with respect to change due to noise. 
+Due to the ambient environment and sensors related to hyperspectral imaging, noise will be next to impossible to exclude. There will always be some dark noise due to the sensors of the system. Also, since the measured values are based on a ratio rather than absolute values, even the smallest of changes could have a large outcome due to the fact that the values are divided by extremely small values. A change in the divisor may be small, but due to the relative change, the outcome can be changed drastically. However, the biggest variation were in the infrared or near-infrared spectrum. Since these test were limited to the visible spectrum, the variations were of such a magnitude that the results were satisfactory with respect to changes caused by noise. 
 \\\\
-Furthermore, the ambient light in the room is hard to completely avoid. Even though all light were turned off and blinds were used some light still got in. The light will affect the results, and could possibly affect the signature. However, due to the low amount of lighting that were present during the tests, it is assumed that it did not have a considerable effect on the results. The ambient light is therefore assumed to be negligible. 
+Furthermore, the ambient light in the room is hard to completely avoid. Even though all light were turned off and blinds were used, some light still got in. The light will affect the results, and could possibly affect the signature. However, due to the low amount of lighting that were present during the tests, it is assumed to not have a considerable effect on the results. The ambient light is therefore assumed to be negligible. 
 \\\\
-Even though the plastic was order specially in order to have pure samples, there are still sources that are unknown. As a result, the results could be affected by the differences in the plastic composition made by the manufacturer. However, the results showed a clear tendency where the actual color of the plastic was dominant as opposed to the chemical composition.
+Even though the plastics were specially ordered as pure samples, some parts of the material and its manufacturing, are unknown. As a result, the results could be affected by the differences in the plastic composition made by the manufacturer. However, the results showed a clear tendency where the actual color of the plastic was dominant as opposed to the chemical composition.
 \\\\
-The see-through plastic will be affected by the background. Compensating for the paper was not performed, and the results were most likely is affected by the background. The effect is not completely clear, but the trend of see through plastic have a similar peak to paper is could display the effect of the background. On the other hand, the background would most likely affect the results of the clear plastic either way. Therefore, the results were deemed satisfactory with the white background.
+The see-through plastic will be affected by the background. Compensation for the paper background was not performed, and the results were possibly affected by the background. The effect is not completely clear, but the trend showing the see-through plastics and the white paper peaking at similar wavelengths indicates the effect of the background. On the other hand, the background would most likely affect the results of the clear plastic either way. Therefore, the results were deemed satisfactory with the white background.
 \\\\
 The scanning was easily affected by the movement of the scanner. This was portrayed in the change of the reflectance standard. It is therefore a concern that the same effect will have caused the signatures to be inconsistent. However, the reflectance was regularly updated and there was several measurements per plastic type in order to account for large individual variations. It is still a concern that single measurements that were affected could skew the results.
 
 \section{Additional remarks}
-Based on the presented results, it is hard to make the case of an universal signature for plastic or using hyper spectral imaging to classify plastic. However, as mentioned earlier, experiments analyzing the wave spectra of different types of plastics, have already been conducted. Neverthless, the results have been directed towards viewing the wavelength interval describing near infrared light (NIR). Although the use of infrared light is an effective means of unobtrusive observation on land, it is far less effective in the ocean because long wavelength light is rapidly attenuated by seawater. One can therefore discuss whether it is possible to detect microplastic underwater with NIR.
+Based on the presented results, it is hard to make the case of an universal signature for plastic or using hyperspectral imaging to classify plastic. However, as mentioned earlier, experiments analyzing the wave spectra of different types of plastics, have already been conducted, and unique wave spectrum has been confirmed. Nevertheless, the results have been directed towards viewing the wavelength interval describing near infrared light (NIR). Although the use of infrared light is an effective means of unobtrusive observation on land, it is far less effective in the ocean because light in the infrared spectra is more rapidly attenuated by seawater. One can therefore discuss whether it in fact would be possible to detect microplastic underwater using NIR light.
 \\\\
-A possible solution would be to push the boundaries of the measured light. One could try to measure the wavelengths as close to NIR as possible. By trying to greatly reduce the distance from the spectrometer to the sample volume the attenuation is reduced. This might make it possible to identify the plastic using wavelengths of greater length in order to classify the plastic.
+A possible solution would be to push the boundaries of the measured light. One could try to measure the wavelengths as close to NIR as possible. By trying to greatly reduce the distance from the spectrometer to the sample volume, the attenuation will be reduced. This might make it possible to identify the plastic using wavelengths of greater length in order to classify the plastic, but at such a distance that the light is not absorbed.
 \\\\
 %https://oceanoptics.com/plastic-recycling-nir-spectroscopy/
 %Another important observation in these experiments, is the condition of the microplastic used. The material is pure and white, making the results independent of color. 

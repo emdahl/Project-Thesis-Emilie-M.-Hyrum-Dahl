@@ -42,7 +42,6 @@ where $\textbf{k} \in \textbf{R}^3$ is the 3D wave number and $\xi$ is the initi
 \\\\
 However, the equations above are representing no more than one wave. Two waves not interacting with each other will propagate like represented above, but what happens when two or more waves meets and in fact do interact with each other? 
 
-\vspace{1.3cm}
 \section{Interference} \label{sec:interference}
 Interference consider the case when two or more waves act together. Starting with two waves, respectively $S_1$ and $S_2$, interacting with each other at P as illustrated in Figure \ref{fig:interference}. From (\ref{eq:aml3d}), the $S_1$ and $S_2$ are represented by
 
@@ -99,7 +98,6 @@ $\textbf{r}$ can be retrieved as $a sin (\beta)$, while $k= \frac{2 \pi}{\lambda
     \label{eq:transgrating}
 \end{equation}
 
-\vspace{1.3cm}
 \section{Diffraction} \label{sec:diffraction}
 While interference is a result of individual sources interacting with each other, diffraction is present when a wave is distorted by an external object, with a comparable dimension to the wavelength of the wave. Figure \ref{fig:diffraction} exemplifies diffraction with a port entrance wall as the external object. 
 \begin{figure}[h]
@@ -136,14 +134,14 @@ At maximum intensity (\ref{eq:maks}), the reflecting grating equation is found:
 \end{equation}
 \\\\
 Once again, n is the spectral order. $\alpha$ is the incident angle, and $\beta$ represents the diffracted angle of the grating.
-\\\\
+
 \subsection{Angular Dispersion}
 Angular dispersion is a measure of how the diffracting waves are spread, per unit wavelength. The angular dispersion of a grating is defined as $d\beta/d\lambda$. This can be derived by differentiating the grating equation, (\ref{eq:refgrating}). 
 \begin{equation}
     \frac{d\beta}{d\lambda} = \frac{n}{a cos(\beta)}
     \label{eq:angdisp}
 \end{equation}
-\\\\
+
 \section{The GRISM} \label{sec:grism}
 A GRISM is a combination of a grating and a prism - hence the name. The GRISM is a prism stacked in series with a transmission grating, as can be observed in Figure \ref{fig:grism} below.
 \begin{figure}[H]
@@ -158,7 +156,6 @@ For a grating, the intensity maximum for each spectral order, n, increases with 
 \\\\
 When calculating the angular dispersion of a GRISM, the result is equal to the angular dispersion of a grating (\ref{eq:angdisp}), except for one additional term. This turns out to be a non-negative term, implying that the GRISM has an increased angular dispersion compared to a grating alone.
 
-\vspace{1.3cm}
 \section{The Behavior of Light in Air}
 Light in air behaves differently than in water. In air, the light will not be attenuated, which means that the reflection can be expressed by the light intensity, $I_ {\lambda}$ (\ref{eq:int}), describing the colors observed on the object.
 \begin{equation} \label{eq:int}
@@ -176,7 +173,6 @@ In (\ref{eq:int}), $I_{\lambda}$ represents the light intensity at a given wavel
 \noindent
 However, these properties cannot be directly drawn when do the same underwater. In water, light attenuation will be present and affect how the light is reflected. In addition, light is possibly scattered at stages resulting in a change in the direction. In the figure, these stages are leaving the light source and after hitting the object.\todo{marreg1-kilde, side 83} This will be elaborated in the following sections.
 
-\vspace{1.3cm}
 \section{The Behavior of Light in Water}\label{lightinwater}
 %The light intensity decreases with the distance from objects in water by light attenuation depending on the wavelength of light. Red light decreases easier than blue light in water [E. O. Hulburt: “Optics of Distilled and Natural Water,” Journal of the Optical Society of America, Vol.35, pp.689–705, 1945].
 The reason why the color of objects underwater differ from when in air, is that the light intensity, in water, decreases with the distance (r) to the object. This is, as mentioned, due to light attenuation, which again depends on the wavelength of the light. %([E. O. Hulburt: “Optics of Distilled and Natural Water,” Journal of the Optical Society of America, Vol.35, pp.689–705, 1945].) 
@@ -257,8 +253,6 @@ https://manoa.hawaii.edu/exploringourfluidearth/physical/ocean-depths/light-ocea
 \end{comment}
 
 
-
-\vspace{1.3cm}
 \section{Properties of Photons}\label{sec:photons}
 %https://snl.no/foton
 All electromagnetic radiation, including light, consists of photons. Just as all objects that have mass are built up of atoms, massless light rays are the result of many energy-consistent photons. In order to the determine the amount of light (number of photons) actually passing through a spectrometer, etendue and throughput must be defined. 
@@ -339,8 +333,6 @@ Throughput defines the amount of flux hitting the detector (CCD) at the end of t
 \noindent
 In (\ref{eq:fluxut}), $B_{r}$ describes the remaining radiance at the end of the spectrometer, and includes the spectral radiance, $B_{\lambda}$,  multiplied with reducing factors due to loss. $E_{\lambda}^n$ describes the efficiency of the used grating at spectral order n. $T_{\lambda}$ is a factor describing losses due to geometry of the components in the spectrometer. For an optimal spectrometer with an unrealistically efficient gradient, both $E_{\lambda}^n$ and $T_{\lambda}$ are equal to 1.
 
-
-\vspace{1.3cm}
 \section{Inherent Optical Properties (IOP)}
 %http://iopscience.iop.org/article/10.1088/0034-4885/36/12/002/pdf
 %noe av dette har blitt sagt i hyp også:
@@ -392,7 +384,6 @@ Note: For (\ref{eq:specref}) to hold true, all surfaces are assumed to behave li
 
 %The use of underwater hyperspectral imaging deployed on remotely operated vehicles – methods and applications - geir og asgeir
 
-\vspace{1.3cm}
 \section{System Optics} \label{sec:sysopt}
 Rays travelling through a spectrometer can be described by an optical diagram like the one presented below in Figure \ref{fig:sysopt}.
 \begin{figure}[H]
@@ -405,7 +396,8 @@ Rays travelling through a spectrometer can be described by an optical diagram li
 From the figure, one can extract $S$ as the source of light. $S$ illuminates the front lens, $L_1$, with the angle $\Omega$. Furthermore the front lens focuses the light onto the entrance slit, resulting in the imaged area, $S_1$. $G$ is the grating, either transmitting or reflecting, in which $L_2$ collimates with light passing through the entrance slit area, $S_2$, at an angle  $\Omega_2$. The diffracted beam of light from the grating is then focused onto the exit slit by $L_3$, as a function of wavelength. This makes $S_3$ the area of the diffracted entrance slit image. 
 \\\\
 $f_2$ and $f_3$ are the corresponding focal lengths of $L_2$ and $L_3$. Note that as long as $L_1$, $L_2$ and $L_3$ are able to focus or collimate the beam of light, they can be mirrors instead of lenses. 
-\\\\
+
+
 \subsection{The Spectral Bandpass and Resolution} \label{sec:bp}
 %https://www.horiba.com/en_en/bandpass-resolution/
 Both spectral bandpass and resolution characterize the ability the instrument has to separate adjacent spectral lines. This way, the bandpass defines the spectral interval to be isolated. This is assuming the light source is continuum. As will be shown below, the bandpass is mainly dependent on  the width of the grating, entrance and exit slit widths and the spatial resolution of the CCD. 
@@ -436,7 +428,8 @@ The spectral bandpass can then be calculated as the wavelength distribution alon
 \\\\
 \noindent
 In (\ref{eq:bp}), $\alpha$ is the incident angle and $\beta$ is the diffracted angle. $f_2$ and $f_3$ are, as mentioned, the focal lengths associated with the lenses $L_2$ and $L_3$ respectively.
-\\\\
+
+
 %\subsection{Bandpass and Resolution}
 \subsection{The GRISM Spectrograph}
 In section \ref{sec:grism}, the GRISM, and how it could obtain a straight through center wavelength parallel to the optical axis, was elaborated. Therefore, using a GRISM as the dispersive element is popular when designing a spectrometer. Figure \ref{fig:grismspec} shows a typical 3D configuration of a GRISM spectrograph in hyperspectral image mode, illustrating the basic elements of hyperspectral imaging. Of the illustration, one can observe how the elements are stacked at the right next to each other (on axis), supporting the previous stated properties of the GRISM. This on-axis design reduces geometrical aberrations and thereby improves the resolution. 
@@ -602,7 +595,6 @@ The line scanning image technique uses a two-dimensional detector, perpendicular
   \label{fig:pushbroom}
 \end{figure}
 
-\vspace{1.3cm}
 \section{SINTEF SilCam}
 %https://github.com/emlynjdavies/PySilCam/wiki 
 The silhouette camera, SINTEF SilCam, is a holographic imager designed to overcome the limitations in depth-of-field scenarios related to restricted path length, which is a challenge when using today's conventional lens-based imaging. The imager is developed by SINTEF with one of the experts, Emlyn Davies, in the front.
@@ -623,7 +615,7 @@ This chapter presents ways of tracking and handling data. The data collected in 
 \todo[inline, color=orange!40]{ta med figur av alles struktur?}
 \noindent
 As mentioned, plastics have permeated almost every aspect of modern day life with its large applicability. We find plastic in the microchips in our computers, as well as in the bags we carry our groceries in. It seems that plastic covers a wide spectrum of applications.  One reason to this, is the many different types of plastic, covering different areas of need. Polyethylene (PE), polypropylene (PP), polyethylene terephthalate (PET), polyvinyl chloride (PVC) and polystyrene (PS), are the five most common types of plastic, in large part covering of the global plastic production. Besides containing Carbon-Hydrogen bindings, these are all structurally different and they are classified according to their chemical structure. In this section, these five types of plastic are presented in decreasing order. 
-\\\\
+
 %Plastic polymers commonly found in the environment are polypropylene (PP), polyethylene (PE), polyethylene terephthalate (PET), polystyrene (PS) and polyvinylchloride (PVC).8 Together these comprise 72.9 percent of the plastic produced globally.9
 
 \subsection{Polyethylene}
@@ -646,7 +638,6 @@ Polyethylene terephthalate (PET) consist of repeating ethylene terephthalate mon
 %https://www.azom.com/article.aspx?ArticleID=7915
 Polystyrene (PS) is an inexpensive plastic type commonly used for packaging purposes, with the chemical formula being $(C_8H_8)_n$. PS increasingly exists in the outdoor environment, particularly along shores. The plastic is naturally clear, hard and brittle. The latter fact is perhaps the main reason to why larger pieces of PS easily turn into microplastic. 
 
-\vspace{1.3cm}
 \section{Georeferencing}
 %http://www.gisresources.com/georeferencing-2/
 In raster system, points are represented by single cells, lines by sequence of neighboring cells and area by collection of continuous cells
@@ -658,7 +649,6 @@ Note that raster systems represents points by single cells and lines by several 
 \\\\
 In order to georeference an image, control points need to be established. These control points are identified as a series of known x- and y-coordinates, linking locations in the raster dataset to its correspondant location in the spatially referenced data. The desired objective is to assign these coordinate systems to each other with minimal residuals. This means that the distance between the control points’ actual coordinates and the coordinates predicted by the model is the smallest is can be, making the process as accurate as possible. This way, georeferencing can explain how data, such as GPS points, are related to images.
 
-\vspace{1.3cm}
 \section{Principal Component Analysis} \label{sec:pca}
 The main purpose of conducting a principal component analysis (PCA) is to extract only relevant and therby useful information from the dataset. The analysis converts a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called principal components. These principal components will describe the overall variation of the dataset and thereby serve as a latent variable. In most cases, only two or three principal components explain almost the entire dataset. By disregarding the remaining percentage (which often is explained with several components), the dimension of the dataset is reduced. In most cases, this reduction reveals and highlights only the relevant variations. In addition, a reduced set will often have a decreased error rate because of the lower amount of variables connected to the sample, excluding the relations typically regarded as noise. Lastly, the resulting set will have a lower computational time and thereby cost.
 \\\\
