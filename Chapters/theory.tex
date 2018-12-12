@@ -6,7 +6,7 @@
 %- sensorbærende plattform
 %- PCA og singular value Decomp
 
-The lecture notes from TTK20 [kilde] has been used in large part throughout this chapter. The following sections have this reference as their main reference: 3.1 Light, 3.2 Interference, 3.3 Diffraction, 3.4 The GRISM, 3.7 Properties of Photons and 3.9  System Optics. 
+In order to understand how an image is retrieved at the end of a spectrometer, knowledge regarding properties of light, is important. This chapter therefore describes the fundamentals of light, its behavior and how it can be utilized. Light has different properties in different environments, determining the degree of utilization. The lecture notes from TTK20 \todo{[kilde]} have been used in large part throughout this chapter. The following sections have this reference as their main reference: \ref{sec:light} Light, \ref{sec:interference} Interference, \ref{sec:diffraction} Diffraction, \ref{sec:grism} The GRISM, \ref{sec:photons} Properties of Photons and \ref{sec:sysopt} System Optics. 
 
 \section{Light} \label{sec:light}
 %Color Registration of Underwater Images for Underwater Sensing with Consideration of Light Attenuation
@@ -43,7 +43,7 @@ where $\textbf{k} \in \textbf{R}^3$ is the 3D wave number and $\xi$ is the initi
 However, the equations above are representing no more than one wave. Two waves not interacting with each other will propagate like represented above, but what happens when two or more waves meets and in fact do interact with each other? 
 
 \vspace{1.3cm}
-\section{Interference}
+\section{Interference} \label{sec:interference}
 Interference consider the case when two or more waves act together. Starting with two waves, respectively $S_1$ and $S_2$, interacting with each other at P as illustrated in Figure \ref{fig:interference}. From (\ref{eq:aml3d}), the $S_1$ and $S_2$ are represented by
 
 \begin{equation}
@@ -100,7 +100,7 @@ $\textbf{r}$ can be retrieved as $a sin (\beta)$, while $k= \frac{2 \pi}{\lambda
 \end{equation}
 
 \vspace{1.3cm}
-\section{Diffraction}
+\section{Diffraction} \label{sec:diffraction}
 While interference is a result of individual sources interacting with each other, diffraction is present when a wave is distorted by an external object, with a comparable dimension to the wavelength of the wave. Figure \ref{fig:diffraction} exemplifies diffraction with a port entrance wall as the external object. 
 \begin{figure}[h]
     \centering
@@ -165,7 +165,7 @@ Light in air behaves differently than in water. In air, the light will not be at
     I_ {\lambda} (L, z) = \frac{S \cdot \kappa_{\lambda}\cdot cos^{3}\cdot (\alpha)}{z^2}
 \end{equation}
 \\\\
-In (\ref{eq:int}), $I_{\lambda}$ represents the light intensity at a given wavelength, lambda, while S is the light source. L is the distance between the object and the viewpoint, while z describes the distance from the object to the light source. Furthermore, $\kappa_{\lambda}$ describes the reflectance ratio of the object's surface at a given wavelength, $\lambda$. $\alpha$ is the angle between the ray vector from the light source and the normal vector of the object surface.
+In (\ref{eq:int}), $I_{\lambda}$ represents the light intensity at a given wavelength, lambda, while S is the light source. L is the distance between the object and the viewpoint, while z describes the distance from the object to the light source. Furthermore, $\kappa_{\lambda}$ describes the reflectance ratio of the object's surface at a given wavelength, $\lambda$. $\alpha$ is the angle between the ray vector from the light source and the normal vector of the object surface. Figure \ref{fig:reflectance} illustrate this with a simple set-up.
 \begin{figure}[H]
 \centering
   \includegraphics[width=8cm]{Images/theory/reflectance.png}
@@ -174,7 +174,7 @@ In (\ref{eq:int}), $I_{\lambda}$ represents the light intensity at a given wavel
 \end{figure}
 \\\\
 \noindent
-However, it is different if we do the same underwater. In water, light attenuation will be present and affect how the light is reflected. This will be elaborated in the following section.
+However, these properties cannot be directly drawn when do the same underwater. In water, light attenuation will be present and affect how the light is reflected. In addition, light is possibly scattered at stages resulting in a change in the direction. In the figure, these stages are leaving the light source and after hitting the object.\todo{marreg1-kilde, side 83} This will be elaborated in the following sections.
 
 \vspace{1.3cm}
 \section{The Behavior of Light in Water}\label{lightinwater}
@@ -259,7 +259,7 @@ https://manoa.hawaii.edu/exploringourfluidearth/physical/ocean-depths/light-ocea
 
 
 \vspace{1.3cm}
-\section{Properties of Photons}
+\section{Properties of Photons}\label{sec:photons}
 %https://snl.no/foton
 All electromagnetic radiation, including light, consists of photons. Just as all objects that have mass are built up of atoms, massless light rays are the result of many energy-consistent photons. In order to the determine the amount of light (number of photons) actually passing through a spectrometer, etendue and throughput must be defined. 
 
@@ -453,8 +453,10 @@ Similar to the spectrometer already discussed above (section \ref{sec:sysopt}), 
 
 \chapter{Imaging} %imaging
 \label{chap:theory2}
-\todo[inline, color = orange!40]{Imaging Process - litt tekst om kap!!}
+%Imaging Process
 %Denne skal jeg få tilsendt av Asgeir
+
+This chapter illuminates the imaging process - from the commonly known digital image to the hyperspectral image, containing an additional dimension of information improving the resolution of the image. In addition to the hyperspectral camera, SINTEF has developed a silhouette camera, possibly covering information the hyperspectral camera cannot retrieve.
 
 
 \section{The Digital Image}
@@ -499,7 +501,8 @@ For the human eye to be able to perceive a color image, only three wavelengths/l
 %Info hentet fra yt
 In order to study the reflecting light from the target, a spectrometer is needed. A spectrometer is an instrument that splits the incoming light into a spectrum. Measuring this reflectance spectra is the most common way to use hyperspectral imaging.
 \\\\
-Hyperspectral imaging uses a hyperspectral camera (imaging spectrometer) to collect spectral information. As mentioned, the difference between a hyperspectral image and a regular photo, is that the hyperspectral camera measures hundreds of thousands of spectra instead of single spectrum, creating not only a multispectral image, but a hyperspectral image. In contrast to multispectral imagers, which are sensitive in only a few selected wavebands, hyperspectral imagers (HI) measure the spectral reflectance per image pixel of the OOI, leaving a complete spectrum for each pixel in the image. %(Development of hyperspectral imaging as a bio-optical taxonomic tool for pigmented marine organisms - geir)
+Hyperspectral imaging uses a hyperspectral camera (imaging spectrometer) to collect spectral information. As mentioned, the difference between a hyperspectral image and a regular photo, is that the hyperspectral camera measures hundreds of thousands of spectra instead of single spectrum, creating not only a multispectral image, but a hyperspectral image. In contrast to multispectral imagers, which are sensitive in only a few selected wavebands, hyperspectral imagers (HI) measure the spectral reflectance per image pixel of the particular OOI, leaving a complete reflectance spectrum for each pixel in the image. %(Development of hyperspectral imaging as a bio-optical taxonomic tool for pigmented marine organisms - geir)
+
 \subsection{On a Detailed Level}
 %The Spatial Resolution
 In detail, a spectrograph, illustrated in Figure \ref{fig:grismspec}, generates images from the entrance slit, as a function of wavelength (color). The amount of images detected by the CCD at the exit slit, is dependent on the entrance slit width and the element’s ability diffract the colors. The width of the exit slit being dependent on width of the entrance slit, was derived in (\ref{eq:exit}) in Section \ref{sec:etedue}, describing optimal etendue. A large amount of detected images at the exit slit will directly improve the spectral resolution of the instrument. The resulted image recorded by the CCD is called a spectrogram (an illustration of a spectrogram can be found as the last element in Figure \ref{fig:grismspec}). The spectrogram contains both spectral and spatial information and can be described by the intensity distribution and position along the slit. 
@@ -604,13 +607,15 @@ The line scanning image technique uses a two-dimensional detector, perpendicular
 %https://github.com/emlynjdavies/PySilCam/wiki 
 The silhouette camera, SINTEF SilCam, is a holographic imager designed to overcome the limitations in depth-of-field scenarios related to restricted path length, which is a challenge when using today's conventional lens-based imaging. The imager is developed by SINTEF with one of the experts, Emlyn Davies, in the front.
 \\\\
-In order to reduce noise, each image is corrected using a clean background. From this, it is possible to produce a logical image of the particles detected, containing only zeros and ones. In turn, particle properties for each particle can be calculated from the binary image.
+In order to reduce noise, each image is corrected using a clean background. This is done by guiding the object into a control volume, rapidly illuminated through a diffuser causing a uniformly illuminated white surface background. From this, it is possible to produce a logical image of the particles detected, containing only zeros and ones. In turn, particle properties for each particle can be calculated from the binary image.
+This way, the background enables the CCD, or simply a camera, to capture the silhouette of the particle.
 \\\\
 This way, the system can be used for both large- and small-scale experiments. In smaller scale, the SilCam is able to quantify the distribution of suspended material. Zoo-plankton, larger phyto-plankton, mineral grains and marine snow are all examples of objects the SilCam can detect. 
 
 
+
 \chapter{Data Tracking and Analysis} \label{cap:theory3}
-This chapter presents ways of handling data. In this thesis, the data collected is regarding the five types of microplastic, also elaborated here. \todo{mer om kap}
+This chapter presents ways of tracking and handling data. The data collected in this thesis has been analyzed through a principal component analysis, extracting information to be viewed as relevant only and disregarding the rest. Section \ref{sec:pca}, regarding PCA theory, contain knowledge gained in TTK19...\todo{kilde}. In this thesis, the data collected is from physical samples of the five types of microplastic - also elaborated at the beginning of this chapter.
 
 \section{Microplastic} \label{sec:microplastic}
 %ha med hva def av mikroplast og de ulike plasttypene
@@ -622,9 +627,9 @@ As mentioned, plastics have permeated almost every aspect of modern day life wit
 %Plastic polymers commonly found in the environment are polypropylene (PP), polyethylene (PE), polyethylene terephthalate (PET), polystyrene (PS) and polyvinylchloride (PVC).8 Together these comprise 72.9 percent of the plastic produced globally.9
 
 \subsection{Polyethylene}
-The molecules in polyethylene (PE) has the chemical formula $C_2H_4$. Polyethylene is the most common type of plastic. The reason to its commonness is the broad application of it in consumer products. Plastic bags, bottles and food wrapping are good examples of polyethylene. However, these three products seem to have a significantly different material. For instance are plastic bags rarely as rigid and as bottles. This variation in polyethylene creates two sub-types defined by the degree of density – HDPE and LDPE, high-density polyethylene and low-density polyethylene respectively. 
+The monomers in polyethylene (PE) has the chemical formula $C_2H_4$. Polyethylene is the most common type of plastic. The reason to its commonness is the broad application of it in consumer products. Plastic bags, bottles and food wrapping are good examples of polyethylene. However, these three products seem to have a significantly different material. For instance are plastic bags rarely as rigid and as bottles. This variation in polyethylene creates two sub-types defined by the degree of density – HDPE and LDPE, high-density polyethylene and low-density polyethylene respectively. 
 \\\\
-The LPDE-molecules are more branched, meaning that a chain is replacing for instance a hydrogen atom. As a result of this, the molecules are less tightly packed, leading to a lower density.  As LDPE has more branching than HDPE, its intermolecular forces are weaker. \todo{FIGUR av branch-forskjellene?}
+The LPDE-monomers are more branched, meaning that a chain is replacing for instance a hydrogen atom. As a result of this, the monomers are less tightly packed, leading to a lower density.  As LDPE has more branching than HDPE, its intermolecular forces are weaker.
 
 
 \subsection{Polypropylene}
@@ -632,10 +637,10 @@ Polypropylene (PP) is the second most common plastic consistent of propylene wit
 
 \subsection{Polyvinyl Chloride}
 %http://www.plasticmoulding.ca/polymers/pvc.htm
-Polyvinyl chloride (PVC) with a number of vinyl chloride molecules formulated by $C_2H_3Cl$, is in third place of the most produced types of plastic. PVC can be both rigid and flexible. The rigid form is used in constructional application in piping and electrical wire insulation, while the softer and more flexible form is used in many applications replacing rubber. 
+Polyvinyl chloride (PVC) with a number of vinyl chloride monomers formulated by $C_2H_3Cl$, is in third place of the most produced types of plastic. PVC can be both rigid and flexible. The rigid form is used in constructional application in piping and electrical wire insulation, while the softer and more flexible form is used in many applications replacing rubber. 
 
 \subsection{Polyethylene terephthalate}
-Polyethylene terephthalate (PET) consist of repeating ethylene terephthalate molecules, holding the chemical formula $C_{10}H_8O_4$. Typically PET is used in plastic bottles and in fibers for clothing. For the latter use, the type is commonly known as polyester. Depending on the specific particle's size and crystal structure, the semi crystalline material, PET, might appear transparent. 
+Polyethylene terephthalate (PET) consist of repeating ethylene terephthalate monomers, holding the chemical formula $C_{10}H_8O_4$. Typically PET is used in plastic bottles and in fibers for clothing. For the latter use, the type is commonly known as polyester. Depending on the specific particle's size and crystal structure, the semi crystalline material, PET, might appear transparent. 
 
 \subsection{Polystyrene}
 %https://www.azom.com/article.aspx?ArticleID=7915
@@ -655,9 +660,7 @@ In order to georeference an image, control points need to be established. These 
 
 \vspace{1.3cm}
 \section{Principal Component Analysis} \label{sec:pca}
-This section contain knowledge gained in TTK19...
-\\\\
-The main purpose of conducting a principal component analysis (PCA) is to extract only the useful information from the dataset. The analysis converts a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called principal components. These principal components will describe the overall variation of the dataset and thereby serve as a latent variable. In most cases, only two or three principal components explain almost the entire dataset. By disregarding the remaining percentage (which often is explained with several components), the dimension of the dataset is reduced. In most cases, this reduction reveals and highlights only the relevant variations. In addition, a reduced set will often have a decreased error rate because of the lower amount of variables connected to the sample, excluding the relations typically regarded as noise. Lastly, the resulting set will have a lower computational time and thereby cost.
+The main purpose of conducting a principal component analysis (PCA) is to extract only relevant and therby useful information from the dataset. The analysis converts a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called principal components. These principal components will describe the overall variation of the dataset and thereby serve as a latent variable. In most cases, only two or three principal components explain almost the entire dataset. By disregarding the remaining percentage (which often is explained with several components), the dimension of the dataset is reduced. In most cases, this reduction reveals and highlights only the relevant variations. In addition, a reduced set will often have a decreased error rate because of the lower amount of variables connected to the sample, excluding the relations typically regarded as noise. Lastly, the resulting set will have a lower computational time and thereby cost.
 \\\\
 Now, how are these principal components found? Figure \ref{fig:pca1} a) describes the entire dataset with one dot describing one sample/single data observation. The analysis begins with finding the projection of each observation onto a line. The line is drawn with the purpose of explaining as many observations as possible, but minimizing the total distance between the samples and their projection. This resulting line is illustrated in \ref{fig:pca1}b). The distance from the origin to this projected point along the line is the score associated with the related observation. 
 %The direction of the line is now characterized with giving the largest variance of the scores, and is described by direction vectors called loadings. 
