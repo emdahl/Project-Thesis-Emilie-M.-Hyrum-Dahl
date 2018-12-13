@@ -6,11 +6,69 @@ This chapter defines the methodology and approach of the experimental work condu
 \section{Laboratory Testing}
 
 \subsection{The Set-Up}
-\todo[inline, color = red!60]{vis oppsettet i bilder!}
-The spectrometer was turned on and connected to the software OceanView 1.6.7 via a standard external computer. In OceanView, the spectrometer was sat to a constant temperature of 15 degrees (Celsius). The QR400-7-VIS-BX reflection probe was connected to the spectrometer through one cable, and a light source through another. The cables are fiber optic, and are assumed to not have a noteworthy effect the results. The light source used was Schott KL1500 electronic light source, a 150 W halogen light delivering a constant spectral signature - after given some time to heat up. In addition, the reflection probe was placed in a reflective probe holder, angling the light output (and the sensor inlet) in order to avoid specular reflection. This angle was sat to 45 degrees and the distance to 1 centimeter.
+Figure \ref{fig:lab-set-up} contain images of the components used in the laboratory experiment. The spectrometer (a) was turned on and connected to the software OceanView 1.6.7 via a standard external computer. In OceanView, the spectrometer was sat to a constant temperature of 15 degrees (Celsius). The QR400-7-VIS-BX reflection probe (b) was connected to the spectrometer through one cable, and a light source through another. The cables are fiber optic, and are assumed to not have a noteworthy effect the results. The light source used was Schott KL1500 electronic light source (c), a 150 W halogen light delivering a constant spectral signature - after given some time to heat up. In addition, the reflection probe was placed in a reflective probe holder (d), angling the light output (and the sensor inlet) in order to avoid specular reflection. This angle was sat to 45 degrees and the distance to 1 centimeter.
 \\\\
-Furthermore, the reflective probe was placed over the object to be measured. Initially, this was the WS-1 Reflectance Standards with 100 percent reflectance within the range of 250-1500 nanometers. This was measured in OceanView and sat the standard for white. The reflectance was assumed to be 100\% for the reflectance standard. Note that this is the Lambertian surface mentioned in Section \ref{sec:specref}. The reflectance standard will calibrate the software such that all further measurement will be a relative size compared to the original standard white. An effect of measurements being relative to the original white is the accounting of, and subsequent omittance of the noise due to the light source. 
+Furthermore, the reflective probe was placed over the object to be measured (d). Initially, this was the WS-1 Reflectance Standards (e) with 100 percent reflectance within the range of 250-1500 nanometers. This was measured in OceanView and sat the standard for white. The reflectance was assumed to be 100\% for the reflectance standard. Note that this is the Lambertian surface mentioned in Section \ref{sec:specref}. The reflectance standard calibrate the software such that all further measurement will be a relative size compared to the original standard white. An effect of measurements being relative to the original white is the accounting of, and subsequent omittance of the noise due to the light source. 
+
+
+
+\begin{figure}[H]
+  \newcommand*\FigVSkip{0.5em}
+  \newcommand*\FigHSkip{0.1em}
+  \newsavebox\FigBox
+  \centering
+  % Top image is centered, so no need to get width
+ \sbox{\FigBox}{\includegraphics[height=5cm]{Images/method/qe-pro.png}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
+    \subcaption{a) QE Pro}
+  \end{minipage}
+    % Top image is centered, so no need to get width
+ \sbox{\FigBox}{\includegraphics[height=5cm]{Images/method/light.png}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
+    \subcaption{b) Reflection Probe}
+  \end{minipage}
+  % Save first image in a box to get the width
+  \sbox{\FigBox}{\includegraphics[height=5cm]{Images/method/lightsource.png}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
+    \subcaption{c) Light Source, Schott KL1500, 150 W Halogen}
+  \end{minipage}\hspace*{\FigHSkip}
+  % Save second image 
+\end{figure}
+
+\begin{figure}[H]
+  \newcommand*\FigVSkip{0.5em}
+  \newcommand*\FigHSkip{0.1em}
+  \newsavebox\FigBox
+  \centering
+  % Top image is centered, so no need to get width
+ \sbox{\FigBox}{\includegraphics[height=4cm]{Images/method/setup.png}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
+    \subcaption{d) Reflection Probe Holder from Ocean Optics}
+  \end{minipage}
+    % Top image is centered, so no need to get width
+ \sbox{\FigBox}{\includegraphics[height=4cm]{Images/method/lamber.png}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
+    \subcaption{e) WS-1 Reflectance Standard, Lambertian Surface from Ocean Optics}
+  \end{minipage}
+  % Save first image in a box to get the width
+  \sbox{\FigBox}{\includegraphics[height=4cm]{Images/appendix/papir.png}}
+  \begin{minipage}{\wd\FigBox}
+    \centering\usebox{\FigBox}
+    \subcaption{f) Paper Background}
+  \end{minipage}\hspace*{\FigHSkip}
+  % Save second image 
+  \caption{The Laboratory Set-up}
+  \label{fig:lab-set-up}
+\end{figure}
+
+
 \\\\
+\noindent
 In order to avoid further noise, the lab was kept as dark as possible to avoid ambient light. Light blocking blinds were used and to avoid the glare from the computer screen to affect the signature, the computer was covered behind a screen made of cardboard. Once the room was sufficiently dark, the spectrometer was turned on separately from the light source. This was done to measure the signal delivered from the sensor in completely dark environments. This dark noise could then be compensated for by the software. Throughout the experiment, the dark noise was only measured once - at the beginning of the experiment.
 \\\\
 Even though the reflectance standard is supposed to be 100\% reflective, there is still a possibility of achieving higher than 100\% which occurs in mirrors. The results would be saturation, which causes the measurement to flatten. As a consequence, one would lose information. As the plastic could contain mirror like properties, a margin was set in order to avoid saturation.
