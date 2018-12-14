@@ -66,8 +66,6 @@
 \usepackage{todonotes}
 \usepackage{sectsty}
 
-
-
 \pagenumbering{roman}
 
 \setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
@@ -83,7 +81,7 @@
 \rhead{\theauthor}
 \lhead{\thetitle}
 \cfoot{\thepage}
-\title{Identification of plastics using Hyperspectral Imaging}								% Title
+\title{Identification of Plastics using \\\\ Hyperspectral Imaging}								% Title
 \author{Emilie M. Hyrum Dahl}								% Author
 \date{Fall 2018}											% Date
 
@@ -174,9 +172,9 @@
 \begin{titlepage}
 	\centering
     \vspace*{0.5 cm}
-    \includegraphics[scale = 0.3]{figures/ntnuu}\\[1.0 cm]	% University Logo
+    \includegraphics[scale = 0.3]{Images/ntnuu}\\[1.0 cm]	% University Logo
     \begin{centering}
-    \textsc{\LARGE Norwegian University of \newline\newline Science and Technology}\\[1.0 cm]	% University Name
+    \textsc{\Large Norwegian University of Science and Technology}\\[1.0 cm]	% University Name
     \end{centering}
 	%\textsc{\Large Emilie Dahl}\\[0.5 cm]				% Course Code
 	\rule{\linewidth}{0.3 mm} \\[0.4 cm]
@@ -252,16 +250,14 @@
 \include{Chapters/conclusion}
 
 
-
-
-
 \ifthenelse{\boolean{HarvardCitations}}{%
 	\bibliographystyle{agsm} % used for Harvard style references. Names - Humanities & Interaction Design
 }{%
 	\bibliographystyle{ntnuthesis/ntnuthesis} %used for Vancover style references. Numbers - Computer Science & Physics
 }
 
-\bibliography{MastersExample}
+\bibliography{bibliography}
+
 \include{Chapters/appendix}
 
 %\appendix

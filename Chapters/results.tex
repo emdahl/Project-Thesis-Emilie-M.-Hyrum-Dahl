@@ -36,43 +36,18 @@ As previously mentioned, the plastic samples had a variety of additives, one of 
  \sbox{\FigBox}{\includegraphics[scale=0.36]{Images/appendix/pp-pristine-clear.eps}}
   \begin{minipage}{\wd\FigBox}
     \centering\usebox{\FigBox}
-    \subcaption{a) PP Pristine}
+    \subcaption{a) PP pristine}
   \end{minipage}
     % Top image is centered, so no need to get width
  \sbox{\FigBox}{\includegraphics[scale=0.36]{Images/appendix/pvc-soft-pristine-clear.eps}}
   \begin{minipage}{\wd\FigBox}
     \centering\usebox{\FigBox}
-    \subcaption{b) PVC Soft Pristine}
+    \subcaption{b) PVC soft pristine}
   \end{minipage}
   % Save second image 
-  \caption{A comparison of the resulting signature for PP and PVC - both clear-colored}
+  \caption[Comparing PP and PVC]{A comparison of the resulting signature for PP and PVC - both clear-colored}
   \label{fig:plastcomp1}
 \end{figure}
-
-%denne viser gule for pe og pe-hd, men de er kanskje for like..
-\begin{comment}
-\begin{figure}[H]
-  \newcommand*\FigVSkip{0.5em}
-  \newcommand*\FigHSkip{0.1em}
-  \newsavebox\FigBox
-  \centering
-  % Top image is centered, so no need to get width
- \sbox{\FigBox}{\includegraphics[scale=0.36]{Images/appendix/p-env_yellowbowl.eps}}
-  \begin{minipage}{\wd\FigBox}
-    \centering\usebox{\FigBox}
-    \subcaption{a) PE Environment}
-  \end{minipage}
-    % Top image is centered, so no need to get width
- \sbox{\FigBox}{\includegraphics[scale=0.36]{Images/appendix/pe-hd-postconsum.eps}}
-  \begin{minipage}{\wd\FigBox}
-    \centering\usebox{\FigBox}
-    \subcaption{b) PE-HD Post Consumer}
-  \end{minipage}
-  % Save second image 
-  \caption{A comparison of the resulting signature for  and PVC - both in a yellow color}
-  \label{fig:plastcomp1}
-\end{figure}
-\end{comment}
 
 
 \noindent
@@ -100,7 +75,7 @@ The results from the more colorful pieces of microplastics are presented below. 
     \centering\usebox{\FigBox}
     \subcaption{b) The visible light spectrum, circled at green}
   \end{minipage}
-  \caption{A comparison of the resulting signature for green-colored PE-HD and the visible light spectrum-reference}
+  \caption[Comparing Green PE-HD with Visible Light Spectrum]{A comparison of the resulting signature for green-colored PE-HD and the visible light spectrum-reference}
   \label{fig:green}
 \end{figure}
 
@@ -114,7 +89,7 @@ The results from the more colorful pieces of microplastics are presented below. 
  \sbox{\FigBox}{\includegraphics[scale=0.36]{Images/appendix/pe-hd-postconsum-red.eps}}
   \begin{minipage}{\wd\FigBox}
     \centering\usebox{\FigBox}
-    \subcaption{a) PE-HD Post Consumer, Red}
+    \subcaption{a) PE-HD post consumer, red}
   \end{minipage}
     % Top image is centered, so no need to get width
  \sbox{\FigBox}{\includegraphics[scale=0.4]{Images/results/specred.png}}
@@ -123,7 +98,7 @@ The results from the more colorful pieces of microplastics are presented below. 
     \subcaption{b) The visible light spectrum, circled at red}
   \end{minipage}
   % Save second image 
-  \caption{A comparison of the resulting signature for red-colored PE-HD and the visible light spectrum-reference}
+  \caption[Comparing Red PE-HD with Visible Light Spectrum]{A comparison of the resulting signature for red-colored PE-HD and the visible light spectrum-reference}
   \label{fig:red}
 \end{figure}
 
@@ -146,7 +121,7 @@ The results from the more colorful pieces of microplastics are presented below. 
     \subcaption{b) The visible light spectrum, circled at blue}
   \end{minipage}
   % Save second image 
-  \caption{A comparison of the resulting signature for blue-colored PE-LD and the visible light spectrum-reference}
+  \caption[Comparing Blue PE-HD with Visible Light Spectrum]{A comparison of the resulting signature for blue-colored PE-LD and the visible light spectrum-reference}
   \label{fig:blue}
 \end{figure}
 
@@ -172,7 +147,7 @@ Another interesting comparison is the result of the same type of plastic, in dif
  \sbox{\FigBox}{\includegraphics[scale=0.36]{Images/appendix/farris.eps}}
   \begin{minipage}{\wd\FigBox}
     \centering\usebox{\FigBox}
-    \subcaption{a) Clear Farris Bottle}
+    \subcaption{a) Clear Farris bottle}
   \end{minipage}
     % Top image is centered, so no need to get width
  \sbox{\FigBox}{\includegraphics[scale=0.36]{Images/appendix/pet-amorphous-pristine-clear.eps}}
@@ -181,7 +156,7 @@ Another interesting comparison is the result of the same type of plastic, in dif
     \subcaption{b) Clear PET Amorphous}
   \end{minipage}
   % Save second image 
-  \caption{A comparison of a large PET piece from a Farris bottle and tiny PET Amorphous pieces}
+  \caption[Comparing PET at Different Sizes]{A comparison of a large PET piece from a Farris bottle and tiny PET Amorphous pieces}
   \label{fig:size}
 \end{figure}
 \noindent
@@ -202,14 +177,15 @@ Figure \ref{fig:PCA_plastics_only_full_scat} is a scatter plot of the initial da
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Images/results/PCA_plastics_full_only_scat.png}
-    \caption{Scatter plot of the results of the PCA with all plastic samples}
+    \caption[PCA Full Set]{Scatter plot of the results of the PCA with all plastic samples}
     \label{fig:PCA_plastics_only_full_scat}
 \end{figure}
 
 \begin{figure}[H]
    \centering
     \includegraphics[width=0.7\textwidth]{Images/results/PCA_plastics_full_list.png}
-  \caption{List of all scanned plastic samples and their respective colors.}
+\captionsetup{labelformat=empty}
+  \caption[PCA Full Set List]{List of all scanned plastic samples and their respective colors, part of Figure \ref{fig:PCA_plastics_only_full_scat}}
   \label{fig:PCA_plastics_full_list}
 \end{figure}
 \noindent
@@ -220,7 +196,7 @@ Figure \ref{fig:PCA_plastics_full_doub_cont} shows the contributions from the di
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Images/results/PCA_plastics_full_doub_cont.png}
-    \caption{Contribution plot of the results of the PCA with all plastic samples.}
+    \caption[Contribution Plot Full Set]{Contribution plot of the results of the PCA with all plastic samples.}
     \label{fig:PCA_plastics_full_doub_cont}
 \end{figure}
 \noindent
@@ -238,14 +214,15 @@ Figure \ref{fig:PCA_plastics_reduced_only_scat} is the scatter plot describing t
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Images/results/PCA_plastics_reduced_only_scat.png}
-    \caption{Results of the PCA with reduced Plastic Samples}
+    \caption[PCA Reduced Set]{Results of the PCA with reduced Plastic Samples}
     \label{fig:PCA_plastics_reduced_only_scat}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{Images/results/PCA_plastics_reduced_list.png}
-    \caption{List of the reduced scanned plastic samples and their respective colors.}
+    \captionsetup{labelformat=empty}
+    \caption[PCA Reduced Set List]{List of all scanned plastic samples and their respective colors, part of Figure \ref{fig:PCA_plastics_reduced_only_scat}}
     \label{fig:PCA_plastics_reduced_list}
 \end{figure}
 \noindent
@@ -261,7 +238,7 @@ The associated contribution plot of the reduced data set is displayed in Figure 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Images/results/PCA_plastics_reduced_doub_cont.png}
-    \caption{Contribution plots of the two principal components of the PCA with reduced plastic samples}
+    \caption[Contribution Plot Reduced Set]{Contribution plots of the two principal components of the PCA with reduced plastic samples}
     \label{fig:PCA_plastics_doub_cont}
 \end{figure}
 \noindent
@@ -273,7 +250,7 @@ Figures \ref{fig:PCA_plastics_and_biology_scat} and \ref{fig:PCA_and_bio_cont_pl
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Images/results/PCA_plastics_and_biology_scat_clust.png}
-    \caption{Results of the PCA with Plastics and Biological Components}
+    \caption[PCA Plastics and Biological Pigments]{Results of the PCA with Plastics and Biological Components}
     \label{fig:PCA_plastics_and_biology_scat}
 \end{figure}
 
@@ -296,7 +273,7 @@ Figures \ref{fig:PCA_plastics_and_biology_scat} and \ref{fig:PCA_and_bio_cont_pl
   \label{fig:PCA_plastics_and_biology_cont_pc2}
   \end{minipage}
   % Save second image 
-  \caption{Contribution plots for the PCA with plastic and biological samples}
+  \caption[Contribution Plot Plastics and Biological Pigments]{Contribution plots for the PCA with plastic and biological samples}
 \label{fig:PCA_and_bio_cont_plots}
 \end{figure}
 \noindent
@@ -321,7 +298,7 @@ The see-through plastic will be affected by the background. Compensation for the
 \\\\
 The scanning was easily affected by the movement of the scanner. This was portrayed in the change of the reflectance standard. It is therefore a concern that the same effect will have caused the signatures to be inconsistent. However, the reflectance was regularly updated and there was several measurements per plastic type in order to account for large individual variations. It is still a concern that single measurements that were affected could skew the results.
 
-\section{Additional remarks}
+\section{Additional Remarks}
 Based on the presented results, it is hard to make the case of an universal signature for plastic or using hyperspectral imaging to classify plastic. However, as mentioned earlier, experiments analyzing the wave spectra of different types of plastics, have already been conducted, and unique wave spectrum has been confirmed. Nevertheless, the results have been directed towards viewing the wavelength interval describing near infrared light (NIR). Although the use of infrared light is an effective means of unobtrusive observation on land, it is far less effective in the ocean because light in the infrared spectra is more rapidly attenuated by seawater. One can therefore discuss whether it in fact would be possible to detect microplastic underwater using NIR light.
 \\\\
 A possible solution would be to push the boundaries of the measured light. One could try to measure the wavelengths as close to NIR as possible. By trying to greatly reduce the distance from the spectrometer to the sample volume, the attenuation will be reduced. This might make it possible to identify the plastic using wavelengths of greater length in order to classify the plastic, but at such a distance that the light is not absorbed.

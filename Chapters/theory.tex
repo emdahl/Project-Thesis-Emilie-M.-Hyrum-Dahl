@@ -6,16 +6,15 @@
 %- sensorbærende plattform
 %- PCA og singular value Decomp
 
-In order to understand how an image is retrieved at the end of a spectrometer, knowledge regarding properties of light, is important. This chapter therefore describes the fundamentals of light, its behavior and how it can be utilized. Light has different properties in different environments, determining the degree of utilization. The lecture notes from TTK20 \todo{[kilde]} have been used in large part throughout this chapter. The following sections have this reference as their main reference: \ref{sec:light} Light, \ref{sec:interference} Interference, \ref{sec:diffraction} Diffraction, \ref{sec:grism} The GRISM, \ref{sec:photons} Properties of Photons and \ref{sec:sysopt} System Optics. 
+In order to understand how an image is retrieved at the end of a spectrometer, knowledge regarding properties of light, is important. This chapter therefore describes the fundamentals of light, its behavior and how it can be utilized. Light has different properties in different environments, determining the degree of utilization. The lecture notes from TTK20 \cite{sigernes2018}, have been used in large part throughout this chapter. The following sections have this reference as their main reference: \ref{sec:light} Light, \ref{sec:interference} Interference, \ref{sec:diffraction} Diffraction, \ref{sec:grism} The GRISM, \ref{sec:photons} Properties of Photons and \ref{sec:sysopt} System Optics. 
 
 \section{Light} \label{sec:light}
 %Color Registration of Underwater Images for Underwater Sensing with Consideration of Light Attenuation
 %https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4209801
 Light is electromagnetic radiation. The human eye can detect electromagnetic radiation within wavelengths of 400 and 750 nm, approximately. This electromagnetic spectrum is called visible light. Radiation with shorter wavelength than 400 nm is called ultraviolet, whereas infrared radiation has longer wavelength than visible light.
 \\\\
-When light from a light source hits an object surface, the light is reflected before eventually reaching the eye. In this task, the endpoint will not only be the human eye, but other viewpoints, for instance a camera lens. The observation of the reflected colors in the viewpoint, is affected by properties of object surfaces, the light intensity of light source and traveling distance of the light.
+When light from a light source hits an object surface, the light is reflected before eventually reaching the eye. In this task, the endpoint will not only be the human eye, but other viewpoints, for instance a camera lens. The observation of the reflected colors in the viewpoint, is affected by properties of object surfaces, the light intensity of light source and traveling distance of the light. \cite{yamashita_fujii_kaneko_2007}
 \\\\
-%PDF FRA TTK20
 Breaking down the definition of light, light can be defined as tiny packets called photons. The properties addressed to the photons are wave like. Because of this, the wave of light can be represented as a sine wave. The wave amplitude in 2D can be expressed as follows: 
 
 \begin{equation}
@@ -64,7 +63,7 @@ with their associated phase shift expressed as presented in (\ref{eq:phase}):
 \begin{figure}[h]
   \centering
     \includegraphics[width=0.3\textwidth]{Images/theory/interference.png}
-    \caption{Two waves, $S_1$ and $S_2$, interfering}
+    \caption[Two Waves Interfering]{Two waves, $S_1$ and $S_2$, interfering}
     \label{fig:interference}
 \end{figure}
 Of Figure \ref{fig:interference}, one can conclude that the resulting wave, $\textbf{E}$ must be the sum of the two vectors interacting, $\textbf{E} = \textbf{E}_1 + \textbf{E}_2$. This applies to the resulting phase difference too, which thereby can be retrieved from (\ref{eq:2intphase}): $\sigma = \textbf{k}_1\cdot \textbf{r}_1 - \textbf{k}_2\cdot \textbf{r}_2 + (\xi_1 - \xi_2)$. Now, the intensity of the final wave can be found by multiplying this resulting wave-vector, $\textbf{E}$, with its conjugate, $\textbf{E}^*$: 
@@ -87,7 +86,7 @@ Now, let us apply this to N number of waves, with several wave sources, up to $S
 \begin{figure}[h]
   \centering
     \includegraphics[width=0.3\textwidth]{Images/theory/Ninterference.png}
-    \caption{N number waves propagating with a constant distance a}
+    \caption[N Propagating Waves]{N number waves propagating with a constant distance a, \cite{sigernes2018}}
     \label{fig:Ninterference}
 \end{figure}
 \\\\
@@ -103,7 +102,7 @@ While interference is a result of individual sources interacting with each other
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.3\textwidth]{Images/theory/diffraction.png}
-    \caption{Diffraction as a result of waves hitting an entrance port}
+    \caption[Diffraction]{Diffraction as a result of waves hitting an entrance port, \cite{sigernes2018}}
     \label{fig:diffraction}
 \end{figure}
 \\\\
@@ -117,8 +116,9 @@ The grating equation, (\ref{eq:transgrating}), assumes a grating transmitting li
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.4\textwidth]{Images/theory/refgrating.png}
-    \caption{(1) Reflective
-grating. (2) Resulting rays, where the red lines describe the associated phase difference}
+    \caption[Reflective
+Grating]{(1) Reflective
+grating. (2) Resulting rays, where the red lines describe the associated phase difference, \cite{sigernes2018}}
     \label{fig:refgrating}
 \end{figure}
 \\\\
@@ -143,11 +143,11 @@ Angular dispersion is a measure of how the diffracting waves are spread, per uni
 \end{equation}
 
 \section{The GRISM} \label{sec:grism}
-A GRISM is a combination of a grating and a prism - hence the name. The GRISM is a prism stacked in series with a transmission grating, as can be observed in Figure \ref{fig:grism} below.
+A GRISM is a combination of a grating and a prism - hence the name. The GRISM is a prism stacked in series with a transmission grating, as can be observed in Figure \ref{fig:grism}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{Images/theory/GRISM.png}
-    \caption{Light passing through a prism, P, dispersing blue light more than red, and a grating, G, diffracting red light more than blue}
+    \caption[GRISM]{GRISM: Light passing through a prism, P, dispersing blue light more than red, and a grating, G, diffracting red light more than blue, \cite{sigernes2018}}
     \label{fig:grism}
 \end{figure}
 \\\\
@@ -166,24 +166,27 @@ In (\ref{eq:int}), $I_{\lambda}$ represents the light intensity at a given wavel
 \begin{figure}[H]
 \centering
   \includegraphics[width=8cm]{Images/theory/reflectance.png}
-  \caption{Light refraction in liquid}
+  \caption[Light Refraction in Liquid]{Light refraction in liquid}
   \label{fig:reflectance}
 \end{figure}
 \\\\
 \noindent
-However, these properties cannot be directly drawn when do the same underwater. In water, light attenuation will be present and affect how the light is reflected. In addition, light is possibly scattered at stages resulting in a change in the direction. In the figure, these stages are leaving the light source and after hitting the object.\todo{marreg1-kilde, side 83} This will be elaborated in the following sections.
+However, these properties cannot be directly drawn when do the same underwater. In water, light attenuation will be present and affect how the light is reflected. In addition, light is possibly scattered at stages resulting in a change in the direction. In the figure, these stages are leaving the light source and after hitting the object, \cite{sorensen2018}. This will be elaborated in the following sections.
 
 \section{The Behavior of Light in Water}\label{lightinwater}
 %The light intensity decreases with the distance from objects in water by light attenuation depending on the wavelength of light. Red light decreases easier than blue light in water [E. O. Hulburt: “Optics of Distilled and Natural Water,” Journal of the Optical Society of America, Vol.35, pp.689–705, 1945].
-The reason why the color of objects underwater differ from when in air, is that the light intensity, in water, decreases with the distance (r) to the object. This is, as mentioned, due to light attenuation, which again depends on the wavelength of the light. %([E. O. Hulburt: “Optics of Distilled and Natural Water,” Journal of the Optical Society of America, Vol.35, pp.689–705, 1945].) 
+The reason why the color of objects underwater differ from when in air, is that the light intensity, in water, decreases with the distance (r) to the object. This is, as mentioned, due to light attenuation, which again depends on the wavelength of the light. \cite{yamashita_fujii_kaneko_2007_2}
+
+%([E. O. Hulburt: “Optics of Distilled and Natural Water,” Journal of the Optical Society of America, Vol.35, pp.689–705, 1945].) 
 \\\\
-From Figure \ref{fig:lightinwater}, it can be observed that the intensity of the different colors decreases differently, even at the same distance, r. If the light source is 2 m away, red light will shine at half intensity, while blue light remains close to unchanged. At a distance of 20 meters, blue light will brighten at half-intensity. In this case, red and orange color will disappear.
+\noindent
+From Figure \ref{fig:lightinwater}, it can be observed that the intensity of the different colors decreases differently, even at the same distance, r. If the light source is 2 m away, red light will shine at half intensity, while blue light remains close to unchanged. At a distance of 20 meters, blue light will brighten at half-intensity. In this case, red and orange color will disappear. \cite{yamashita_fujii_kaneko_2007}
 %Color Registration of Underwater Images for Underwater Sensing with Consideration of Light Attenuation
 %https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4209801
 \begin{figure}[H]
 \centering
   \includegraphics[width=9.5cm]{Images/theory/intensity.png}
-  \caption{Light intensity in water.}
+  \caption[Light Intensity in Water]{Light intensity in water, \cite{yamashita_fujii_kaneko_2007}}
   \label{fig:lightinwater}
 \end{figure}
 \\\\
@@ -207,7 +210,7 @@ Interpreting (\ref{eq:intw}), the intensity of light decreases when $c_{\lambda}
 \begin{figure}[H]
 \centering
   \includegraphics[width=9.5cm]{Images/theory/attcoeff.png}
-  \caption{Attenuation coefficient}
+  \caption[Attenuation Coefficient]{Attenuation coefficient, \cite{yamashita_fujii_kaneko_2007}}
   \label{fig:attcoeff}
 \end{figure}
 
@@ -219,43 +222,28 @@ Interpreting (\ref{eq:intw}), the intensity of light decreases when $c_{\lambda}
 %http://www.robot.t.u-tokyo.ac.jp/~yamashita/paper/B/B047Final.pdf
 %\noindent
 %Note that if cameras and objects are in the different condition where the refraction index differs from each other, several problems occur and a precise measurement cannot be achieved.
-\vspace{1.6cm}
+
 \noindent
 However, the analysis above applies to visual light. What happens when exploring a larger part of the wave spectra? As it turns out, the earlier viewed trends are no longer linear.
 \\\\
 %http://www1.lsbu.ac.uk/water/water_vibrational_spectrum.html
-Water absorbs wavelengths covering a wide range of electromagnetic radiation. For light with wavelengths larger than 200 nm, this absorption is due to rotational transitions and intermolecular vibrations. As the H2O-molecule has a particularly small moment of inertia on rotation, a rich vibrational-rotational spectrum appears, sometimes containing millions of absorption lines. 
+Water absorbs wavelengths covering a wide range of electromagnetic radiation. For light with wavelengths larger than 200 nm, this absorption is due to rotational transitions and intermolecular vibrations. As the H2O-molecule has a particularly small moment of inertia on rotation, a rich vibrational-rotational spectrum appears, sometimes containing millions of absorption lines.
 \\\\
-The water absorption spectrum is therefore very complex. The water molecule may vibrate in several ways, at several states affected by the environment. For the specific case of H2O, the absorption spectrum is displayed in Figure \ref{fig:absspec}. The spectrum may vary based on the condition of the water and placement of measurement - for instance whether one looks at the open sea or the coastal areas. However, the trends represented in the figure, should more or less remain. The spectrum clearly shows how the water absorption is at its lowest in visible light, making this range of wavelengths more optimal when detecting objects underwater. Near infrared light, on the other hand, will quickly disappear over short distances. This could result in large variations in the resulting spectral signatures, leaving a possibly non-representable set of data.
+The water absorption spectrum is therefore very complex. The water molecule may vibrate in several ways, at several states affected by the environment. For the specific case of H2O, the absorption spectrum is displayed in Figure \ref{fig:absspec}. The spectrum may vary based on the condition of the water and placement of measurement - for instance whether one looks at the open sea or the coastal areas. However, the trends represented in the figure, should more or less remain. The spectrum clearly shows how the water absorption is at its lowest in visible light, making this range of wavelengths more optimal when detecting objects underwater. Near infrared light, on the other hand, will quickly disappear over short distances. This could result in large variations in the resulting spectral signatures, leaving a possibly non-representable set of data.  \cite{chaplin_2018}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=8cm]{Images/theory/Absorption_spectrum_of_liquid_water.png}
-    \caption{Absorption spectrum of liquid water}
+    \caption[Water Absorption Spectrum]{Absorption spectrum of liquid water, \cite{kebes_2016}}
     \label{fig:absspec}
 \end{figure}
 
 
-\begin{comment}
-%PAPER: Identification and Classification of Plastic Resins using Near Infrared Reflectance PSpectroscopy: https://www.researchgate.net/publication/285330830_Identification_and_classification_of_plastic_resins_using_near_infrared_reflectance_spectroscopy
-
-%https://oceanoptics.com/plastic-recycling-nir-spectroscopy/ Plastic Recycling with NIR Spectroscopy - denne inneholder signaturene til plast i NIR
-%Another important observation in these experiments, is the condition of the microplastic used. The material is pure and white, making the results independent of color. 
-
-
-Water absorption: 
-%https://commons.wikimedia.org/wiki/File:Absorption_spectrum_of_liquid_water.png
-This logarithmic (log-log) graph shows water’s absorption behavior at different colors wavelength. As seen in the graph, water absorption is minimised between 400 -600 nm
-
-
-Light Transmission in the Ocean: http://www.waterencyclopedia.com/La-Mi/Light-Transmission-in-the-Ocean.html
-https://manoa.hawaii.edu/exploringourfluidearth/physical/ocean-depths/light-ocean
-\end{comment}
 
 
 \section{Properties of Photons}\label{sec:photons}
 %https://snl.no/foton
-All electromagnetic radiation, including light, consists of photons. Just as all objects that have mass are built up of atoms, massless light rays are the result of many energy-consistent photons. In order to the determine the amount of light (number of photons) actually passing through a spectrometer, etendue and throughput must be defined. 
+All electromagnetic radiation, including light, consists of photons. Just as all objects that have mass are built up of atoms, massless light rays are the result of many energy-consistent photons. In order to the determine the amount of light (number of photons) actually passing through a spectrometer, etendue and throughput must be defined. \cite{hansen_2018}
 
 \subsection{Etendue}\label{sec:etedue}
 The amount of light detected by the instrument is described by the acceptance area or the field of view photons can travel into. Etendue is the maximum geometric extent allowing traveling photons and thereby characterizing an optical system's ability to accept light. Figure \ref{fig:etendue} is an illustration showing how to review etendue. 
@@ -263,7 +251,7 @@ The amount of light detected by the instrument is described by the acceptance ar
 \begin{figure}[H]
     \centering
     \includegraphics[width = 6cm]{Images/theory/etendue.png}
-    \caption{Set-up explaining Etendue}
+    \caption[Etendue]{Set-up explaining Etendue, \cite{sigernes2018}}
     \label{fig:etendue}
 \end{figure}
 \\\\
@@ -336,15 +324,13 @@ In (\ref{eq:fluxut}), $B_{r}$ describes the remaining radiance at the end of the
 \section{Inherent Optical Properties (IOP)}
 %http://iopscience.iop.org/article/10.1088/0034-4885/36/12/002/pdf
 %noe av dette har blitt sagt i hyp også:
-When retrieving an optical fingerprint it is important to know the optical properties impacting the resulting signature. There are mainly three physical processes reducing the energy of light on its way to reaching the receiver. The OOI (the materials or the compositions of materials) will absorb, scatter and reflect light of different portions of the visible spectrum. This way, the material of the OOI and the wavelength will affect the properties of these processes. 
-\\\\
-Scattering, absorption and reflection are all results of photons interacting with the OOI. 
-%http://www.oceanopticsbook.info/view/overview_of_optical_oceanography/inherent_optical_properties
+When retrieving an optical fingerprint it is important to know the optical properties impacting the resulting signature. There are mainly three physical processes reducing the energy of light on its way to reaching the receiver. The OOI (the materials or the compositions of materials) will absorb, scatter and reflect light of different portions of the visible spectrum, \cite{williams_1973}. Scattering, absorption and reflection are all results of photons interacting with the OOI, \cite{mobley_2010}. This way, the material of the OOI and the wavelength will affect the properties of these processes. 
+
 \subsection{Absorption} \label{sec:abs}
 During the photon-OOI interaction, the energy of the photon can be converted to another form, leaving the photon to disappear and hence the light to be absorbed. 
 \\\\
 %https://www.physicsclassroom.com/class/light/Lesson-2/Light-Absorption,-Reflection,-and-Transmission
-Atoms and thereby molecules contain elections. Given the specific atom, these electrons hold a specific natural frequency. Whenever light hits these molecules, the electrons in that molecule will be given a vibrating motion if the energy of the photon match the gap between the energy levels in the targeted atom. Then the frequency of the light is equal to the electrons natural frequency. The creation of vibration is a result of energy usage – energy taken from the photons in the light. This way, the electrons absorb the energy of the light by turning it in to vibration energy, which cannot be converted back to light. 
+Atoms and thereby molecules contain elections. Given the specific atom, these electrons hold a specific natural frequency. Whenever light hits these molecules, the electrons in that molecule will be given a vibrating motion if the energy of the photon match the gap between the energy levels in the targeted atom. Then the frequency of the light is equal to the electrons natural frequency. The creation of vibration is a result of energy usage – energy taken from the photons in the light. This way, the electrons absorb the energy of the light by turning it in to vibration energy, which cannot be converted back to light. \cite{the_physics_classroom_2018}
 \\\\
 Different atoms will absorb light at different wavelengths, because they hold different sets of natural vibration frequencies. 
 
@@ -356,7 +342,7 @@ During the photon-OOI interaction, the photon might either change its direction,
 More precisely, scattering can be defined as \textit{the change in direction of light flux produced by individual parcels of particulate matter called ‘scatterers’}. This means that light, or other moving particles, are forced to deviate from the straight trajectory they were on to being with, due to the collision between the light wave and the OOI. 
 \\\\
 %http://www.oceanopticsbook.info/view/overview_of_optical_oceanography/inherent_optical_properties 
-As mentioned, these inherent optical properties are again dependent on many other properties. Different materials absorb and scatter very much differently as a function of wavelength. If comparing to particles with the same volume, they will scatter light differently if are of different shapes. Similarly, particles with exact same shape will scatter light differently whenever the volume of the particles differ. A change in the material, size or shape (or the composition of them) will give different IOPs. 
+As mentioned, these inherent optical properties are again dependent on many other properties. Different materials absorb and scatter very much differently as a function of wavelength. If comparing to particles with the same volume, they will scatter light differently if are of different shapes. Similarly, particles with exact same shape will scatter light differently whenever the volume of the particles differ. A change in the material, size or shape (or the composition of them) will give different IOPs. \cite{williams_1973}
 \\\\
 In the ocean, the physical characteristics of the OOI are highly affected by the surroundings, implying that the IOPs are too. As an example, a change in the concentration of plankton or being in coastal waters instead of the open ocean, will contribute to a significant change in both the resulting absorption and scattering. 
 
@@ -368,18 +354,19 @@ Light reflection from an object means that waves of light hitting the surface of
 %Underwater hyperspectral imaging: a new tool for marine archaeology 2018, ØYVIND ØDEGÅRD,1,2,* AKSEL ALSTAD MOGSTAD,3 GEIR JOHNSEN,3 ASGEIR J. SØRENSEN, AND MARTIN LUDVIGSEN1
 Raw data consists of more than upwelling radiance reflected from the object. Reflections from the water column, ambient light and noise sensors are all parts of the data collected. However, the spectral reflectance reference is independent of the illumination and the water column properties. 
 \end{comment}
+
 %Underwater hyperspectral imagery to create biogeochemical maps of seafloor properties 2013, G. JOHNSEN, NTNU
-The spectral reflectance, also called the optical fingerprint can be described as a percentage of the light amount reflected off an object at each wavelength. As mentioned, different objects absorb and reflect different wavelengths. In plants, red and blue wavelengths are highly absorbed, leaving the reflected color to be more or less green. Mathematically speaking, the spectral reflectance, $R(\lambda)$ is upwelling irradiance coming off the object, $Lu(\lambda)$, divided by the spectral downwelling irradiance towards the object, $Ed(\lambda)$.
+\noindent
+The spectral reflectance, also called the optical fingerprint can be described as a percentage of the light amount reflected off an object at each wavelength. As mentioned, different objects absorb and reflect different wavelengths. In plants, red and blue wavelengths are highly absorbed, leaving the reflected color to be more or less green. Mathematically speaking, the spectral reflectance, $R(\lambda)$ is upwelling irradiance coming off the object, $Lu(\lambda)$, divided by the spectral downwelling irradiance towards the object, $Ed(\lambda)$. \cite{johnsen_volent_2013}
 \\\\
 %The use of underwater hyperspectral imaging deployed on remotely operated vehicles – methods and applications - geir og asgeir
 \begin{equation} \label{eq:specref}
     R(\lambda) = \frac{Lu(\lambda)}{Ed(\lambda)}
 \end{equation}
 \\\\
-Where $Lu(\lambda)$ denotes the raw data of the object, including signature from light source, while $Ed(\lambda)$ is the spectral radiance from measurements of spectrally neutral reflectance standard.
+Where $Lu(\lambda)$ denotes the raw data of the object, including signature from light source, while $Ed(\lambda)$ is the spectral radiance from measurements of spectrally neutral reflectance standard. \cite{johnsen_ludvigsen_sørensen_aas_2016}
 \\\\
-Note: For (\ref{eq:specref}) to hold true, all surfaces are assumed to behave like Lambertian reflectors, meaning that the reference surface has a perfectly diffuse/matte property. This ensures that the radiant intensity, regardless of the reflected direction, is proportional to the cosine of the angle of the surface's normal. This is known as Lamberts Cosine law. 
-%det siste er tatt fra TTK20-heftet
+Note: For (\ref{eq:specref}) to hold true, all surfaces are assumed to behave like Lambertian reflectors, \cite{johnsen_ludvigsen_sørensen_aas_2016}, meaning that the reference surface has a perfectly diffuse/matte property. This ensures that the radiant intensity, regardless of the reflected direction, is proportional to the cosine of the angle of the surface's normal. This is known as Lamberts Cosine law, \cite{sigernes2018}.
 
 
 %The use of underwater hyperspectral imaging deployed on remotely operated vehicles – methods and applications - geir og asgeir
@@ -389,7 +376,7 @@ Rays travelling through a spectrometer can be described by an optical diagram li
 \begin{figure}[H]
     \centering
     \includegraphics[width = 12cm]{Images/theory/sysop.png}
-    \caption{Optical diagram of a Spectrometer}
+    \caption[Spectrometer, Optical Diagram]{Optical diagram of a Spectrometer, \cite{sigernes2018}}
     \label{fig:sysopt}
 \end{figure}
 \noindent
@@ -407,10 +394,9 @@ The isolated spectral interval (bandpass) can be found from the recorded Full Wi
 \begin{figure}[H]
     \centering
     \includegraphics[width=5cm]{Images/theory/bp.png}
-    \caption{Spectral resolution of monochromatic line}
+    \caption[Spectral Resolution]{Spectral resolution of monochromatic line, \cite{sigernes2018}}
     \label{fig:bp}
 \end{figure}
-\todo{lage en finere skisse}
 \noindent
 Note that the assumption of a monochromatic spectral line does not restrict to only one line. Any spectral structure can be considered as the sum of infinite single monochromatic lines at different wavelengths.
 \\\\
@@ -439,7 +425,7 @@ Similar to the spectrometer already discussed above (section \ref{sec:sysopt}), 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 12cm]{Images/theory/grismspec.png}
-    \caption{The GRISM spectrograph}
+    \caption[The GRISM Spectrograph]{The GRISM spectrograph, \cite{sigernes2018}}
     \label{fig:grismspec}
 \end{figure}
 
@@ -455,7 +441,7 @@ This chapter illuminates the imaging process - from the commonly known digital i
 \section{The Digital Image}
 %evt Fysikken bak bildet 
 %Info hentet fra bok: techniques and applications of hyperspectral image analysis
-From the mid-20th century, images have been stored in digital format (Geladi and Grahn, 2000). A digital image is an array of rows (i) and columns (j) consistent of i x j gray-values. A gray-value, better known as an intensity or a pixel, is simply one of many small squares in an image. If the image is to consist of colors however, a third dimension is needed. This dimension is characterized as the depth, and can be found as the height in Figure \ref{fig:pogv}b). The depth is three layers deep, consisting of red, green and blue. What was previously a gray pixel is now a voxel illustrated in \ref{fig:pogv}b), with triplet of red, green and blue - each of which contains different information. Note that the height of the voxel is almost undetectable, as the voxel only consists of the tiniest distinguishable element of a 3D object.
+From the mid-20th century, images have been stored in digital format, \cite{hia}. A digital image is an array of rows (i) and columns (j) consistent of i x j gray-values. A gray-value, better known as an intensity or a pixel, is simply one of many small squares in an image. If the image is to consist of colors however, a third dimension is needed. This dimension is characterized as the depth, and can be found as the height in Figure \ref{fig:pogv}b). The depth is three layers deep, consisting of red, green and blue. What was previously a gray pixel is now a voxel illustrated in \ref{fig:pogv}b), with triplet of red, green and blue - each of which contains different information. Note that the height of the voxel is almost undetectable, as the voxel only consists of the tiniest distinguishable element of a 3D object. \cite{hia}
 \\\\
 However, if the interval separating the layers is chosen to be a shorter wavelength, the number of layers will increase. The resulting image is then called a multivariate image, illustrated in Figure \ref{fig:pogv}c). If k denote the depth dimension and thus determine the number of wavelengths which in turn will constitute the number of layers, the resulting array will be of the size i x j x k.
 \\\\
@@ -485,7 +471,7 @@ For the human eye to be able to perceive a color image, only three wavelengths/l
     \subcaption{c) Multivariate Image}
   \end{minipage}\hspace*{\FigHSkip}
   % Save second image 
-  \caption{Pixel, Voxel and Multivariate Image}
+  \caption[Pixel, Voxel and Multivariate Image]{Pixel, Voxel and Multivariate image}
   \label{fig:pogv}
 \end{figure}
 
@@ -494,7 +480,7 @@ For the human eye to be able to perceive a color image, only three wavelengths/l
 %Info hentet fra yt
 In order to study the reflecting light from the target, a spectrometer is needed. A spectrometer is an instrument that splits the incoming light into a spectrum. Measuring this reflectance spectra is the most common way to use hyperspectral imaging.
 \\\\
-Hyperspectral imaging uses a hyperspectral camera (imaging spectrometer) to collect spectral information. As mentioned, the difference between a hyperspectral image and a regular photo, is that the hyperspectral camera measures hundreds of thousands of spectra instead of single spectrum, creating not only a multispectral image, but a hyperspectral image. In contrast to multispectral imagers, which are sensitive in only a few selected wavebands, hyperspectral imagers (HI) measure the spectral reflectance per image pixel of the particular OOI, leaving a complete reflectance spectrum for each pixel in the image. %(Development of hyperspectral imaging as a bio-optical taxonomic tool for pigmented marine organisms - geir)
+Hyperspectral imaging uses a hyperspectral camera (imaging spectrometer) to collect spectral information. As mentioned, the difference between a hyperspectral image and a regular photo, is that the hyperspectral camera measures hundreds of thousands of spectra instead of single spectrum, creating not only a multispectral image, but a hyperspectral image. In contrast to multispectral imagers, which are sensitive in only a few selected wavebands, hyperspectral imagers (HI) measure the spectral reflectance per image pixel of the particular OOI, leaving a complete reflectance spectrum for each pixel in the image. \cite{pettersen_johnsen_bruheim_andreassen_2013} %(Development of hyperspectral imaging as a bio-optical taxonomic tool for pigmented marine organisms - geir)
 
 \subsection{On a Detailed Level}
 %The Spatial Resolution
@@ -516,7 +502,7 @@ Figure \ref{fig:spatialres} describes the situation where a hyperspectral imager
 \begin{figure}[H]
     \centering
     \includegraphics[height=7cm]{Images/theory/spatialres.png}
-    \caption{Spatial resolution - Field of view (from a moving airplane)}
+    \caption[Spatial Resolution]{Spatial resolution - Field of view from a moving airplane, \cite{sigernes2018}}
     \label{fig:spatialres}
 \end{figure}
 \noindent
@@ -551,16 +537,16 @@ Concerning plastic, this translates to receiving information on both spatial loc
 %
 %(Development of hyperspectral imaging as a bio-optical taxonomic tool for pigmented marine organisms - geir)
 \noindent
-HI and UHI can be used as a taxonomical identification tool to make optical fingerprints of marine organisms, only if the pigment composition and corresponding absorption signature of the organism is known and can be used to verify the reflectance signature.
+HI and UHI can be used as a taxonomical identification tool to make optical fingerprints of marine organisms, only if the pigment composition and corresponding absorption signature of the organism is known and can be used to verify the reflectance signature. \cite{pettersen_johnsen_bruheim_andreassen_2013}
 \\\\
 \noindent
-When the hyperspectral camera is taken underwater, the lighting is limited. The UHI is therefore using its own light sources, in contrast to passive passive techniques using ambient light.
+When the hyperspectral camera is taken underwater, the lighting is limited. The UHI is therefore using its own light sources, in contrast to passive techniques using ambient light. \cite{johnsen_ludvigsen_sorensen_aas_2016}
 %(Development of hyperspectral imaging as a bio-optical taxonomic tool for pigmented marine organisms - geir) %The use of underwater hyperspectral imaging deployed on remotely operated vehicles – methods and applications - geir og asgeir
 \\\\
 \noindent
-In this task, there are two methods for camera configurations, point scanning image and line scanning image.
+For the purpose of this project, there are two methods for camera configurations relevant, point scanning image and line scanning image.
 \subsection{Point Scanning Image}
-Point scanning image can be used to measure a complete spectrum in one spot/pixel. In every spot, all layers are measured vertically from this spot. To make the whole picture, the camera must scan across the entire surface, spot by spot.
+Point scanning image can be used to measure a complete spectrum in one pixel. In every spot, all layers are measured vertically from this spot. To make the whole picture, the camera must scan across the entire surface, spot by spot. \cite{hia}
 
 
 % \begin{figure}[H]
@@ -573,13 +559,13 @@ Point scanning image can be used to measure a complete spectrum in one spot/pixe
 \begin{figure}[H]
 \centering
   \includegraphics[height=4cm]{Images/theory/voxel.png}
-  \caption{Resulting scan}
+  \caption[Point Scanning]{Point scanning}
   \label{fig:voxel2}
 \end{figure}
 
 
 \subsection{Line Scanning Image} \label{sec:push}
-The line scanning image technique uses a two-dimensional detector, perpendicular/orthogonal to the surface of the measured target. This detector collects the spectrum of a whole line in the image, in one single scan. By moving the scan line with a push broom technique, one can map the entire image by combining all sets of spectra.
+The line scanning image technique uses a two-dimensional detector, perpendicular/orthogonal to the surface of the measured target. This detector collects the spectrum of a whole line in the image, in one single scan. By moving the scan line with a push broom technique, one can map the entire image by combining all sets of spectra. \cite{hia}
 
 % \begin{figure}[H]
 % \centering
@@ -591,13 +577,13 @@ The line scanning image technique uses a two-dimensional detector, perpendicular
 \begin{figure}[H]
 \centering
   \includegraphics[height=4cm]{Images/theory/pushbroom.png}
-  \caption{ Resulting scan}
+  \caption[Line Scanning]{Line scanning}
   \label{fig:pushbroom}
 \end{figure}
 
 \section{SINTEF SilCam}
 %https://github.com/emlynjdavies/PySilCam/wiki 
-The silhouette camera, SINTEF SilCam, is a holographic imager designed to overcome the limitations in depth-of-field scenarios related to restricted path length, which is a challenge when using today's conventional lens-based imaging. The imager is developed by SINTEF with one of the experts, Emlyn Davies, in the front.
+The silhouette camera, SINTEF SilCam, is a holographic imager designed to overcome the limitations in depth-of-field scenarios related to restricted path length, which is a challenge when using today's conventional lens-based imaging. The imager is developed by SINTEF with one of the experts, Emlyn Davies, in the front. \cite{davies_2018}
 \\\\
 In order to reduce noise, each image is corrected using a clean background. This is done by guiding the object into a control volume, rapidly illuminated through a diffuser causing a uniformly illuminated white surface background. From this, it is possible to produce a logical image of the particles detected, containing only zeros and ones. In turn, particle properties for each particle can be calculated from the binary image.
 This way, the background enables the CCD, or simply a camera, to capture the silhouette of the particle.
@@ -607,22 +593,20 @@ This way, the system can be used for both large- and small-scale experiments. In
 
 
 \chapter{Data Tracking and Analysis} \label{cap:theory3}
-This chapter presents ways of tracking and handling data. The data collected in this thesis has been analyzed through a principal component analysis, extracting information to be viewed as relevant only and disregarding the rest. Section \ref{sec:pca}, regarding PCA theory, contain knowledge gained in TTK19...\todo{kilde}. In this thesis, the data collected is from physical samples of the five types of microplastic - also elaborated at the beginning of this chapter.
+This chapter presents ways of tracking and handling data. The data collected in this thesis has been analyzed through a principal component analysis, extracting information to be viewed as relevant only and disregarding the rest. Section \ref{sec:pca}, regarding PCA theory, contain knowledge gained in TTK19, \cite{westad2018}. In this thesis, the data collected is from physical samples of the five types of microplastic - also elaborated at the beginning of this chapter.
 
 \section{Microplastic} \label{sec:microplastic}
 %ha med hva def av mikroplast og de ulike plasttypene
 %Kjemi
-\todo[inline, color=orange!40]{ta med figur av alles struktur?}
 \noindent
-As mentioned, plastics have permeated almost every aspect of modern day life with its large applicability. We find plastic in the microchips in our computers, as well as in the bags we carry our groceries in. It seems that plastic covers a wide spectrum of applications.  One reason to this, is the many different types of plastic, covering different areas of need. Polyethylene (PE), polypropylene (PP), polyethylene terephthalate (PET), polyvinyl chloride (PVC) and polystyrene (PS), are the five most common types of plastic, in large part covering of the global plastic production. Besides containing Carbon-Hydrogen bindings, these are all structurally different and they are classified according to their chemical structure. In this section, these five types of plastic are presented in decreasing order. 
+As mentioned, plastics have permeated almost every aspect of modern day life with its large applicability. We find plastic in the microchips in our computers, as well as in the bags we carry our groceries in. It seems that plastic covers a wide spectrum of applications.  One reason to this, is the many different types of plastic, covering different areas of need. Polyethylene (PE), polypropylene (PP), polyethylene terephthalate (PET), polyvinyl chloride (PVC) and polystyrene (PS), are the five most common types of plastic, in large part covering of the global plastic production, \cite{johnson_2017}. Besides containing Carbon-Hydrogen bindings, these are all structurally different and they are classified according to their chemical structure. In this section, these five types of plastic are presented in decreasing order. 
 
 %Plastic polymers commonly found in the environment are polypropylene (PP), polyethylene (PE), polyethylene terephthalate (PET), polystyrene (PS) and polyvinylchloride (PVC).8 Together these comprise 72.9 percent of the plastic produced globally.9
 
 \subsection{Polyethylene}
-The monomers in polyethylene (PE) has the chemical formula $C_2H_4$. Polyethylene is the most common type of plastic. The reason to its commonness is the broad application of it in consumer products. Plastic bags, bottles and food wrapping are good examples of polyethylene. However, these three products seem to have a significantly different material. For instance are plastic bags rarely as rigid and as bottles. This variation in polyethylene creates two sub-types defined by the degree of density – HDPE and LDPE, high-density polyethylene and low-density polyethylene respectively. 
+The monomers in polyethylene (PE) has the chemical formula $C_2H_4$. Polyethylene is the most common type of plastic. The reason to its commonness is the broad application of it in consumer products. Plastic bags, bottles and food wrapping are good examples of polyethylene. However, these three products seem to have a significantly different material. For instance are plastic bags rarely as rigid and as bottles. This variation in polyethylene creates two sub-types defined by the degree of density – HDPE and LDPE, high-density polyethylene and low-density polyethylene respectively.
 \\\\
 The LPDE-monomers are more branched, meaning that a chain is replacing for instance a hydrogen atom. As a result of this, the monomers are less tightly packed, leading to a lower density.  As LDPE has more branching than HDPE, its intermolecular forces are weaker.
-
 
 \subsection{Polypropylene}
 Polypropylene (PP) is the second most common plastic consistent of propylene with the chemical formula $C_3H_6$. PP has properties similar to polyethylene, but it is slightly harder and more resistant to fatigue. The plastic type is found in a variety of products like food packaging, labeling and clothing. 
@@ -631,7 +615,7 @@ Polypropylene (PP) is the second most common plastic consistent of propylene wit
 %http://www.plasticmoulding.ca/polymers/pvc.htm
 Polyvinyl chloride (PVC) with a number of vinyl chloride monomers formulated by $C_2H_3Cl$, is in third place of the most produced types of plastic. PVC can be both rigid and flexible. The rigid form is used in constructional application in piping and electrical wire insulation, while the softer and more flexible form is used in many applications replacing rubber. 
 
-\subsection{Polyethylene terephthalate}
+\subsection{Polyethylene Terephthalate}
 Polyethylene terephthalate (PET) consist of repeating ethylene terephthalate monomers, holding the chemical formula $C_{10}H_8O_4$. Typically PET is used in plastic bottles and in fibers for clothing. For the latter use, the type is commonly known as polyester. Depending on the specific particle's size and crystal structure, the semi crystalline material, PET, might appear transparent. 
 
 \subsection{Polystyrene}
@@ -639,15 +623,13 @@ Polyethylene terephthalate (PET) consist of repeating ethylene terephthalate mon
 Polystyrene (PS) is an inexpensive plastic type commonly used for packaging purposes, with the chemical formula being $(C_8H_8)_n$. PS increasingly exists in the outdoor environment, particularly along shores. The plastic is naturally clear, hard and brittle. The latter fact is perhaps the main reason to why larger pieces of PS easily turn into microplastic. 
 
 \section{Georeferencing}
-%http://www.gisresources.com/georeferencing-2/
-In raster system, points are represented by single cells, lines by sequence of neighboring cells and area by collection of continuous cells
-\\\\
+
 %http://desktop.arcgis.com/en/arcmap/10.3/manage-data/raster-and-images/fundamentals-for-georeferencing-a-raster-dataset.htm
-Georeferencing means to relate an internal coordinate system to a spatial coordinate system. The internal coordinate system could for instance be a raster image of a map. 
+Georeferencing means to relate an internal coordinate system to a spatial coordinate system. The internal coordinate system could for instance be a raster image of a map, \cite{arcmap_2016}. In raster system, points are represented by single cells, lines by sequence of neighboring cells and area by collection of continuous cells. \cite{gisresources_2013}
 %http://www.gisresources.com/georeferencing-2/
 Note that raster systems represents points by single cells and lines by several neighboring cells. Areas are represented by a collection of continuous cells. 
 \\\\
-In order to georeference an image, control points need to be established. These control points are identified as a series of known x- and y-coordinates, linking locations in the raster dataset to its correspondant location in the spatially referenced data. The desired objective is to assign these coordinate systems to each other with minimal residuals. This means that the distance between the control points’ actual coordinates and the coordinates predicted by the model is the smallest is can be, making the process as accurate as possible. This way, georeferencing can explain how data, such as GPS points, are related to images.
+In order to georeference an image, control points need to be established. These control points are identified as a series of known x- and y-coordinates, linking locations in the raster dataset to its correspondent location in the spatially referenced data. The desired objective is to assign these coordinate systems to each other with minimal residuals. This means that the distance between the control points’ actual coordinates and the coordinates predicted by the model is the smallest is can be, making the process as accurate as possible. This way, georeferencing can explain how data, such as GPS points, are related to images. \cite{arcmap_2016}
 
 \section{Principal Component Analysis} \label{sec:pca}
 The main purpose of conducting a principal component analysis (PCA) is to extract only relevant and therby useful information from the dataset. The analysis converts a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called principal components. These principal components will describe the overall variation of the dataset and thereby serve as a latent variable. In most cases, only two or three principal components explain almost the entire dataset. By disregarding the remaining percentage (which often is explained with several components), the dimension of the dataset is reduced. In most cases, this reduction reveals and highlights only the relevant variations. In addition, a reduced set will often have a decreased error rate because of the lower amount of variables connected to the sample, excluding the relations typically regarded as noise. Lastly, the resulting set will have a lower computational time and thereby cost.
@@ -685,7 +667,7 @@ Of the results it is often possible to detect trends and clusters. This is typic
     \subcaption{c) Including second principal component}
   \end{minipage}\hspace*{\FigHSkip}
   % Save second image 
-  \caption{Coordinate system with observations and principal components}
+  \caption[Principal Component Analysis]{Coordinate system with observations and principal components, \cite{pid}}
   \label{fig:pca1}
 \end{figure}
 
